@@ -17,9 +17,11 @@
 std::string convertToUp(const std::string& message)
 {
     std::string result = message;
-    for (char& c : result)
+	size_t		i;
+
+    for (i = 0; i < message.size(); i++)
 	{
-        c = std::toupper(c);
+        result[i] = std::toupper(message[i]);
     }
     return (result);
 }

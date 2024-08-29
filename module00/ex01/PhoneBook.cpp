@@ -14,6 +14,8 @@
 
 int main(int ac, char **av)
 {
+	(void)ac;
+	(void)av;
 	std::string var1 = "Hello";
 
 	std::cout << var1 << std::endl;

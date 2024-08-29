@@ -1,5 +1,5 @@
 # Nombre del ejecutable
-NAME = megaphone
+NAME = phonebook
 
 # Compilador y FLAGS
 CXX = c++
@@ -13,7 +13,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = megaphone.cpp
+SRC_FILES = Contact.cpp PhoneBook.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
