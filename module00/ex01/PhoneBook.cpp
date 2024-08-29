@@ -9,16 +9,44 @@
 /*   Updated: 2024/08/28 17:17:18 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "PhoneBook.hpp"
+// #include "Contact.hpp"
 #include <iostream>
 
-int main(int ac, char **av)
+void	PhoneBook::addContact(void)
 {
-	(void)ac;
-	(void)av;
-	std::string var1 = "Hello";
+	std::string	in;
 
-	std::cout << var1 << std::endl;
-	
-	return (0);
+	std::cout << "First name: ";
+	getline(std::cin, in);
+	if (this->count < 8)
+	{
+		this->contactArray[this->count].setFirstName(in);
+	}
+	else
+	{
+		this->count = 0;
+		this->contactArray[this->count].setFirstName(in);
+	}
 }
+
+void	PhoneBook::searchContact(void)
+{
+	std::string	in;
+
+	std::cout << "First name: ";
+	getline(std::cin, in);
+}
+
+void	PhoneBook::exitProgram(void)
+{
+	std::cout << "Goodbye!" << std::endl;
+}
+
+PhoneBook::PhoneBook()
+{
+	this->count = 0;
+}
+
+PhoneBook::~PhoneBook(){}
+

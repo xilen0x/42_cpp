@@ -18,8 +18,8 @@
 class PhoneBook
 {
 	private:
-		Contact	contactArray[8];
-		int		count;
+		Contact		contactArray[8];
+		int			count;
 		
 	public:
 		PhoneBook();
@@ -27,7 +27,7 @@ class PhoneBook
 
 		void	addContact();
 		void	searchContact();
-		void	exitProgram();	
+		void	exitProgram();
 };
 
 #endif
