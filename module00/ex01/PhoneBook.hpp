@@ -13,20 +13,21 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-/*
-It has an array of contacts.
-◦ It can store a maximum of 8 contacts. If the user tries to add a 9th contact,
-replace the oldest one by the new one.
-◦ Please note that dynamic allocation is forbidden.
-*/
+#include "Contact.hpp"
+
 class PhoneBook
 {
 	private:
+		Contact	contactArray[8];
+		int		count;
 		
 	public:
-		
+		PhoneBook();
+		~PhoneBook();
+
+		void	addContact();
+		void	searchContact();
+		void	exitProgram();	
 };
-
-
 
 #endif
