@@ -1,42 +1,77 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/28 17:45:27 by castorga          #+#    #+#             */
+/*   Updated: 2024/08/28 17:45:29 by castorga         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
-/*--------------------SETs--------------------*/
-void	Contact::setFirstName(const std::string &firstName){
+
+/*-------------------------------- setters --------------------------------*/
+void	Contact::setFirstName(std::string firstName)
+{
 	this->firstName = firstName;
 }
-
-void	Contact::setLastName(const std::string &lastName){
+void	Contact::setLastName(std::string lastName)
+{
 	this->lastName = lastName;
 }
 
-void	Contact::setNickname(const std::string &nickName){
+void	Contact::setNickname(std::string nickName)
+{
 	this->nickName = nickName;
 }
 
-void	Contact::setPhoneNumber(const std::string &phoneNumber){
+void	Contact::setPhoneNumber(std::string phoneNumber)
+{
 	this->phoneNumber = phoneNumber;
 }
 
-void	Contact::setDarkestSecret(const std::string &darkestSecret){
+void	Contact::setDarkestSecret(std::string darkestSecret)
+{
 	this->darkestSecret = darkestSecret;
 }
-
-/*--------------------GETs--------------------*/
-std::string Contact::getFirstName() const {
-	return firstName;
+/*-------------------------------- getters --------------------------------*/
+std::string	Contact::getFirstName()
+{
+	return (this->firstName);
 }
 
-std::string Contact::getLastName() const {
-    return lastName;
+std::string	Contact::getLastName()
+{
+	return (this->lastName);
 }
 
-std::string Contact::getNickname() const {
-    return nickName;
+std::string	Contact::getNickName()
+{
+	return (this->nickName);
 }
 
-std::string Contact::getPhoneNumber() const {
-    return phoneNumber;
+std::string	Contact::getPhoneNumber()
+{
+	return (this->phoneNumber);
 }
 
-std::string Contact::getDarkestSecret() const {
-    return darkestSecret;
+std::string	Contact::getDarkestSecret()
+{
+	return (this->darkestSecret);
 }
+
+/*-------------------------------- constructors --------------------------------*/
+Contact::Contact()
+{
+	this->firstName = "";
+	this->lastName = "";
+	this->nickName = "";
+	this->phoneNumber = "";
+	this->darkestSecret = "";
+}
+
+/*-------------------------------- destructor --------------------------------*/
+Contact::~Contact(){}
+

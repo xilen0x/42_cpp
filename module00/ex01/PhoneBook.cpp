@@ -1,55 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/28 17:17:16 by castorga          #+#    #+#             */
+/*   Updated: 2024/08/28 17:17:18 by castorga         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "PhoneBook.hpp"
 #include <iostream>
-#include <iomanip>
 
-PhoneBook::PhoneBook() : index(0), count(0) {}
-
-void PhoneBook::addContact(const Contact &newContact)
+void	PhoneBook::addContact(void)
 {
-    contacts[index] = newContact;
-    index = (index + 1) % 8;
-    if (count < 8)
-        count++;
+	std::string	in;
+
+	std::cout << "First name: ";
+	getline(std::cin, in);
+	if (this->count < 8)
+	{
+		this->contactArray[this->count].setFirstName(in);
+	}
+	else
+	{
+		this->count = 0;
+		this->contactArray[this->count].setFirstName(in);
+	}
 }
 
-void PhoneBook::searchContacts() const {
-    std::cout << std::setw(10) << "Index" << "|";
-    std::cout << std::setw(10) << "First Name" << "|";
-    std::cout << std::setw(10) << "Last Name" << "|";
-    std::cout << std::setw(10) << "Nickname" << std::endl;
+// void	PhoneBook::searchContact(void)
+// {
+// 	std::string	in;
 
-    for (int i = 0; i < count; i++) {
-        std::cout << std::setw(10) << i << "|";
-        std::string firstName = contacts[i].getFirstName();
-        std::string lastName = contacts[i].getLastName();
-        std::string nickname = contacts[i].getNickname();
+// 	std::cout << "searching..." << std::endl;
+// 	// std::cout << "First name: ";
+// 	// getline(std::cin, in);
+// }
 
-        // Recortamos los nombres si es necesario
-        if (firstName.length() > 10) {
-            firstName = firstName.substr(0, 9) + ".";
-        }
-        if (lastName.length() > 10) {
-            lastName = lastName.substr(0, 9) + ".";
-        }
-        if (nickname.length() > 10) {
-            nickname = nickname.substr(0, 9) + ".";
-        }
+// void	PhoneBook::exitProgram(void)
+// {
+// 	std::cout << "Goodbye!" << std::endl;
+// }
 
-        std::cout << std::setw(10) << firstName << "|";
-        std::cout << std::setw(10) << lastName << "|";
-        std::cout << std::setw(10) << nickname << std::endl;
-    }
+PhoneBook::PhoneBook()
+{
+	this->count = 0;
 }
 
-void PhoneBook::displayContact(int idx) const {
-    if (idx < 0 || idx >= count) {
-        std::cout << "Index out of range!" << std::endl;
-        return;
-    }
+PhoneBook::~PhoneBook(){}
 
-    std::cout << "First Name: " << contacts[idx].getFirstName() << std::endl;
-    std::cout << "Last Name: " << contacts[idx].getLastName() << std::endl;
-    std::cout << "Nickname: " << contacts[idx].getNickname() << std::endl;
-    std::cout << "Phone Number: " << contacts[idx].getPhoneNumber() << std::endl;
-    std::cout << "Darkest Secret: " << contacts[idx].getDarkestSecret() << std::endl;
-}
