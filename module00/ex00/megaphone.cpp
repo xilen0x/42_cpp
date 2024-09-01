@@ -1,34 +1,27 @@
 #include <iostream>
-#include <string>
-#include <cctype>
+// #include <cctype>
 
-std::string convertToUp(const std::string& message)
+int main(int ac, char *av[])
 {
-    std::string result = message;
-    for (char& c : result)
-	{
-        c = std::toupper(c);
-    }
-    return (result);
-}
+    std::string msg;
+    std::string fullMsg;
+    int i;
+    size_t j;
 
-int main(int argc, char *argv[])
-{
-    if (argc > 1) {
-        std::string fullMessage;
-        for (int i = 1; i < argc; ++i)
-		{
-            std::string message = argv[i];
-            std::string result = convertToUp(message);
-            fullMessage += result;
-            if (i < argc - 1)
-			{
-                fullMessage += " ";
+    if (ac > 1)
+    {
+        for (i = 1; i < ac; i++)
+        {
+            msg = av[i];
+            for (j = 0; j < msg.size(); j++)
+            {
+                fullMsg += std::toupper(msg[j]);
             }
+            fullMsg += " ";
         }
-        std::cout << fullMessage << std::endl;
+        std::cout << fullMsg << std::endl;
     }
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-    return (0);
+    else
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;    
+    return 0;
 }
