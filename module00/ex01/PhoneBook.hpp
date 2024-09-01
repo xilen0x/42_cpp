@@ -28,6 +28,8 @@ class PhoneBook
 		void	addContact();
 		// void	searchContact();
 		// void	exitProgram();
+		void	printContactList();
+		void	printContactList(int index);
 };
 
 #endif

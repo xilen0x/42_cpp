@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include "Utils.hpp"
 #include <iostream>
 
 // void addContact(PhoneBook &phoneBook) {
@@ -40,51 +41,21 @@
 //     phoneBook.addContact(newContact);
 // }
 
-// int main() {
-//     PhoneBook phoneBook;
-//     std::string command;
-
-//     while (true) {
-//         std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-//         std::getline(std::cin, command);
-
-//         if (command == "ADD") {
-//             addContact(phoneBook);
-//         } else if (command == "SEARCH") {
-//             phoneBook.searchContacts();
-//             std::cout << "Enter the index of the contact to display: ";
-//             int index;
-//             std::cin >> index;
-//             std::cin.ignore(); // Limpiamos el buffer de entrada
-//             phoneBook.displayContact(index);
-//         } else if (command == "EXIT") {
-//             break;
-//         } else {
-//             std::cout << "Invalid command. Please try again." << std::endl;
-//         }
-//     }
-
-//     return 0;
-// }
-
-#include "PhoneBook.hpp"
-// #include "Contact.hpp"
-#include <iostream>
 
 void	menu(void)
 {
-	std::cout << "\n ################### PHONEBOOK ###################" << std::endl;
 	std::cout << "\n  Select an option:\n" << std::endl;
 	std::cout << "\n  1.- ADD" << std::endl;
 	std::cout << "\n  2.- SEARCH" << std::endl;
 	std::cout << "\n  3.- EXIT" << std::endl;
 }
 
-void	optionsMenu(void)
+void	headerMenu(void)
 {
 	std::cout << "||-------------------------------------------------||" << std::endl;
-	std::cout << "||      ADD      |     SEARCH     |      EXIT      ||" << std::endl;
+	std::cout << "||  FIRSTNAME  |  LASTNAME  |  NICKNAME  |  PHONE  ||" << std::endl;
 	std::cout << "||-------------------------------------------------||" << std::endl;
+
 }
 
 int main(void)
@@ -92,24 +63,27 @@ int main(void)
 	std::string	option;
 	PhoneBook	pbook1;
 
-	menu();
+	std::cout << "\n ################### PHONEBOOK ###################" << std::endl;
+	pbook1.printContactList();
 	do
 	{
+		menu();
 		getline(std::cin, option);
 		if (option == "1" || option == "ADD" || option == "add")
 		{
-			optionsMenu();
 			pbook1.addContact();
+			clearScreen();
+			pbook1.printContactList(0);
 
 		}
 		else if (option == "2" || option == "SEARCH" || option == "search")
 		{
-			optionsMenu();
+			headerMenu();
 
 		}
 		else if	(option == "3" || option == "exit" || option == "EXIT")
 		{
-			optionsMenu();
+			headerMenu();
 
 		}
 		else
