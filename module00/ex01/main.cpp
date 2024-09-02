@@ -73,7 +73,7 @@ int main(void)
 		{
 			pbook1.addContact();
 			clearScreen();
-			pbook1.printContactList(0);
+			pbook1.printContactList();
 
 		}
 		else if (option == "2" || option == "SEARCH" || option == "search")

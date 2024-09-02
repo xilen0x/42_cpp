@@ -16,35 +16,35 @@
 void	PhoneBook::addContact(void)
 {
 	std::string	in;
+	int			i = 0;
 
-	do
+	if (i < 8)
 	{
 		std::cout << "First name: ";
 		getline(std::cin, in);
-		if (this->count < 8)
-		{
-			this->contactArray[this->count].setFirstName(in);
-			std::cout << "Last name: ";
-			getline(std::cin, in);
-			this->contactArray[this->count].setLastName(in);
-			std::cout << "Nickname: ";
-			getline(std::cin, in);
-			this->contactArray[this->count].setNickname(in);
-			std::cout << "Phone number: ";
-			getline(std::cin, in);
-			this->contactArray[this->count].setPhoneNumber(in);
-			std::cout << "Darkest secret: ";
-			getline(std::cin, in);
-			this->contactArray[this->count].setDarkestSecret(in);
-			this->count++;
-			break;
-		}
-		else
-		{
-			this->count = 0;
-			continue;
-		}
-	} while (this->count < 8);
+		this->contactArray[i].setFirstName(in);
+		std::cout << "Last name: ";
+		getline(std::cin, in);
+		this->contactArray[i].setLastName(in);
+		std::cout << "Nickname: ";
+		getline(std::cin, in);
+		this->contactArray[i].setNickname(in);
+		std::cout << "Phone number: ";
+		getline(std::cin, in);
+		this->contactArray[i].setPhoneNumber(in);
+		std::cout << "Darkest secret: ";
+		getline(std::cin, in);
+		this->contactArray[i].setDarkestSecret(in);
+		this->count++;
+		i++;
+		return;
+	}
+	else
+	{
+		i = 0;
+		return;
+	}
+}
 	
 	// getline(std::cin, in);
 	// if (this->count < 8)
@@ -57,17 +57,17 @@ void	PhoneBook::addContact(void)
 	// 	this->count = 0;
 	// 	this->contactArray[this->count].setFirstName(in);
 	// }
-}
+
 void	PhoneBook::printContactList(void)
 {
 	headerMenu();
 	for (int i = 0; i < this->count; i++)
 	{
 		std::cout << i << " | ";
-		std::cout << this->contactArray[i].getFirstName() << " | ";
-		std::cout << this->contactArray[i].getLastName() << " | ";
-		std::cout << this->contactArray[i].getNickName() << " | ";
-		std::cout << this->contactArray[i].getPhoneNumber() << std::endl;
+		std::cout << this->contactArray[this->count].getFirstName() << " | ";
+		std::cout << this->contactArray[this->count].getLastName() << " | ";
+		std::cout << this->contactArray[this->count].getNickName() << " | ";
+		std::cout << this->contactArray[this->count].getPhoneNumber() << std::endl;
 	}
 }
 
