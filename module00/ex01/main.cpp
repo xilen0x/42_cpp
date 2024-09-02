@@ -13,33 +13,7 @@
 #include "Contact.hpp"
 #include "Utils.hpp"
 #include <iostream>
-
-// void addContact(PhoneBook &phoneBook) {
-//     Contact newContact;
-//     std::string input;
-
-//     std::cout << "Enter First Name: ";
-//     std::getline(std::cin, input);
-//     newContact.setFirstName(input);
-
-//     std::cout << "Enter Last Name: ";
-//     std::getline(std::cin, input);
-//     newContact.setLastName(input);
-
-//     std::cout << "Enter Nickname: ";
-//     std::getline(std::cin, input);
-//     newContact.setNickname(input);
-
-//     std::cout << "Enter Phone Number: ";
-//     std::getline(std::cin, input);
-//     newContact.setPhoneNumber(input);
-
-//     std::cout << "Enter Darkest Secret: ";
-//     std::getline(std::cin, input);
-//     newContact.setDarkestSecret(input);
-
-//     phoneBook.addContact(newContact);
-// }
+#include <cstdlib>
 
 
 void	menu(void)
@@ -64,30 +38,35 @@ int main(void)
 	PhoneBook	pbook1;
 
 	std::cout << "\n ################### PHONEBOOK ###################" << std::endl;
-	pbook1.printContactList();
+	// pbook1.printContactList();
 	do
 	{
 		menu();
-		getline(std::cin, option);
+		std::cout << "\n:"; getline(std::cin, option);
+		if (std::cin.eof())
+            exit(1);
 		if (option == "1" || option == "ADD" || option == "add")
 		{
 			pbook1.addContact();
-			clearScreen();
-			pbook1.printContactList();
-
+			// clearScreen();
 		}
 		else if (option == "2" || option == "SEARCH" || option == "search")
 		{
-			headerMenu();
-
+			pbook1.searchContact();
+			// clearScreen();
 		}
 		else if	(option == "3" || option == "exit" || option == "EXIT")
 		{
-			headerMenu();
-
+			std::cout << "\nGoodbye!\n" << std::endl;
+			return (0);
 		}
 		else
-			std::cout << "opcion incorrecta!" << std::endl;
+		{
+			// clearScreen();
+			std::cout << "\nOpcion incorrecta!\n" << std::endl;
+			continue;
+		}
+		// pbook1.printContactList();
 	} while (!(option == "3" || option == "exit" || option == "EXIT"));
 	return (0);
 }

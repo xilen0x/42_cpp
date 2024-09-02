@@ -14,6 +14,8 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <iostream>
+#include <string>
 
 class PhoneBook
 {
@@ -26,10 +28,10 @@ class PhoneBook
 		~PhoneBook();
 
 		void	addContact();
-		// void	searchContact();
+		void	searchContact();
 		// void	exitProgram();
 		void	printContactList();
-		void	printContactList(int index);
+		void	printContactList(std::string index);
 };
 
 #endif
