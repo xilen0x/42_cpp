@@ -12,25 +12,7 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include "Utils.hpp"
-#include <iostream>
-#include <cstdlib>
 
-
-void	menu(void)
-{
-	std::cout << "\n  Select an option:\n" << std::endl;
-	std::cout << "\n  1.- ADD" << std::endl;
-	std::cout << "\n  2.- SEARCH" << std::endl;
-	std::cout << "\n  3.- EXIT" << std::endl;
-}
-
-void	headerMenu(void)
-{
-	std::cout << "||-------------------------------------------------||" << std::endl;
-	std::cout << "||  FIRSTNAME  |  LASTNAME  |  NICKNAME  |  PHONE  ||" << std::endl;
-	std::cout << "||-------------------------------------------------||" << std::endl;
-
-}
 
 int main(void)
 {

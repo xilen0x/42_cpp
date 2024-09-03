@@ -30,7 +30,7 @@ class Contact
 	
 		void 		setFirstName(std::string firstName);
 		void 		setLastName(std::string lastName);
-		void 		setNickname(std::string nickName);
+		void 		setNickName(std::string nickName);
 		void 		setPhoneNumber(std::string phoneNumber);
 		void 		setDarkestSecret(std::string darkestSecret);
 

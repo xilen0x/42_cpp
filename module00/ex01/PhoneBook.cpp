@@ -11,33 +11,49 @@
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
 #include "Utils.hpp"
-#include <iostream>
 
+// Constructor
+PhoneBook::PhoneBook()
+{
+	this->count = 0;
+}
 
+// Destructor
+PhoneBook::~PhoneBook(){}
+
+// Add contact
 void	PhoneBook::addContact(void)
 {
-	std::string	in;
+	std::string	fn, ln, nn, pn, ds, in;
 
 	if (this->count == 8)
 		this->count = 0;
 	do
 	{
 		std::cout << "\nFirst name: ";
-		getline(std::cin, in);
-		this->contactArray[this->count].setFirstName(in);
+		getline(std::cin, fn);
 		std::cout << "Last name: ";
-		getline(std::cin, in);
-		this->contactArray[this->count].setLastName(in);
-		std::cout << "Nickname: ";
-		getline(std::cin, in);
-		this->contactArray[this->count].setNickname(in);
+		getline(std::cin, ln);
+		std::cout << "Nick name: ";
+		getline(std::cin, nn);
 		std::cout << "Phone number: ";
-		getline(std::cin, in);
-		this->contactArray[this->count].setPhoneNumber(in);
+		getline(std::cin, pn);
 		std::cout << "Darkest secret: ";
-		getline(std::cin, in);
-		this->contactArray[this->count].setDarkestSecret(in);
-		// printContactList();
+		getline(std::cin, ds);
+		if (!fn.empty() && !ln.empty() && !nn.empty() && !pn.empty() && !ds.empty())
+		{
+
+			this->contactArray[this->count].setFirstName(fn);
+			this->contactArray[this->count].setLastName(ln);
+			this->contactArray[this->count].setNickName(nn);
+			this->contactArray[this->count].setPhoneNumber(pn);
+			this->contactArray[this->count].setDarkestSecret(ds);
+		}
+		else
+		{
+			std::cout << "All fields are required!" << std::endl;
+			return ;
+		}
 		this->count++;
 		std::cout << "\nDo you want to add another contact? (y/n): ";
 		getline(std::cin, in);
@@ -50,11 +66,7 @@ void	PhoneBook::addContact(void)
 	
 }
 
-int getArrayLength(int size) {
-    return size;
-}
-
-
+// Print contact list
 void	PhoneBook::printContactList(void)
 {
 	int arrayLength = sizeof(this->contactArray) / sizeof(this->contactArray[0]);
@@ -68,19 +80,9 @@ void	PhoneBook::printContactList(void)
 		std::cout << this->contactArray[i].getPhoneNumber() << std::endl;
 	}
 }
-int	stringToInt(std::string str)
-{
-	int		num = 0;
-	int		i = 0;
 
-	while (str[i] != '\0')
-	{
-		num = num * 10 + str[i] - '0';
-		i++;
-	}
-	return (num);
-}
 
+// Print contact list by index
 void	PhoneBook::printContactList(std::string index)
 {
 	int	idx = stringToInt(index);
@@ -91,21 +93,7 @@ void	PhoneBook::printContactList(std::string index)
 	std::cout << this->contactArray[idx].getPhoneNumber() << std::endl;
 }
 
-// void	PhoneBook::printContactList(int index)
-// {
-// 	headerMenu();
-// 	std::cout << this->contactArray[index].getFirstName() << " | ";
-// 	std::cout << this->contactArray[index].getLastName() << " | ";
-// 	std::cout << this->contactArray[index].getNickName() << " | ";
-// 	std::cout << this->contactArray[index].getPhoneNumber() << std::endl;
-// }
-
-//funcion que limpia la pantalla
-void	clearScreen(void)
-{
-	std::cout << "\033[2J\033[1;1H";
-} 
-
+// Search contact
 void	PhoneBook::searchContact(void)
 {
 	std::string	in;
@@ -129,16 +117,3 @@ void	PhoneBook::searchContact(void)
 			std::cout << "Invalid index" << std::endl;
 	}
 }
-
-// void	PhoneBook::exitProgram(void)
-// {
-// 	std::cout << "Goodbye!" << std::endl;
-// }
-
-PhoneBook::PhoneBook()
-{
-	this->count = 0;
-}
-
-PhoneBook::~PhoneBook(){}
-

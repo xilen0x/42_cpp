@@ -13,7 +13,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = main.cpp Contact.cpp PhoneBook.cpp
+SRC_FILES = main.cpp Contact.cpp PhoneBook.cpp Utils.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

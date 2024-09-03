@@ -22,7 +22,7 @@ void	Contact::setLastName(std::string lastName)
 	this->lastName = lastName;
 }
 
-void	Contact::setNickname(std::string nickName)
+void	Contact::setNickName(std::string nickName)
 {
 	this->nickName = nickName;
 }
