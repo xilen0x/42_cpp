@@ -14,6 +14,7 @@
 
 void	menu(void)
 {
+	std::cout << "\n #################################################" << std::endl;
 	std::cout << "\n Enter one option:\n" << std::endl;
 	std::cout << "\n ADD" << std::endl;
 	std::cout << "\n SEARCH" << std::endl;
@@ -22,10 +23,14 @@ void	menu(void)
 
 void	headerMenu(void)
 {
-	std::cout << "||-------------------------------------------------||" << std::endl;
-	std::cout << "||  FIRSTNAME  |  LASTNAME  |  NICKNAME  |  PHONE  ||" << std::endl;
-	std::cout << "||-------------------------------------------------||" << std::endl;
-
+	const int columnWidth = 10;
+	// std::cout << std::setw(columnWidth) << "|---------------------------------|" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::setw(columnWidth) << "INDEX" << "|";
+	std::cout << std::setw(columnWidth) << "FIRSTNAME" << "|";
+	std::cout << std::setw(columnWidth) << "LASTNAME" << "|";
+	std::cout << std::setw(columnWidth) << "NICKNAME" << "|" << std::endl;
+	// std::cout << "||----------|----------|----------|----------||" << std::endl;
 }
 
 //funcion que limpia la pantalla

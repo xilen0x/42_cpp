@@ -26,10 +26,10 @@ void	PhoneBook::addContact(void)
 {
 	std::string	fn, ln, nn, pn, ds, in;
 
-	if (this->count == 8)
-		this->count = 0;
 	do
 	{
+		if (this->count == 8)
+			this->count = 0;
 		std::cout << "\nFirst name: ";
 		getline(std::cin, fn);
 		std::cout << "Last name: ";
@@ -43,15 +43,15 @@ void	PhoneBook::addContact(void)
 		if (!fn.empty() && !ln.empty() && !nn.empty() && !pn.empty() && !ds.empty())
 		{
 
-			this->contactArray[this->count].setFirstName(fn);
-			this->contactArray[this->count].setLastName(ln);
-			this->contactArray[this->count].setNickName(nn);
-			this->contactArray[this->count].setPhoneNumber(pn);
-			this->contactArray[this->count].setDarkestSecret(ds);
+			this->contacts[this->count].setFirstName(fn);
+			this->contacts[this->count].setLastName(ln);
+			this->contacts[this->count].setNickName(nn);
+			this->contacts[this->count].setPhoneNumber(pn);
+			this->contacts[this->count].setDarkestSecret(ds);
 		}
 		else
 		{
-			std::cout << "All fields are required!" << std::endl;
+			std::cout << "\n**** All fields are required! ****" << std::endl;
 			return ;
 		}
 		this->count++;
@@ -62,58 +62,86 @@ void	PhoneBook::addContact(void)
 			printContactList();
 			return ;
 		}
-	} while (in == "y");
-	
+	} while (in == "y");	
+}
+
+std::string truncateWithDot(const std::string& str, std::size_t maxWidth)
+{
+	if (str.length() > maxWidth)
+		return (str.substr(0, maxWidth - 1) + ".");
+	else
+		return str;
 }
 
 // Print contact list
 void	PhoneBook::printContactList(void)
 {
-	int arrayLength = sizeof(this->contactArray) / sizeof(this->contactArray[0]);
+	int			arrayLength = sizeof(this->contacts) / sizeof(this->contacts[0]);
+	const int	colWidth = 10;
 	headerMenu();
 	for (int i = 0; i < getArrayLength(arrayLength); i++)
 	{
-		std::cout << i << " | ";
-		std::cout << this->contactArray[i].getFirstName() << " | ";
-		std::cout << this->contactArray[i].getLastName() << " | ";
-		std::cout << this->contactArray[i].getNickName() << " | ";
-		std::cout << this->contactArray[i].getPhoneNumber() << std::endl;
+		std::cout << std::setw(colWidth) << i << "|";
+		std::cout << std::setw(colWidth) << truncateWithDot(this->contacts[i].getFirstName(), colWidth) << "|";
+		std::cout << std::setw(colWidth) << truncateWithDot(this->contacts[i].getLastName() , colWidth) << "|";
+		std::cout << std::setw(colWidth) << truncateWithDot(this->contacts[i].getNickName() , colWidth) << "|" << std::endl;
 	}
 }
 
 
 // Print contact list by index
-void	PhoneBook::printContactList(std::string index)
+void	PhoneBook::printContactList(int idx)
 {
-	int	idx = stringToInt(index);
-	headerMenu();
-	std::cout << this->contactArray[idx].getFirstName() << " | ";
-	std::cout << this->contactArray[idx].getLastName() << " | ";
-	std::cout << this->contactArray[idx].getNickName() << " | ";
-	std::cout << this->contactArray[idx].getPhoneNumber() << std::endl;
+	// int			idx = stringToInt(index);
+	const int	colWidth = 10;
+	std::cout << "\nFirst name: " << std::setw(colWidth) << truncateWithDot(this->contacts[idx].getFirstName(), colWidth) << std::endl;
+	std::cout << "Last name: " << std::setw(colWidth) << truncateWithDot(this->contacts[idx].getLastName() , colWidth) << std::endl;
+	std::cout << "Nick name: " << std::setw(colWidth) << truncateWithDot(this->contacts[idx].getNickName() , colWidth) << std::endl;
 }
 
 // Search contact
-void	PhoneBook::searchContact(void)
-{
-	std::string	in;
+// void	PhoneBook::searchContact(void)
+// {
+// 	std::string	in;
 
-	if (this->count == 0)
-	{
-		clearScreen();
-		std::cout << "\nPhonebook is empty!\n" << std::endl;
-		return ;
-	}
-	else
-	{
-		std::cout << "Select an index: ";
-		getline(std::cin, in);
-		if (in.length() == 1 && in[0] >= '0' && in[0] <= '7')
-		{
-			printContactList(in);
-			return ;
-		}
-		else
-			std::cout << "Invalid index" << std::endl;
-	}
+// 	if (this->count == 0)
+// 	{
+// 		clearScreen();
+// 		std::cout << "\nPhonebook is empty!\n" << std::endl;
+// 		return ;
+// 	}
+// 	else
+// 	{
+// 		std::cout << "\nSelect an index: ";
+// 		getline(std::cin, in);
+// 		if ((in.length() == 1 && in[0] >= '0' && in[0] <= '7') && (in[0] <= this->count))
+// 		{
+// 			printContactList(in);
+// 			return ;
+// 		}
+// 		else
+// 			std::cout << "Invalid index" << std::endl;
+// 	}
+// }
+void PhoneBook::searchContact(void) {
+    std::string in;
+
+    if (this->count == 0) {
+        clearScreen();
+        std::cout << "\nPhonebook is empty!\n" << std::endl;
+        return;
+    } else {
+        std::cout << "\nSelect an index: ";
+        getline(std::cin, in);
+        int index = -1;
+        if (in.length() == 1 && in[0] >= '0' && in[0] <= '7') {
+            index = in[0] - '0';
+        }
+        if (index >= 0 && index < this->count) {
+            printContactList(index);
+            return;
+        } else {
+            std::cout << "Invalid index" << std::endl;
+        }
+    }
 }

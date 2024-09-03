@@ -19,7 +19,7 @@ int main(void)
 	std::string	option;
 	PhoneBook	pbook1;
 
-	std::cout << "\n ################### PHONEBOOK ###################" << std::endl;
+	std::cout << "\n ################### PHONEBOOK ###################";
 	// pbook1.printContactList();
 	do
 	{

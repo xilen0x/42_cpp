@@ -17,11 +17,12 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <iomanip>
 
 class PhoneBook
 {
 	private:
-		Contact		contactArray[8];
+		Contact		contacts[8];
 		int			count;
 		
 	public:
@@ -32,7 +33,7 @@ class PhoneBook
 		void	searchContact();
 		// void	exitProgram();
 		void	printContactList();
-		void	printContactList(std::string index);
+		void	printContactList(int index);
 };
 
 #endif
