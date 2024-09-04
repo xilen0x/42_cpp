@@ -26,11 +26,11 @@ int main(void)
 		std::cout << "\n:"; getline(std::cin, option);
 		if (std::cin.eof())
             exit(1);
-		if (option == "1" || option == "ADD" || option == "add")
+		if (option == "ADD" || option == "add")
 			pbook1.addContact();
-		else if (option == "2" || option == "SEARCH" || option == "search")
+		else if (option == "SEARCH" || option == "search")
 			pbook1.searchContact();
-		else if	(option == "3" || option == "exit" || option == "EXIT")
+		else if	(option == "exit" || option == "EXIT")
 		{
 			std::cout << "\nGoodbye!\n" << std::endl;
 			return (0);
@@ -40,6 +40,6 @@ int main(void)
 			std::cout << "\nOpcion incorrecta!\n" << std::endl;
 			continue;
 		}
-	} while (!(option == "3" || option == "exit" || option == "EXIT"));
+	} while (!(option == "exit" || option == "EXIT"));
 	return (0);
 }
