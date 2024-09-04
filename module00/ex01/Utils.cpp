@@ -12,9 +12,22 @@
 #include "PhoneBook.hpp"
 #include "Utils.hpp"
 
+void	welcome(void)
+{
+	std::cout << "#######################################################\n";
+	std::cout << "#                                                     #\n";
+	std::cout << "#                 WELCOME TO PHONEBOOK                #\n";
+	std::cout << "#                                                     #\n";
+	std::cout << "#######################################################\n";
+	std::cout << "#                                                     #\n";
+	std::cout << "#                      castorga                       #\n";
+	std::cout << "#                                                     #\n";
+	std::cout << "#######################################################\n";
+}
+
 void	menu(void)
 {
-	std::cout << "\n #################################################" << std::endl;
+	std::cout << "\n -------------------------------------------------" << std::endl;
 	std::cout << "\n Enter one option:\n" << std::endl;
 	std::cout << "\n ADD" << std::endl;
 	std::cout << "\n SEARCH" << std::endl;
@@ -39,24 +52,6 @@ void	clearScreen(void)
 	std::cout << "\033[2J\033[1;1H";
 }
 
-// void	PhoneBook::exitProgram(void)
-// {
-// 	std::cout << "Goodbye!" << std::endl;
-// }
-
 int getArrayLength(int size) {
     return size;
-}
-
-int	stringToInt(std::string str)
-{
-	int		num = 0;
-	int		i = 0;
-
-	while (str[i] != '\0')
-	{
-		num = num * 10 + str[i] - '0';
-		i++;
-	}
-	return (num);
 }

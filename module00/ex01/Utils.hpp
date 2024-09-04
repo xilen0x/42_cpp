@@ -18,6 +18,6 @@ void	menu(void);
 void	headerMenu(void);
 void	clearScreen(void);
 int		getArrayLength(int size);
-int		stringToInt(std::string str);
+void	welcome(void);
 
 #endif

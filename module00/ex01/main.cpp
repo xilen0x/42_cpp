@@ -19,8 +19,7 @@ int main(void)
 	std::string	option;
 	PhoneBook	pbook1;
 
-	std::cout << "\n ################### PHONEBOOK ###################";
-	// pbook1.printContactList();
+	welcome();
 	do
 	{
 		menu();
@@ -28,15 +27,9 @@ int main(void)
 		if (std::cin.eof())
             exit(1);
 		if (option == "1" || option == "ADD" || option == "add")
-		{
 			pbook1.addContact();
-			// clearScreen();
-		}
 		else if (option == "2" || option == "SEARCH" || option == "search")
-		{
 			pbook1.searchContact();
-			// clearScreen();
-		}
 		else if	(option == "3" || option == "exit" || option == "EXIT")
 		{
 			std::cout << "\nGoodbye!\n" << std::endl;
@@ -44,11 +37,9 @@ int main(void)
 		}
 		else
 		{
-			// clearScreen();
 			std::cout << "\nOpcion incorrecta!\n" << std::endl;
 			continue;
 		}
-		// pbook1.printContactList();
 	} while (!(option == "3" || option == "exit" || option == "EXIT"));
 	return (0);
 }

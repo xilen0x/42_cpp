@@ -12,14 +12,31 @@
 #include "PhoneBook.hpp"
 #include "Utils.hpp"
 
-// Constructor
-PhoneBook::PhoneBook()
+//funcion que valida si el numero de telefono cumple con el formato
+int	validatePhoneNumber(std::string &pn)
 {
-	this->count = 0;
-}
+	std::string				phone;
+	std::string::iterator	it;
+	int						count = 0;
 
-// Destructor
-PhoneBook::~PhoneBook(){}
+
+	getline(std::cin, phone);
+	for (it = phone.begin(); it != phone.end(); it++)
+	{
+		if (isdigit(*it))
+			count++;
+	}
+	if (count == 9)
+	{
+		pn = phone;
+		return (1);
+	}
+	else
+	{
+		std::cout << "\n**** Invalid phone number! ****" << std::endl;
+		return (0);
+	}
+}
 
 // Add contact
 void	PhoneBook::addContact(void)
@@ -36,13 +53,13 @@ void	PhoneBook::addContact(void)
 		getline(std::cin, ln);
 		std::cout << "Nick name: ";
 		getline(std::cin, nn);
-		std::cout << "Phone number: ";
-		getline(std::cin, pn);
+		std::cout << "Phone number(9 digits): ";
+		if (validatePhoneNumber(pn) == 0)
+			return ;
 		std::cout << "Darkest secret: ";
 		getline(std::cin, ds);
 		if (!fn.empty() && !ln.empty() && !nn.empty() && !pn.empty() && !ds.empty())
 		{
-
 			this->contacts[this->count].setFirstName(fn);
 			this->contacts[this->count].setLastName(ln);
 			this->contacts[this->count].setNickName(nn);
@@ -62,7 +79,7 @@ void	PhoneBook::addContact(void)
 			printContactList();
 			return ;
 		}
-	} while (in == "y");	
+	} while (in == "y" || in == "Y");	
 }
 
 std::string truncateWithDot(const std::string& str, std::size_t maxWidth)
@@ -92,37 +109,12 @@ void	PhoneBook::printContactList(void)
 // Print contact list by index
 void	PhoneBook::printContactList(int idx)
 {
-	// int			idx = stringToInt(index);
 	const int	colWidth = 10;
 	std::cout << "\nFirst name: " << std::setw(colWidth) << truncateWithDot(this->contacts[idx].getFirstName(), colWidth) << std::endl;
 	std::cout << "Last name: " << std::setw(colWidth) << truncateWithDot(this->contacts[idx].getLastName() , colWidth) << std::endl;
 	std::cout << "Nick name: " << std::setw(colWidth) << truncateWithDot(this->contacts[idx].getNickName() , colWidth) << std::endl;
 }
 
-// Search contact
-// void	PhoneBook::searchContact(void)
-// {
-// 	std::string	in;
-
-// 	if (this->count == 0)
-// 	{
-// 		clearScreen();
-// 		std::cout << "\nPhonebook is empty!\n" << std::endl;
-// 		return ;
-// 	}
-// 	else
-// 	{
-// 		std::cout << "\nSelect an index: ";
-// 		getline(std::cin, in);
-// 		if ((in.length() == 1 && in[0] >= '0' && in[0] <= '7') && (in[0] <= this->count))
-// 		{
-// 			printContactList(in);
-// 			return ;
-// 		}
-// 		else
-// 			std::cout << "Invalid index" << std::endl;
-// 	}
-// }
 void PhoneBook::searchContact(void) {
     std::string in;
 
@@ -131,7 +123,7 @@ void PhoneBook::searchContact(void) {
         std::cout << "\nPhonebook is empty!\n" << std::endl;
         return;
     } else {
-        std::cout << "\nSelect an index: ";
+        std::cout << "\nSelect an index(0 - 7): ";
         getline(std::cin, in);
         int index = -1;
         if (in.length() == 1 && in[0] >= '0' && in[0] <= '7') {
@@ -145,3 +137,12 @@ void PhoneBook::searchContact(void) {
         }
     }
 }
+
+// Constructor
+PhoneBook::PhoneBook()
+{
+	this->count = 0;
+}
+
+// Destructor
+PhoneBook::~PhoneBook(){}
