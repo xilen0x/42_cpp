@@ -15,63 +15,65 @@
 /*-------------------------------- setters --------------------------------*/
 void	Contact::setFirstName(std::string firstName)
 {
-	this->firstName = firstName;
+	this->_firstName = firstName;
 }
 
 void	Contact::setLastName(std::string lastName)
 {
-	this->lastName = lastName;
+	this->_lastName = lastName;
 }
 
 void	Contact::setNickName(std::string nickName)
 {
-	this->nickName = nickName;
+	this->_nickName = nickName;
 }
 
 void	Contact::setPhoneNumber(std::string phoneNumber)
 {
-	this->phoneNumber = phoneNumber;
+	this->_phoneNumber = phoneNumber;
 }
 
 void	Contact::setDarkestSecret(std::string darkestSecret)
 {
-	this->darkestSecret = darkestSecret;
+	this->_darkestSecret = darkestSecret;
 }
 
 /*-------------------------------- getters --------------------------------*/
 std::string	Contact::getFirstName()
 {
-	return (this->firstName);
+	return (this->_firstName);
 }
 
 std::string	Contact::getLastName()
 {
-	return (this->lastName);
+	return (this->_lastName);
 }
 
 std::string	Contact::getNickName()
 {
-	return (this->nickName);
+	return (this->_nickName);
 }
 
 std::string	Contact::getPhoneNumber()
 {
-	return (this->phoneNumber);
+	return (this->_phoneNumber);
 }
 
 std::string	Contact::getDarkestSecret()
 {
-	return (this->darkestSecret);
+	return (this->_darkestSecret);
 }
 
 /*-------------------------------- constructors --------------------------------*/
-Contact::Contact()
+Contact::Contact(){}
+
+Contact::Contact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret)
 {
-	this->firstName = "";
-	this->lastName = "";
-	this->nickName = "";
-	this->phoneNumber = "";
-	this->darkestSecret = "";
+	this->_firstName = firstName;
+	this->_lastName = lastName;
+	this->_nickName = nickName;
+	this->_phoneNumber = phoneNumber;
+	this->_darkestSecret = darkestSecret;
 }
 
 /*-------------------------------- destructor --------------------------------*/
