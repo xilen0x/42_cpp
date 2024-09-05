@@ -6,7 +6,8 @@
 	],
 	"settings": {
 		"files.associations": {
-			"cctype": "cpp"
+			"cctype": "cpp",
+			"new": "cpp"
 		}
 	}
 }
