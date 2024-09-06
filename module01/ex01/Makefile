@@ -1,5 +1,5 @@
 # Nombre del ejecutable
-NAME = phonebook
+NAME = zombiehorde
 
 # Compilador y FLAGS
 CXX = c++
@@ -13,7 +13,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = main.cpp Contact.cpp PhoneBook.cpp utils.cpp
+SRC_FILES = main.cpp zombieHorde.cpp Zombie.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

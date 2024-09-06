@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Utils.hpp                                          :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 12:21:33 by castorga          #+#    #+#             */
-/*   Updated: 2024/09/03 12:21:35 by castorga         ###   ########.fr       */
+/*   Created: 2024/09/06 16:37:50 by castorga          #+#    #+#             */
+/*   Updated: 2024/09/06 16:37:52 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
-void	menu(void);
-void	headerMenu(void);
-void	clearScreen(void);
-int		getArrayLength(int size);
-void	welcome(void);
-int		validatePhoneNumber(std::string &pn);
+#include <iostream>
+#include <string>
+
+class Zombie
+{
+	private:
+		std::string name;
+		int n;
+
+	public:
+		Zombie();
+		Zombie(std::string, int);
+		~Zombie();
+
+		void announce(void);
+		void setName(std::string);
+};
+
+
 
 #endif

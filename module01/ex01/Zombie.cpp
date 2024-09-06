@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 17:45:01 by castorga          #+#    #+#             */
-/*   Updated: 2024/08/28 17:45:04 by castorga         ###   ########.fr       */
+/*   Created: 2024/09/06 16:37:15 by castorga          #+#    #+#             */
+/*   Updated: 2024/09/06 16:37:17 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
 
-#include "Contact.hpp"
-#include <iostream>
-#include <string>
-#include <cstdlib>
-#include <iomanip>
+#include "Zombie.hpp"
 
-class PhoneBook
+
+/** @brief Método que imprime un mensaje de anuncio del Zombie. */
+void Zombie::announce(void)
 {
-	private:
-		Contact		contacts[8];
-		int			count;
-		
-	public:
-		PhoneBook();
-		~PhoneBook();
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-		void	addContact();
-		void	searchContact();
-		void	printContactList();
-		void	printContactList(int index);
-};
-
-#endif
+Zombie::~Zombie(){}
