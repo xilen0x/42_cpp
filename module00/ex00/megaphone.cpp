@@ -15,6 +15,8 @@
 
 int main(int ac, char *av[])
 {
+
+	x
     std::string msg;
     std::string fullMsg;
     size_t		j;

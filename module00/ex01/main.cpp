@@ -21,7 +21,7 @@ int main(void)
 
 	welcome();
 	do
-	{
+	{x
 		menu();
 		std::cout << "\n:"; getline(std::cin, option);
 		if (std::cin.eof())

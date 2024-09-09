@@ -18,7 +18,7 @@
 
 class Account {
 
-
+x
 public:
 
 	typedef Account		t;

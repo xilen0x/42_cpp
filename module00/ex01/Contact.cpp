@@ -15,6 +15,8 @@
 /*-------------------------------- setters --------------------------------*/
 void	Contact::setFirstName(std::string firstName)
 {
+
+	x
 	this->firstName = firstName;
 }
 

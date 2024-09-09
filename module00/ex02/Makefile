@@ -1,6 +1,6 @@
 # Nombre del ejecutable
 NAME = account
-
+x
 # Compilador y FLAGS
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
