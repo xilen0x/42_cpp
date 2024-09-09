@@ -14,7 +14,6 @@
 
 
 //---  Constructors
-
 Zombie::Zombie(){}
 
 Zombie::Zombie(std::string name, int n)
@@ -22,17 +21,9 @@ Zombie::Zombie(std::string name, int n)
 	this->name = name;
 	this->n = n;
 }
-//--- Setter
-void Zombie::setName(std::string name)
-{
-	this->name = name;
-}
-
 
 Zombie* zombieHorde( int N, std::string name )
 {
 	Zombie *instanciaZ = new Zombie(name, N);
-	instanceZ->setName(name);
 	return (instanciaZ);
 }
-
