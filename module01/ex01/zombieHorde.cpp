@@ -22,8 +22,17 @@ Zombie::Zombie(std::string name, int n)
 	this->n = n;
 }
 
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
+}
+
 Zombie* zombieHorde( int N, std::string name )
 {
-	Zombie *instanciaZ = new Zombie(name, N);
+	Zombie *instanciaZ = new Zombie[N];
+	for (int i = 0; i < N; i++)
+	{
+		instanciaZ[i].setName(name);
+	}
 	return (instanciaZ);
 }

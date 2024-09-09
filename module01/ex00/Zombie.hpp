@@ -13,7 +13,6 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
-<<<<<<< HEAD:module01/ex00/Zombie.hpp
 #include <iostream>
 #include <string>
 
@@ -29,15 +28,5 @@ class Zombie
 		void announce(void);
 };
 
-=======
-#ifndef UTILS_HPP
-#define UTILS_HPP
-x
-void	menu(void);
-void	headerMenu(void);
-void	clearScreen(void);
-int		getArrayLength(int size);
-void	welcome(void);
->>>>>>> teste:module00/ex01/Utils.hpp
 
 #endif
