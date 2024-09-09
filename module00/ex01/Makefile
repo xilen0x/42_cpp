@@ -1,11 +1,6 @@
 # Nombre del ejecutable
-<<<<<<< HEAD:module01/ex00/Makefile
-NAME = zombie
-
-=======
 NAME = phonebook
-x
->>>>>>> teste:module00/ex01/Makefile
+
 # Compilador y FLAGS
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
@@ -18,7 +13,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC_FILES = main.cpp Contact.cpp PhoneBook.cpp Utils.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

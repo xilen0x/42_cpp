@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 14:38:28 by castorga          #+#    #+#             */
-/*   Updated: 2024/09/06 14:38:31 by castorga         ###   ########.fr       */
+/*   Created: 2024/08/28 17:45:01 by castorga          #+#    #+#             */
+/*   Updated: 2024/08/28 17:45:04 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-<<<<<<< HEAD:module01/ex00/Zombie.hpp
+#include "Contact.hpp"
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <iomanip>
 
-class Zombie
+class PhoneBook
 {
 	private:
-		std::string name;
-
+		Contact		contacts[8];
+		int			count;
+		
 	public:
-		Zombie(std::string name);
-		~Zombie();
+		PhoneBook();
+		~PhoneBook();
 
-		void announce(void);
+		void	addContact();
+		void	searchContact();
+		// void	exitProgram();
+		void	printContactList();
+		void	printContactList(int index);
 };
-
-=======
-#ifndef UTILS_HPP
-#define UTILS_HPP
-x
-void	menu(void);
-void	headerMenu(void);
-void	clearScreen(void);
-int		getArrayLength(int size);
-void	welcome(void);
->>>>>>> teste:module00/ex01/Utils.hpp
 
 #endif
