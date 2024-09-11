@@ -13,14 +13,18 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 
+/*------------------Constructors------------------*/
 HumanA::HumanA(std::string name, Weapon &weapon) : _weapon(weapon)
 {
 	this->_name = name;
-	this->_weapon = weapon;	
+	this->_weapon = weapon;
 }
 
+/*------------------Methods------------------*/
 void	HumanA::attack()
 {
-	std::cout << this->_name << " attacks with his " << this->_weapon.getType() << std::endl;
+	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
 }
+
+/*------------------Destructor------------------*/
 HumanA::~HumanA(){}

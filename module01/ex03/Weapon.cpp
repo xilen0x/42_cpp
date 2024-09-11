@@ -19,12 +19,13 @@ Weapon::Weapon(std::string type)
 {
 	setType(type);
 }
+
 /*------------------Getter------------------*/
 const std::string&	Weapon::getType() const
 {
-//	const	std::string& type = _type;
 	return (this->_type);
 }
+
 /*------------------Setter------------------*/
 void	Weapon::setType(std::string type)
 {
