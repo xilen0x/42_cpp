@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+/** @brief Representa un zombie con un nombre y capacidad para hablar. */
 class Zombie
 {
 	private:
