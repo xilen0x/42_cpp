@@ -19,6 +19,5 @@ void	headerMenu(void);
 void	clearScreen(void);
 int		getArrayLength(int size);
 void	welcome(void);
-int		validatePhoneNumber(std::string &pn);
 
 #endif

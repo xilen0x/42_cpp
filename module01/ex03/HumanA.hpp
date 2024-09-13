@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 14:37:57 by castorga          #+#    #+#             */
-/*   Updated: 2024/09/06 14:38:01 by castorga         ###   ########.fr       */
+/*   Created: 2024/09/09 18:07:54 by castorga          #+#    #+#             */
+/*   Updated: 2024/09/09 18:07:56 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-# include "Zombie.hpp"
+#include <iostream>
+#include "Weapon.hpp"
 
-Zombie* newZombie(std::string name);
-void	randomChump(std::string name);
-
-int main()
+class HumanA
 {
-	Zombie *heapZombie = newZombie("heapZombie");
-	heapZombie->announce();
-	delete(heapZombie);
+	private:
+		std::string	_name;
+		Weapon		&_weapon;
+		
+	public:
+		HumanA(std::string, Weapon&);
+		~HumanA();
+		void	attack();
+};
 
-	randomChump("stackZombie");
-	return(0);
-}
+#endif

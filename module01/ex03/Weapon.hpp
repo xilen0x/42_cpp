@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 14:37:57 by castorga          #+#    #+#             */
-/*   Updated: 2024/09/06 14:38:01 by castorga         ###   ########.fr       */
+/*   Created: 2024/09/09 18:07:13 by castorga          #+#    #+#             */
+/*   Updated: 2024/09/09 18:07:16 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-# include "Zombie.hpp"
+#include <iostream>
 
-Zombie* newZombie(std::string name);
-void	randomChump(std::string name);
-
-int main()
+class	Weapon
 {
-	Zombie *heapZombie = newZombie("heapZombie");
-	heapZombie->announce();
-	delete(heapZombie);
+	private:
+		std::string	_type;
 
-	randomChump("stackZombie");
-	return(0);
-}
+	public:
+		Weapon();
+		Weapon(std::string);
+		~Weapon();
+		const std::string&	getType() const;
+		void				setType(std::string);
+		
+};
+
+#endif

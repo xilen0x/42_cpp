@@ -1,5 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: castorga <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/11 15:24:26 by castorga          #+#    #+#              #
+#    Updated: 2024/09/11 15:24:29 by castorga         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
 # Nombre del ejecutable
-NAME = phonebook
+NAME = sedIsForLosers
 
 # Compilador y FLAGS
 CXX = c++
@@ -13,7 +26,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = main.cpp Contact.cpp PhoneBook.cpp Utils.cpp
+SRC_FILES = main.cpp utils.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 14:37:57 by castorga          #+#    #+#             */
-/*   Updated: 2024/09/06 14:38:01 by castorga         ###   ########.fr       */
+/*   Created: 2024/09/06 16:37:25 by castorga          #+#    #+#             */
+/*   Updated: 2024/09/06 16:37:29 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 # include "Zombie.hpp"
 
-Zombie* newZombie(std::string name);
-void	randomChump(std::string name);
 
-int main()
+//---  Constructors
+Zombie::Zombie(){}
+
+Zombie::Zombie(std::string name, int n)
 {
-	Zombie *heapZombie = newZombie("heapZombie");
-	heapZombie->announce();
-	delete(heapZombie);
+	this->name = name;
+	this->n = n;
+}
 
-	randomChump("stackZombie");
-	return(0);
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
+}
+
+Zombie* zombieHorde( int N, std::string name )
+{
+	Zombie *instanciaZ = new Zombie[N];
+	for (int i = 0; i < N; i++)
+	{
+		instanciaZ[i].setName(name);
+	}
+	return (instanciaZ);
 }

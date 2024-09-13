@@ -1,17 +1,5 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: castorga <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/04 17:35:29 by castorga          #+#    #+#              #
-#    Updated: 2024/09/04 17:35:32 by castorga         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Nombre del ejecutable
-NAME = megaphone
+NAME = zombiehorde
 
 # Compilador y FLAGS
 CXX = c++
@@ -25,7 +13,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = megaphone.cpp
+SRC_FILES = main.cpp zombieHorde.cpp Zombie.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
