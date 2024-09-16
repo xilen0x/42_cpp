@@ -18,17 +18,17 @@ void replaceText(std::string& file, std::string& s1, std::string& s2)
 	bool found = false;
 	
     std::ifstream inputFile(file.c_str());
-    // if (!inputFile)
-	// {
-    //     std::cerr << "Error: Open file doesn't exist" << file << std::endl;
-    //     return;
-    // }
+    if (!inputFile)
+	{
+        std::cerr << "Error: Open file doesn't exist" << file << std::endl;
+        return;
+    }
 	std::ofstream outputFile((file + ".replace").c_str());
-    // if (!outputFile)
-	// {
-    //     std::cerr << "Error: Unable to create output file " << file + ".replace" << std::endl;
-    //     return;
-    // }
+    if (!outputFile)
+	{
+        std::cerr << "Error: Unable to create output file " << file + ".replace" << std::endl;
+        return;
+    }
     while (std::getline(inputFile, line))
 	{
         size_t pos = 0;

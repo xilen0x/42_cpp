@@ -12,10 +12,7 @@
 
 #include "Zombie.hpp"
 
-/**
- * @brief Crea un Zombie con el nombre dado y llama a su método `announce`.
- * @param name El nombre del zombie.
- */
+/*Crea un Zombie con el nombre dado y llama a su método `announce`.*/
 void	randomChump(std::string name)
 {
 	Zombie instanceX(name);

@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include <iostream>
 #include <string>
 
 int main()
 {
     std::string str = "HI THIS IS BRAIN";
-    std::string* stringPTR = &str;
-    std::string& stringREF = str;
+    std::string *stringPTR = &str;
+    std::string &stringREF = str;
 
     // direcciones de memoria
     std::cout << "Dirección de memoria de str: " << &str << std::endl;

@@ -25,12 +25,12 @@ int main()
 	getline(std::cin, numZombies);
 	if (std::cin.eof())
 		exit(1);
-	count = std::atoi(numZombies.c_str());
+	count = std::atoi(numZombies.c_str());//El método .c_str() convierte el objeto std::string a una cadena de caracteres tipo const char*
 	if (count < 0)
 	{
 		std::cout << "Invalid number of zombies!" << std::endl;
 		return (1);
-	}	
+	}
 	Zombie *instance = zombieHorde(count, "42 student");
 	for (int i = 0; i < count; i++)
 	{

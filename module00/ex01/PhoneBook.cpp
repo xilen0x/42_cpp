@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
-#include "Utils.hpp"
+#include "utils.hpp"
 
 //funcion que valida si el numero de telefono cumple con el formato
 int	validatePhoneNumber(std::string &pn)

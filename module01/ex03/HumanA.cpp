@@ -14,6 +14,7 @@
 #include "HumanA.hpp"
 
 /*------------------Constructors------------------*/
+
 HumanA::HumanA(std::string name, Weapon &weapon) : _weapon(weapon)
 {
 	this->_name = name;

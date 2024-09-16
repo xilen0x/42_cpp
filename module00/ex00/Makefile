@@ -1,5 +1,5 @@
 # Nombre del ejecutable
-NAME = zombie
+NAME = megaphone
 
 # Compilador y FLAGS
 CXX = c++
@@ -13,7 +13,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC_FILES = megaphone.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

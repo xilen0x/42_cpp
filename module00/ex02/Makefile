@@ -13,14 +13,14 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Archivos fuente
-SRC_FILES = tests.cpp Account.cpp
+SRC_FILES = Account.cpp tests.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 # Rutas completas de los archivos objeto y dependencias
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ_FILES))
-DEPS = $(addprefix $(DEP_DIR), $(OBJ_FILES:.cpp=.d))
+DEPS = $(OBJS:.o=.d)
 
 # Eliminar archivos
 RM = rm -rf
@@ -57,7 +57,6 @@ $(DEP_DIR):
 $(OBJS_DIR)%.o: %.cpp $(MKF) | $(OBJS_DIR) $(DEP_DIR)
 	@echo "▶ Compiling... $<"
 	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
-	@mv $(basename $@).d $(DEP_DIR)
 
 # Regla para crear el ejecutable
 $(NAME): $(OBJS)

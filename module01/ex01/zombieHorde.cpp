@@ -12,21 +12,7 @@
 
 # include "Zombie.hpp"
 
-
-//---  Constructors
-Zombie::Zombie(){}
-
-Zombie::Zombie(std::string name, int n)
-{
-	this->name = name;
-	this->n = n;
-}
-
-void	Zombie::setName(std::string name)
-{
-	this->name = name;
-}
-
+//--- Función que crea un arreglo de N Zombies y les asigna un nombre.
 Zombie* zombieHorde( int N, std::string name )
 {
 	Zombie *instanciaZ = new Zombie[N];

@@ -13,11 +13,25 @@
 
 #include "Zombie.hpp"
 
+//---  Constructors
+Zombie::Zombie(){}
+
+Zombie::Zombie(std::string name, int n)
+{
+	this->name = name;
+	this->n = n;
+}
 
 /** @brief Método que imprime un mensaje de anuncio del Zombie. */
 void Zombie::announce(void)
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
+//--- Setters
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
+}
 
+//--- Destructor
 Zombie::~Zombie(){}

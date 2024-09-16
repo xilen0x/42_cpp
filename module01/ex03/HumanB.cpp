@@ -13,7 +13,9 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-/*------------------Initializations------------------*/
+/*------------------Constructors------------------*/
+HumanB::HumanB(){}
+
 HumanB::HumanB(std::string name) : _name(name)
 {
 	this->_weapon = NULL;
@@ -22,16 +24,16 @@ HumanB::HumanB(std::string name) : _name(name)
 /*------------------Methods------------------*/
 void	HumanB::attack()
 {
-    if (this->_name != "")
+    if (this->_weapon != NULL)
         std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
     else
-        std::cout << _name << "is unarmed." << std::endl;
+        std::cout << _name << " is unarmed." << std::endl;
 }
 
 /*------------------Setter------------------*/
 void	HumanB::setWeapon(Weapon& weapon)
 {
-	_weapon = &weapon;
+	this->_weapon = &weapon;
 }
 
 /*------------------Destructor------------------*/
