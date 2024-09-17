@@ -1,34 +1,27 @@
 # Nombre del ejecutable
 NAME = fixed
-
 # Compilador y FLAGS
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
-
 # Makefile
 MKF := Makefile
-
 # Directorios
 OBJS_DIR = .objs/
 DEP_DIR = .dep/
-
 # Archivos fuente
 SRC_FILES = main.cpp Fixed.cpp
-
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-
+# Archivos de dependencias
+DEP_FILES = $(SRC_FILES:.cpp=.d)
 # Rutas completas de los archivos objeto y dependencias
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ_FILES))
-DEPS = $(addprefix $(DEP_DIR), $(OBJ_FILES:.cpp=.d))
-
+DEPS = $(addprefix $(DEP_DIR), $(DEP_FILES))
 # Eliminar archivos
 RM = rm -rf
-
 # Colores
 GREEN = \033[0;32m
 RESET = \033[0m
-
 
 # Regla por defecto
 all: $(NAME)
@@ -57,7 +50,7 @@ $(DEP_DIR):
 $(OBJS_DIR)%.o: %.cpp $(MKF) | $(OBJS_DIR) $(DEP_DIR)
 	@echo "▶ Compiling... $<"
 	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
-	@mv $(basename $@).d $(DEP_DIR)
+	@mv $(OBJS_DIR)$*.d $(DEP_DIR)$*.d
 
 # Regla para crear el ejecutable
 $(NAME): $(OBJS)

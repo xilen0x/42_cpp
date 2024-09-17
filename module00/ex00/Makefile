@@ -1,16 +1,17 @@
 # Nombre del ejecutable
 NAME = megaphone
 
-# Compilador y FLAGS
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
-
-# Makefile
-MKF := Makefile
-
 # Directorios
 OBJS_DIR = .objs/
 DEP_DIR = .dep/
+
+# Compilador y FLAGS
+CXX = c++
+#CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP -MF $(DEP_DIR)$*.d  #-g -fsanitize=address
+
+# Makefile
+MKF := Makefile
 
 # Archivos fuente
 SRC_FILES = megaphone.cpp
@@ -20,7 +21,8 @@ OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 # Rutas completas de los archivos objeto y dependencias
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ_FILES))
-DEPS = $(OBJS:.o=.d)
+DEPS = $(addprefix $(DEP_DIR), $(SRC_FILES:.cpp=.d))
+#DEPS = $(OBJS:.o=.d)
 
 # Eliminar archivos
 RM = rm -rf
@@ -56,7 +58,7 @@ $(DEP_DIR):
 # Regla para compilar archivos fuente en archivos objeto
 $(OBJS_DIR)%.o: %.cpp $(MKF) | $(OBJS_DIR) $(DEP_DIR)
 	@echo "▶ Compiling... $<"
-	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Regla para crear el ejecutable
 $(NAME): $(OBJS)

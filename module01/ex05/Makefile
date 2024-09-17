@@ -1,16 +1,16 @@
 # Nombre del ejecutable
 NAME = harl
 
-# Compilador y FLAGS
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
-
-# Makefile
-MKF := Makefile
-
 # Directorios
 OBJS_DIR = .objs/
 DEP_DIR = .dep/
+
+# Compilador y FLAGS
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP -MF $(DEP_DIR)$*.d  #-g -fsanitize=address
+
+# Makefile
+MKF := Makefile
 
 # Archivos fuente
 SRC_FILES = main.cpp Harl.cpp

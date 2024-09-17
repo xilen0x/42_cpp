@@ -1,16 +1,18 @@
 # Nombre del ejecutable
 NAME = zombie
 
+# Directorios
+OBJS_DIR = .objs/
+DEP_DIR = .dep/
+
 # Compilador y FLAGS
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP -MF $(DEP_DIR)$*.d  #-g -fsanitize=address
+
 
 # Makefile
 MKF := Makefile
 
-# Directorios
-OBJS_DIR = .objs/
-DEP_DIR = .dep/
 
 # Archivos fuente
 SRC_FILES = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp

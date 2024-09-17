@@ -11,8 +11,8 @@ class Fixed
 
 	public:
 		Fixed();
-		Fixed( const Fixed &copyConstructor );
-		Fixed &operator=( const Fixed &copyConstructor );
+		Fixed( const Fixed& obj );
+		Fixed& operator=( const Fixed& obj );
 		~Fixed();
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
