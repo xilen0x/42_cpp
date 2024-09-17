@@ -1,5 +1,5 @@
 # Nombre del ejecutable
-NAME = fixed
+NAME = fixed2
 
 # Directorios
 OBJS_DIR = .objs/

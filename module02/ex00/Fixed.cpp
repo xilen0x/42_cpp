@@ -8,17 +8,17 @@ Fixed::Fixed()
 }
 
 // Copy constructor
-Fixed::Fixed( const Fixed &copyConstructor )
+Fixed::Fixed( const Fixed& obj )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copyConstructor;
+	*this = obj;//se llama al operador de asignación
 }
 
-// Copy assignment operator overload
-Fixed &Fixed::operator=( const Fixed &copyConstructor )
+// Copy assignment operator
+Fixed& Fixed::operator=( const Fixed& obj )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixedPointValue = copyConstructor.getRawBits();
+	this->_fixedPointValue = obj.getRawBits();//se obtiene el valor de obj y se asigna a la variable miembro _fixedPointValue
 	return (*this);
 }
 
@@ -37,6 +37,7 @@ void Fixed::setRawBits( int const raw )
 }
 
 // Destructor
-Fixed::~Fixed(){
+Fixed::~Fixed()
+{
 	std::cout << "Destructor called" << std::endl;
 }
