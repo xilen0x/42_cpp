@@ -7,20 +7,18 @@ DEP_DIR = .dep/
 
 # Compilador y FLAGS
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP -MF $(DEP_DIR)$*.d  #-g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-# Makefile
-MKF := Makefile
-
-# Archivos fuente
-SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
+# Archivos fuente y cabeceras
+SRC_FILES = main.cpp Fixed.cpp bsp.cpp Point.cpp
+HDR_FILES = Fixed.hpp Point.hpp Contact.hpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 # Rutas completas de los archivos objeto y dependencias
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ_FILES))
-DEPS = $(OBJS:.o=.d)
+DEPS = $(addprefix $(DEP_DIR), $(SRC_FILES:.cpp=.d))
 
 # Eliminar archivos
 RM = rm -rf
@@ -28,7 +26,6 @@ RM = rm -rf
 # Colores
 GREEN = \033[0;32m
 RESET = \033[0m
-
 
 # Regla por defecto
 all: $(NAME)
@@ -46,20 +43,18 @@ fclean: clean
 # Regla para reconstruir todo
 re: fclean all
 
-# Reglas para crear directorios
-$(OBJS_DIR):
-	@mkdir -p $(OBJS_DIR)
-
-$(DEP_DIR):
-	@mkdir -p $(DEP_DIR)
+# Regla para crear los directorios
+$(OBJS_DIR) $(DEP_DIR):
+	@mkdir -p $@
 
 # Regla para compilar archivos fuente en archivos objeto
-$(OBJS_DIR)%.o: %.cpp $(MKF) | $(OBJS_DIR) $(DEP_DIR)
+$(OBJS_DIR)%.o: %.cpp $(HDR_FILES) Makefile | $(OBJS_DIR) $(DEP_DIR)
 	@echo "▶ Compiling... $<"
 	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+	@mv $(OBJS_DIR)$*.d $(DEP_DIR)
 
 # Regla para crear el ejecutable
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 	@echo "$(GREEN)▉▉▉▉▉▉▉▉▉▉ C++ project successfully compiled! ▉▉▉▉▉▉▉▉▉▉$(RESET)"
 

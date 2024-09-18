@@ -1,5 +1,5 @@
 # Nombre del ejecutable
-NAME = account
+NAME = bsp
 
 # Directorios
 OBJS_DIR = .objs/
