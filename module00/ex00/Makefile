@@ -7,7 +7,6 @@ DEP_DIR = .dep/
 
 # Compilador y FLAGS
 CXX = c++
-#CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP -MF $(DEP_DIR)$*.d  #-g -fsanitize=address
 
 # Makefile
@@ -22,7 +21,6 @@ OBJ_FILES = $(SRC_FILES:.cpp=.o)
 # Rutas completas de los archivos objeto y dependencias
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ_FILES))
 DEPS = $(addprefix $(DEP_DIR), $(SRC_FILES:.cpp=.d))
-#DEPS = $(OBJS:.o=.d)
 
 # Eliminar archivos
 RM = rm -rf

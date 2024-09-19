@@ -1,19 +1,23 @@
 #include "ClapTrap.hpp"
+#include <iostream>
 
 int main( void )
 {
-	ClapTrap    Pepito("Pepito");
-    ClapTrap    Narcis("Narcis");
+	ClapTrap    Pepsi("Pepsi");
+    ClapTrap    Coca("Coca");
 
-    Pepito.attack("Narcis");
+    Pepsi.attack("Coca");
+	std::cout << std::endl;
     for(int i = 0; i < 10; i++)
 	{
-        Narcis.attack("Pepito");
+        Coca.attack("Pepsi");
 	}
-	Pepito.beRepaired(20);
+	std::cout << std::endl;
+	Pepsi.beRepaired(20);
+	std::cout << std::endl;
     for(int i = 0; i < 10; i++)
 	{
-        Pepito.takeDamage(2);
+        Pepsi.takeDamage(2);
 	}
 	return (0);
 }

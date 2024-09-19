@@ -10,8 +10,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Archivos fuente y cabeceras
-SRC_FILES = main.cpp Fixed.cpp bsp.cpp Point.cpp
-HDR_FILES = Fixed.hpp Point.hpp Contact.hpp
+SRC_FILES = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+HDR_FILES = Zombie.hpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

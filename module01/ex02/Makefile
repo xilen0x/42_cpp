@@ -10,8 +10,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Archivos fuente y cabeceras
-SRC_FILES = main.cpp Fixed.cpp bsp.cpp Point.cpp
-HDR_FILES = Fixed.hpp Point.hpp Contact.hpp
+SRC_FILES = main.cpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
@@ -48,7 +47,7 @@ $(OBJS_DIR) $(DEP_DIR):
 	@mkdir -p $@
 
 # Regla para compilar archivos fuente en archivos objeto
-$(OBJS_DIR)%.o: %.cpp $(HDR_FILES) Makefile | $(OBJS_DIR) $(DEP_DIR)
+$(OBJS_DIR)%.o: %.cpp Makefile | $(OBJS_DIR) $(DEP_DIR)
 	@echo "▶ Compiling... $<"
 	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 	@mv $(OBJS_DIR)$*.d $(DEP_DIR)

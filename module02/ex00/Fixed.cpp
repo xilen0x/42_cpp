@@ -18,8 +18,9 @@ Fixed::Fixed( const Fixed& obj )
 Fixed& Fixed::operator=( const Fixed& obj )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixedPointValue = obj.getRawBits();//se obtiene el valor de obj y se asigna a la variable miembro _fixedPointValue
-	return (*this);
+	if (this != &obj)//se compara si el objeto actual es diferente al objeto obj
+		this->_fixedPointValue = obj.getRawBits();//se obtiene el valor de obj y se asigna a la variable miembro _fixedPointValue
+	return (*this);//se retorna el objeto actual
 }
 
 // --- Getter ---
