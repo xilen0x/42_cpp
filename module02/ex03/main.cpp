@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 16:58:21 by castorga          #+#    #+#             */
+/*   Updated: 2024/09/20 16:58:23 by castorga         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 #include "Point.hpp"
-//Allowed functions : roundf (from <cmath>)
-
 
 int main()
 {
@@ -15,6 +25,7 @@ int main()
 	std::cout << "----------" << std::endl;
     // Punto fuera del triángulo
     Point p_outside(10.0f, 10.0f);
+
     if (bsp(a, b, c, p_inside))
         std::cout << "True: The point is inside the triangle" << std::endl;
     else
@@ -27,7 +38,7 @@ int main()
     else
         std::cout << "False: The point is outside the triangle" << std::endl;
 
-    return 0;
+    return (0);
 }
 
 

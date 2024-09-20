@@ -1,5 +1,16 @@
-#ifndef FIXED_HPP
-#define FIXED_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 16:58:46 by castorga          #+#    #+#             */
+/*   Updated: 2024/09/20 16:58:48 by castorga         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 
@@ -49,5 +60,3 @@ class Fixed
 };
 
 std::ostream& operator<<( std::ostream& o, const Fixed& obj );
-
-#endif

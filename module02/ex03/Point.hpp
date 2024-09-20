@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #pragma once
+
 #include "Fixed.hpp"
 
 class Point {
@@ -19,15 +20,15 @@ class Point {
 		const Fixed y;
 
 	public:
-	Point();
-	Point(float const x, float const y);
-	Point(const Point& obj);//copy constructor
-	Point& operator=(const Point& obj);//assignment operator
-	~Point();
+		Point();
+		Point(float const x, float const y);
+		Point(const Point& obj);//copy constructor
+		Point& operator=(const Point& obj);//assignment operator
+		~Point();
 
-	//getters
-	Fixed getX() const;
-	Fixed getY() const;
+		//getters
+		Fixed getX() const;
+		Fixed getY() const;
 
 };
 

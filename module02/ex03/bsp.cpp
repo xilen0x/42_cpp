@@ -13,8 +13,10 @@
 #include "Point.hpp"
 #include "Fixed.hpp"
 #include <cmath>
+
 // Calculo del área de un triángulo utilizando la fórmula del determinante
-Fixed area(Point const &p1, Point const &p2, Point const &p3) {
+Fixed area(Point const &p1, Point const &p2, Point const &p3)
+{
     Fixed x1 = p1.getX();
     Fixed y1 = p1.getY();
     Fixed x2 = p2.getX();
@@ -27,7 +29,8 @@ Fixed area(Point const &p1, Point const &p2, Point const &p3) {
     return area;
 }
 
-bool bsp(Point const a, Point const b, Point const c, Point const point) {
+bool bsp(Point const a, Point const b, Point const c, Point const point)
+{
     Fixed totalArea = area(a, b, c);
     Fixed area1 = area(point, b, c);
     Fixed area2 = area(a, point, c);
@@ -47,10 +50,5 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
     // Verifica si el punto está dentro del triángulo
     bool isInside = totalArea == roundedSumOfAreas && (area1 >= Fixed(0)) && (area2 >= Fixed(0)) && (area3 >= Fixed(0));
     std::cout << "Is inside: " << isInside << std::endl;
-    return isInside;
+    return (isInside);
 }
-
-
-
-
-

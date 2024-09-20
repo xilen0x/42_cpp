@@ -11,7 +11,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Archivos fuente y cabeceras
 SRC_FILES = main.cpp Fixed.cpp bsp.cpp Point.cpp
-HDR_FILES = Fixed.hpp Point.hpp Contact.hpp
+HDR_FILES = Fixed.hpp Point.hpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

@@ -13,20 +13,16 @@
 #include "Point.hpp"
 
 // Default constructor
-Point::Point() : x(0), y(0) {
-}
+Point::Point() : x(0), y(0){}
 
 // Parameterized constructor
-Point::Point(float const x, float const y) : x(x), y(y) {
-}
+Point::Point(float const x, float const y) : x(x), y(y) {}
 
 // Copy constructor
-Point::Point(const Point& obj) : x(obj.x), y(obj.y) {
-}
+Point::Point(const Point& obj) : x(obj.x), y(obj.y) {}
 
 // Assignment operator
-Point& Point::operator=(const Point& obj)
-{
+Point& Point::operator=(const Point& obj){
 	(void)obj;
 	return *this;
 }
@@ -41,5 +37,4 @@ Fixed Point::getY() const {
 	return y;
 }
 
-Point::~Point() {
-}
+Point::~Point() {}
