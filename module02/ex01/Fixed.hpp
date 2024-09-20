@@ -11,10 +11,10 @@ class Fixed
 
 	public:
 		Fixed();
-		Fixed( const int value );
-		Fixed( const float value );
-		Fixed( const Fixed& obj );
-		Fixed& operator=( const Fixed& obj );
+		Fixed( const int value );//constructor de int
+		Fixed( const float value );//constructor de float
+		Fixed( const Fixed& obj );//constructor de copia
+		Fixed& operator=( const Fixed& obj );//sobrecarga del operador de asignación
 		~Fixed();
 
 		int		getRawBits( void ) const;

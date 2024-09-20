@@ -8,15 +8,18 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 }
 
+// Int constructor
 Fixed::Fixed( const int value )
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixedPointValue = value << _fractionalBits;
+	this->_fixedPointValue = value << _fractionalBits;//se desplaza el valor de value 8 veces a la izquierda
 }
+
+// Float constructor
 Fixed::Fixed( const float value )
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixedPointValue = roundf(value * (1 << _fractionalBits));
+	this->_fixedPointValue = roundf(value * (1 << _fractionalBits));//se redondea el valor de value multiplicado por 2^8
 }
 
 // Copy constructor

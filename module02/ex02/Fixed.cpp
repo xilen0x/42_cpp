@@ -155,9 +155,9 @@ Fixed& Fixed::operator++( void )
 // --- Overload ++ operator(Post-increment) ---
 Fixed Fixed::operator++( int )
 {
-	Fixed temp(*this);
+	Fixed temp(*this);//se crea un objeto temporal con el valor de this
 	this->_fixedPointValue++;
-	return (temp);
+	return (temp);//se devuelve el objeto temporal
 }
 
 // --- Overload -- operator(Pre-decrement) ---
