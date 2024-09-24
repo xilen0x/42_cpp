@@ -32,6 +32,15 @@ ClapTrap::ClapTrap(const std::string& name)
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
 }
+//constructor with two parameters
+// ClapTrap::ClapTrap(const std::string& name, int attackDamage)
+// {
+// 	std::cout << "ClapTrap constructor with two parameters called" << std::endl;
+// 	this->_name = name;
+// 	this->_hitPoints = 10;
+// 	this->_energyPoints = 10;
+// 	this->_attackDamage = attackDamage;//Permitir que el usuario pueda elegir el daño de ataque
+// }
 
 //copy constructor
 ClapTrap::ClapTrap(const ClapTrap& obj)
@@ -127,6 +136,11 @@ int ClapTrap::getEnergyPoints() const{
 int ClapTrap::getAttackDamage() const{
 	return (this->_attackDamage);
 }
+
+//--- Setters functions
+// void ClapTrap::setAttackDamage(int attackDamage){
+// 	this->_attackDamage = attackDamage;
+// }
 
 //destructor
 ClapTrap::~ClapTrap()

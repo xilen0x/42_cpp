@@ -215,7 +215,9 @@ const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 
 //--------------------------------------------------------------------------------------------
 
-// Add abs() method
+// Funcion que retorna el valor absoluto de un número
+// Si _fixedPointValue es menor a 0, se retorna el valor negativo de _fixedPointValue, 
+// si no, se retorna el valor de _fixedPointValue
 Fixed Fixed::abs() const {
     return Fixed(this->_fixedPointValue < 0 ? -this->_fixedPointValue : this->_fixedPointValue);
 }

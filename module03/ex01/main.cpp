@@ -30,7 +30,8 @@ void printStatus(const ClapTrap& hero, const ClapTrap& villain)
 void battle(ClapTrap& attacker, ClapTrap& defender)
 {
     attacker.attack(defender.getName());  // El atacante realiza el ataque
-    defender.takeDamage(attacker.getAttackDamage());  // El defensor pierde puntos de vida en función del daño del atacante
+    // defender.takeDamage(attacker.getAttackDamage());  // El defensor pierde puntos de vida en función del daño del atacante
+	defender.takeDamage(1);
 }
 int	initMenu(int &choice)
 {
@@ -68,7 +69,8 @@ int main(void)
 
     std::cout << "\n***** INITIAL STATUS *****" << std::endl;
     printStatus(hero, villain);
-    while (hero.getHitPoints() > 0 && villain.getHitPoints() > 0)
+    while (hero.getHitPoints() > 0 && villain.getHitPoints() > 0 && 
+           (hero.getEnergyPoints() > 0 || villain.getEnergyPoints() > 0))
     {
 		initMenu(choice);
 		switch (choice)

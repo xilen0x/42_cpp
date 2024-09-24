@@ -25,7 +25,7 @@ Fixed area(Point const &p1, Point const &p2, Point const &p3)
     Fixed y3 = p3.getY();
 
     // Cálculo del área utilizando la fórmula
-    Fixed area = (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)).abs() / Fixed(2);
+    Fixed area = (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)).abs() / Fixed(2);//abs() devuelve el valor absoluto de un número
     return area;
 }
 

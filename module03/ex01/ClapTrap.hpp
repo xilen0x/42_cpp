@@ -28,7 +28,10 @@ class ClapTrap
 
 		//constructor with name parameter
 		ClapTrap(const std::string& name);
-	
+
+		//constructor with two parameters
+		// ClapTrap(const std::string& name, int attackDamage);
+		
 		//copy constructor
 		ClapTrap(const ClapTrap& obj);
 
@@ -49,4 +52,6 @@ class ClapTrap
 		int getEnergyPoints() const;
 		int getAttackDamage() const;
 
+		//setters functions
+		// void setAttackDamage(int attackDamage);
 };
