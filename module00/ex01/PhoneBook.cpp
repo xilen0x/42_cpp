@@ -20,10 +20,10 @@ int	validatePhoneNumber(std::string &pn)
 	int						count = 0;
 
 
-	getline(std::cin, phone);
+	std::getline(std::cin, phone);
 	for (it = phone.begin(); it != phone.end(); it++)
 	{
-		if (isdigit(*it))
+		if (std::isdigit(*it))
 			count++;
 	}
 	if (count == 9)
@@ -48,16 +48,16 @@ void	PhoneBook::addContact(void)
 		if (this->count == 8)
 			this->count = 0;
 		std::cout << "\nFirst name: ";
-		getline(std::cin, fn);
+		std::getline(std::cin, fn);
 		std::cout << "Last name: ";
-		getline(std::cin, ln);
+		std::getline(std::cin, ln);
 		std::cout << "Nick name: ";
-		getline(std::cin, nn);
+		std::getline(std::cin, nn);
 		std::cout << "Phone number(9 digits): ";
 		if (validatePhoneNumber(pn) == 0)
 			return ;
 		std::cout << "Darkest secret: ";
-		getline(std::cin, ds);
+		std::getline(std::cin, ds);
 		if (!fn.empty() && !ln.empty() && !nn.empty() && !pn.empty() && !ds.empty())
 		{
 			this->contacts[this->count].setFirstName(fn);
@@ -73,7 +73,7 @@ void	PhoneBook::addContact(void)
 		}
 		this->count++;
 		std::cout << "\nDo you want to add another contact? (y/n): ";
-		getline(std::cin, in);
+		std::getline(std::cin, in);
 		if (in == "n")
 		{
 			printContactList();
@@ -124,7 +124,7 @@ void PhoneBook::searchContact(void) {
         return;
     } else {
         std::cout << "\nSelect an index(0 - 7): ";
-        getline(std::cin, in);
+        std::getline(std::cin, in);
         int index = -1;
         if (in.length() == 1 && in[0] >= '0' && in[0] <= '7') {
             index = in[0] - '0';
