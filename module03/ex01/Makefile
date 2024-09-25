@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = clapTrap
+NAME = scavTrap
 
 # Directorios
 OBJS_DIR = .objs/
@@ -22,8 +22,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Archivos fuente y cabeceras
-SRC_FILES = main.cpp ClapTrap.cpp 
-HDR_FILES = ClapTrap.hpp
+SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp
+HDR_FILES = ClapTrap.hpp ScavTrap.hpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
