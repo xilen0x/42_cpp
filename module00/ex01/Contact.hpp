@@ -26,6 +26,7 @@ class Contact
 	
 	public:
 		Contact();
+		Contact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret);
 		~Contact();
 	
 		void 		setFirstName(std::string firstName);
