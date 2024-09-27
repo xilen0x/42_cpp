@@ -12,28 +12,32 @@
 
 #pragma once
 
-//Clase ScavTrap que hereda de ClapTrap
 #include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap
 {
+	private:
+
 	public:
-		//default constructor
+		//CANONICAL FORM: Default constructor
 		ScavTrap();
 
-		//constructor with name parameter
+		//Overloaded constructor
 		ScavTrap(const std::string& name);
 
-		//copy constructor
+		//CANONICAL FORM: Copy constructor
 		ScavTrap(const ScavTrap& obj);
 
-		//assignment operator
+		//CANONICAL FORM: Assignment operator overload
 		ScavTrap& operator=(const ScavTrap& obj);
 
-		//destructor
+		//CANONICAL FORM: Destructor
 		~ScavTrap();
 
-		//member functions
-		// void attack(const std::string& target);
+		//ATTACK METHOD OVERLOAD
+		void attack(const std::string& target);
+
+		//NEW METHOD
 		void guardGate();
+
 };

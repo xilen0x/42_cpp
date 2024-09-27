@@ -13,21 +13,21 @@
 #include <iostream>
 #include <string>
 
-int main()
+int main(void)
 {
     std::string str = "HI THIS IS BRAIN";
-    std::string *stringPTR = &str;
-    std::string &stringREF = str;
+    std::string *stringPTR = &str;//puntero a string
+    std::string &stringREF = str;//referencia a string (alias)
 
-    // direcciones de memoria
-    std::cout << "Dirección de memoria de str: " << &str << std::endl;
-    std::cout << "Dirección de memoria contenida en stringPTR: " << stringPTR << std::endl;
-    std::cout << "Dirección de memoria de stringREF: " << &stringREF << std::endl;
+    // Direcciones de memoria
+    std::cout << "Dirección de memoria de str				: " << &str << std::endl;
+    std::cout << "Dirección de memoria contenida en stringPTR		: " << stringPTR << std::endl;
+    std::cout << "Dirección de memoria de stringREF			: " << &stringREF << std::endl;
 
     // valores
-    std::cout << "Valor de str: " << str << std::endl;
-    std::cout << "Valor apuntado por stringPTR: " << *stringPTR << std::endl;
-    std::cout << "Valor referenciado por stringREF: " << stringREF << std::endl;
+    std::cout << "Valor de str						: " << str << std::endl;
+    std::cout << "Valor apuntado por stringPTR				: " << *stringPTR << std::endl;
+    std::cout << "Valor referenciado por stringREF			: " << stringREF << std::endl;
 
     return (0);
 }

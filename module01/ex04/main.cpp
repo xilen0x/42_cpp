@@ -10,13 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "main.hpp"
+#include <iostream>
+#include <string>
+
+#define RED "\033[91m"
+#define RESET "\033[0m"
+
+void replaceText(std::string& filename, std::string& s1, std::string& s2);
 
 int main(int ac, char *av[])
 {
     if (ac != 4)
 	{
-		std::cout << "Invalid parameters!" << std::endl;
+		std::cout << RED << "Invalid parameters!" << RESET << std::endl;
         std::cerr << av[0] << "<filename> <string1> <string2>" << std::endl;
         return (1);
     }

@@ -16,27 +16,27 @@
 
 Zombie* zombieHorde( int N, std::string name );
 
-int main()
+int main(void)
 {
 	std::string numZombies;
-	int count = 0;
+	int 		count = 0;
 
 	std::cout << "Enter the number of zombies: ";
 	getline(std::cin, numZombies);
-	if (std::cin.eof())
+	if (std::cin.eof())//eof() verifica si se ha alcanzado el final del archivo
 		exit(1);
-	count = std::atoi(numZombies.c_str());//El método .c_str() convierte el objeto std::string a una cadena de caracteres tipo const char*
+	count = std::atoi(numZombies.c_str());//c_str() convierte el objeto std::string a una cadena de caracteres tipo const char*
 	if (count < 0)
 	{
-		std::cout << "Invalid number of zombies!" << std::endl;
+		std::cout << RED << "Invalid number of zombies!" << RESET << std::endl;
 		return (1);
 	}
-	Zombie *instance = zombieHorde(count, "42 student");
+	Zombie *instance = zombieHorde(count, "Gollum");
 	for (int i = 0; i < count; i++)
 	{
-		std::cout << "Zombie " << i + 1 << ": ";
+		std::cout << "Zombie " << i + 1 << " ";
 		instance[i].announce();
 	}
-	delete [] instance;
+	delete [] instance;//forma de liberar la memoria de un arreglo
 	return(0);
 }

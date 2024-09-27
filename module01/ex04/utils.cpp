@@ -10,17 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "main.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
 void replaceText(std::string& file, std::string& s1, std::string& s2) 
 {
 	std::string line;
-	bool found = false;
+	bool 		found = false;
 	
     std::ifstream inputFile(file.c_str());
     if (!inputFile)
 	{
-        std::cerr << "Error: Open file doesn't exist" << file << std::endl;
+        std::cerr << "Error open file: " << file << std::endl;
         return;
     }
 	std::ofstream outputFile((file + ".replace").c_str());

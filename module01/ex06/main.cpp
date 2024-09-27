@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+# include <algorithm>//transform
 
 int main(int ac, char **av)
 {
@@ -21,26 +22,7 @@ int main(int ac, char **av)
 		std::cout << "Usage: ./a.out <level>" << std::endl;
 		return (1);
 	}
-	{
-		switch (av[1][0])
-		{
-			case 'd':
-				instance.complain("debug");
-				break;
-			case 'i':
-				instance.complain("info");
-				break;
-			case 'w':
-				instance.complain("warning");
-				break;
-			case 'e':
-				instance.complain("error");
-				break;
-			default:
-				std::cout << "Invalid level" << std::endl;
-				break;
-		}
-	}
+	instance.complain(av[1]);
 	return (0);
 }
 

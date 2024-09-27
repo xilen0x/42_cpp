@@ -19,8 +19,8 @@
 class HumanA
 {
 	private:
-		std::string	_name;
-		Weapon		&_weapon;
+		std::string	_name; //representa el nombre del humano
+		Weapon		&_weapon;//referencia a la clase Weapon
 		
 	public:
 		HumanA(std::string, Weapon&);

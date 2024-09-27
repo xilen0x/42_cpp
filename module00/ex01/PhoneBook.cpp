@@ -45,41 +45,44 @@ void	PhoneBook::addContact(void)
 
 	do
 	{
-		if (this->count == 8)
-			this->count = 0;
 		std::cout << "\nFirst name: ";
-		std::getline(std::cin, fn);
+		getline(std::cin, fn);
+		if (std::cin.eof())
+    	    exit(1);
 		std::cout << "Last name: ";
-		std::getline(std::cin, ln);
+		getline(std::cin, ln);
+		if (std::cin.eof())
+    	    exit(1);
 		std::cout << "Nick name: ";
-		std::getline(std::cin, nn);
+		getline(std::cin, nn);
+		if (std::cin.eof())
+    	    exit(1);
 		std::cout << "Phone number(9 digits): ";
 		if (validatePhoneNumber(pn) == 0)
 			return ;
 		std::cout << "Darkest secret: ";
-		std::getline(std::cin, ds);
+		getline(std::cin, ds);
+		if (std::cin.eof())
+    	    exit(1);
 		if (!fn.empty() && !ln.empty() && !nn.empty() && !pn.empty() && !ds.empty())
 		{
-			this->contacts[this->count].setFirstName(fn);
-			this->contacts[this->count].setLastName(ln);
-			this->contacts[this->count].setNickName(nn);
-			this->contacts[this->count].setPhoneNumber(pn);
-			this->contacts[this->count].setDarkestSecret(ds);
+			this->contacts[count % 8] = Contact(fn, ln, nn, pn, ds);
+			count++;
 		}
 		else
 		{
 			std::cout << "\n**** All fields are required! ****" << std::endl;
 			return ;
 		}
-		this->count++;
 		std::cout << "\nDo you want to add another contact? (y/n): ";
-		std::getline(std::cin, in);
-		if (in == "n")
-		{
-			printContactList();
-			return ;
-		}
-	} while (in == "y" || in == "Y");	
+		getline(std::cin, in);
+		if (std::cin.eof())
+    	    exit(1);
+		if (in == "n" || in == "N")
+			break;
+		printContactList();
+	} while (in == "y" || in == "Y");
+	printContactList();
 }
 
 std::string truncateWithDot(const std::string& str, std::size_t maxWidth)
@@ -129,7 +132,7 @@ void PhoneBook::searchContact(void) {
         if (in.length() == 1 && in[0] >= '0' && in[0] <= '7') {
             index = in[0] - '0';
         }
-        if (index >= 0 && index < this->count) {
+        if (index >= 0 && index < 8 && index < this->count) {
             printContactList(index);
             return;
         } else {

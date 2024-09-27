@@ -27,6 +27,7 @@ void Zombie::announce(void)
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
+
 //--- Setters
 void	Zombie::setName(std::string name)
 {

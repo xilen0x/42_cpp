@@ -14,6 +14,11 @@
 
 #include <string>
 
+#define RED "\033[91m"
+#define GREEN "\033[92m"
+#define YELLOW "\033[93m"
+#define RESET "\033[0m"
+
 class ClapTrap
 {
 	private:
@@ -48,5 +53,6 @@ class ClapTrap
 		int getHitPoints() const;
 		int getEnergyPoints() const;
 		int getAttackDamage() const;
-
+		//setters functions
+		//void	setAttackDamage(int attackDamage);
 };

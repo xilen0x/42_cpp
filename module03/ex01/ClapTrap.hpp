@@ -14,44 +14,46 @@
 
 #include <string>
 
+#define RED "\033[91m"
+#define GREEN "\033[92m"
+#define RESET "\033[0m"
+
 class ClapTrap
 {
-	private:
+	protected:
 		std::string _name;
 		int 		_hitPoints;
 		int 		_energyPoints;
 		int 		_attackDamage;
 
 	public:
-		//default constructor
+		//CANONICAL FORM: Default constructor
 		ClapTrap();
 
-		//constructor with name parameter
+		//Overloaded constructor
 		ClapTrap(const std::string& name);
-
-		//constructor with two parameters
-		// ClapTrap(const std::string& name, int attackDamage);
-		
-		//copy constructor
+	
+		//CANONICAL FORM: Copy constructor
 		ClapTrap(const ClapTrap& obj);
 
-		//assignment operator
+		//CANONICAL FORM: Assignment operator overload
 		ClapTrap& operator=(const ClapTrap& obj);
 
-		//destructor
+		//CANONICAL FORM: Destructor
 		~ClapTrap();
 
-		//member functions
+		//METHODS
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		//getters functions
+		//------ GETTERS ------
 		std::string getName() const;
 		int getHitPoints() const;
 		int getEnergyPoints() const;
 		int getAttackDamage() const;
-
-		//setters functions
-		// void setAttackDamage(int attackDamage);
+		
+		//------ SETTERS ------
+		//void	setAttackDamage(int attackDamage);
 };
+
