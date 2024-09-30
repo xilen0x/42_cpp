@@ -35,7 +35,7 @@ class FragTrap : virtual public ClapTrap//Virtual inheritance
 		~FragTrap();
 
 		//ATTACK METHOD OVERLOAD
-		void attack(const std::string& target);//verificar si se elimina o no
+		// void attack(const std::string& target);//verificar si se elimina o no
 
 		//NEW METHOD
 		void highFivesGuys(void);

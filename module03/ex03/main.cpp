@@ -30,6 +30,7 @@ void printStatus(const DiamondTrap& hero, const DiamondTrap& villain)
 }
 void battle(DiamondTrap& attacker, DiamondTrap& defender)
 {
+	// attacker.ScavTrap::attack(defender.getName());
     attacker.attack(defender.getName());  // El atacante realiza el ataque
     defender.takeDamage(attacker.getAttackDamage());  // El defensor pierde puntos de vida en función del daño del atacante
 }
@@ -126,4 +127,18 @@ int main(void)
 // 	//Fanta.attack("Pepsi");
 	
 // 	return (0);
+// }
+
+// int main()
+// {
+//     DiamondTrap    Pepito("Pepito");
+//     DiamondTrap    Narcis("Narcis");
+
+//     Pepito.attack("Narcis");
+//     for(int i = 0; i < 10; i++)
+//         Narcis.attack("Pepito");
+//     Pepito.beRepaired(20);
+//     for(int i = 0; i < 10; i++)
+//         Pepito.takeDamage(100);
+//     Pepito.whoAmI();
 // }

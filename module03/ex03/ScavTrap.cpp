@@ -60,17 +60,17 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " is already destroyed!" << std::endl;
+		std::cout << this->_name << " is already destroyed!" << std::endl;
 		return;
 	}
 	if (this->_energyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " can't attack because it has no energy" << std::endl;
+		std::cout << this->_name << " can't attack because it has no energy" << std::endl;
 		return;
 	}
 	this->_energyPoints -= 1;
 	
-	std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!. Available: " << this->_hitPoints << " Hit points!" << std::endl;
+	std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!. Available: " << this->_hitPoints << " Hit points!" << std::endl;
 	std::cout << std::endl;
 }
 

@@ -19,7 +19,7 @@
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
-		std::string	_name;
+		std::string	_nameD;
 	
 	public:
 		//CANONICAL FORM: Default constructor

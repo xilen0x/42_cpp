@@ -56,6 +56,6 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << YELLOW << "DiamondTrap name: " << _name << RESET << std::endl;
-	std::cout << YELLOW << "ClapTrap name: " << _clapName << RESET << std::endl;
+	std::cout << YELLOW << "DiamondTrap name: " << _nameD << RESET << std::endl;
+	std::cout << YELLOW << "ClapTrap name: " << _name << RESET << std::endl;
 }

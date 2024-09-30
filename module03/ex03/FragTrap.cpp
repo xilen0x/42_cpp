@@ -51,21 +51,21 @@ FragTrap& FragTrap::operator=(const FragTrap& obj)
 }
 
 //ATTACK METHOD OVERLOAD
-void FragTrap::attack(const std::string& target)
-{
-	if (this->_hitPoints <= 0)
-	{
-		std::cout << "FragTrap " << this->_name << " is dead and cannot attack." << std::endl;
-		return ;
-	}
-	if (this->_energyPoints < 10)
-	{
-		std::cout << "FragTrap " << this->_name << " has not enough energy to attack." << std::endl;
-		return ;
-	}
-	this->_energyPoints -= 1;
-	std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-}
+// void FragTrap::attack(const std::string& target)
+// {
+// 	if (this->_hitPoints <= 0)
+// 	{
+// 		std::cout << "FragTrap " << this->_name << " is dead and cannot attack." << std::endl;
+// 		return ;
+// 	}
+// 	if (this->_energyPoints < 10)
+// 	{
+// 		std::cout << "FragTrap " << this->_name << " has not enough energy to attack." << std::endl;
+// 		return ;
+// 	}
+// 	this->_energyPoints -= 1;
+// 	std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+// }
 
 //NEW METHOD
 void FragTrap::highFivesGuys(void)
