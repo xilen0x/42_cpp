@@ -21,11 +21,9 @@ void printStatus(const FragTrap& hero, const FragTrap& villain)
 {
     std::cout << std::left << std::setw(20) << hero.getName() + " Hit points" << " : " << hero.getHitPoints() << std::endl;
     std::cout << std::left << std::setw(20) << hero.getName() + " Energy points" << " : " << hero.getEnergyPoints() << std::endl;
-    std::cout << std::left << std::setw(20) << hero.getName() + " Attack damage" << " : " << hero.getAttackDamage() << std::endl;
     std::cout << std::endl;
 	std::cout << std::left << std::setw(20) << villain.getName() + " Hit points" << " : " << villain.getHitPoints() << std::endl;
     std::cout << std::left << std::setw(20) << villain.getName() + " Energy points" << ": " << villain.getEnergyPoints() << std::endl;
-    std::cout << std::left << std::setw(20) << villain.getName() + " Attack damage" << ": " << villain.getAttackDamage() << std::endl;
     std::cout << std::endl;
 	std::cout << "--------------------------" << std::endl;
 }

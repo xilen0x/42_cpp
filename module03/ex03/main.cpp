@@ -10,13 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "DiamondTrap.hpp"
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 #include <iomanip>
 #include <limits>
 
-void printStatus(const ClapTrap& hero, const ClapTrap& villain)
+void printStatus(const DiamondTrap& hero, const DiamondTrap& villain)
 {
     std::cout << std::left << std::setw(20) << hero.getName() + " Hit points" << " : " << hero.getHitPoints() << std::endl;
     std::cout << std::left << std::setw(20) << hero.getName() + " Energy points" << " : " << hero.getEnergyPoints() << std::endl;
@@ -26,7 +28,7 @@ void printStatus(const ClapTrap& hero, const ClapTrap& villain)
     std::cout << std::endl;
 	std::cout << "--------------------------" << std::endl;
 }
-void battle(ClapTrap& attacker, ClapTrap& defender)
+void battle(DiamondTrap& attacker, DiamondTrap& defender)
 {
     attacker.attack(defender.getName());  // El atacante realiza el ataque
     defender.takeDamage(attacker.getAttackDamage());  // El defensor pierde puntos de vida en función del daño del atacante
@@ -47,18 +49,18 @@ int	initMenu(int &choice)
     }
 	return (0);
 }
-int	finalMenu(ScavTrap &hero, ScavTrap &villain)
+int	finalMenu(FragTrap &hero, FragTrap &villain)
 {
     std::cout << "========= Battle ended! =========" << std::endl;
 	if (hero.getHitPoints() <= 0)
 	{
 			std::cout << GREEN << "*** Villain wins! ***" << RESET << std::endl;
-			hero.guardGate();
+			hero.highFivesGuys();
 	}
 	else if (villain.getHitPoints() <= 0)
 	{
 		std::cout << GREEN << "*** Hero wins! ***" << RESET << std::endl;
-		villain.guardGate();
+		villain.highFivesGuys();
 	}
 	else
 		std::cout << "*** It's a draw! ***" << std::endl;
@@ -67,8 +69,8 @@ int	finalMenu(ScavTrap &hero, ScavTrap &villain)
 
 int main(void)
 {
-    ScavTrap	hero("Hero");
-    ScavTrap	villain("Villain");
+    DiamondTrap	hero("Hero");
+    DiamondTrap	villain("Villain");
     int			choice;
 
     std::cout << "\n***** INITIAL STATUS *****" << std::endl;
@@ -103,9 +105,9 @@ int main(void)
 
 // int main(void)
 // {
-//     ScavTrap	PepsiCola("Pepsi");
+//     FragTrap	PepsiCola("Pepsi");
 // 	//ScavTrap	Fanta;
-//     ScavTrap	Coca("Cocke");
+//     FragTrap	Coca("Cocke");
 
 //     PepsiCola.attack("Cocke");
     
@@ -120,7 +122,7 @@ int main(void)
 // 	{
 // 		PepsiCola.takeDamage(2);
 // 	}
-	
+// 	PepsiCola.highFivesGuys();
 // 	//Fanta.attack("Pepsi");
 	
 // 	return (0);
