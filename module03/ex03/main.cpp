@@ -50,18 +50,20 @@ int	initMenu(int &choice)
     }
 	return (0);
 }
-int	finalMenu(FragTrap &hero, FragTrap &villain)
+int	finalMenu(DiamondTrap &hero, DiamondTrap &villain)
 {
     std::cout << "========= Battle ended! =========" << std::endl;
 	if (hero.getHitPoints() <= 0)
 	{
 			std::cout << GREEN << "*** Villain wins! ***" << RESET << std::endl;
 			hero.highFivesGuys();
+			hero.whoAmI();
 	}
 	else if (villain.getHitPoints() <= 0)
 	{
 		std::cout << GREEN << "*** Hero wins! ***" << RESET << std::endl;
 		villain.highFivesGuys();
+		villain.whoAmI();
 	}
 	else
 		std::cout << "*** It's a draw! ***" << std::endl;

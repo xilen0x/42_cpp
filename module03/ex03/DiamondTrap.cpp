@@ -15,22 +15,23 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap("Default DiamondTrap")
+DiamondTrap::DiamondTrap() : ClapTrap()
 {
 	std::cout << YELLOW << "DiamondTrap default constructor called" << RESET << std::endl;
+	ClapTrap::_name = "Default ClapTrap";
 	_name = "Default DiamondTrap";
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 30;
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 }
 
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name")
 {
 	std::cout << YELLOW << "DiamondTrap overloaded constructor called" << RESET << std::endl;
-	_name = name;
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 30;
+	_nameD = name;
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& obj)
@@ -56,6 +57,6 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << YELLOW << "DiamondTrap name: " << _nameD << RESET << std::endl;
-	std::cout << YELLOW << "ClapTrap name: " << _name << RESET << std::endl;
+	std::cout << CYAN << "DiamondTrap name: " << this->_nameD << RESET << std::endl;
+	std::cout << CYAN << "ClapTrap name: " << _name << RESET << std::endl;
 }
