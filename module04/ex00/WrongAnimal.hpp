@@ -1,48 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 13:08:05 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/02 13:08:07 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/02 16:42:53 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/02 16:42:55 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+# pragma once
 
 #include <iostream>
 
-//COLORES
-#define RESET		"\033[0m"
-#define RED			"\033[31m"				/* Red */
-#define GREEN		"\033[32m"				/* Green */
-#define YELLOW		"\033[33m"				/* Yellow */
-#define BLUE		"\033[34m"				/* Blue */
-
-class Animal
+class WrongAnimal
 {
 	protected:
 		std::string _type;
+
 	public:
-		//default constructor
-		Animal();
+		//Default constructor
+		WrongAnimal();
 
-		//copy constructor
-		Animal(const Animal &obj);
+		//Copy constructor
+		WrongAnimal(const WrongAnimal &copy);
 
-		//assignment operator
-		Animal& operator=(const Animal &obj);
+		//Assignment operator
+		WrongAnimal &operator = (const WrongAnimal &copy);
 
-		//member function
-		virtual void makeSound() const;
-		// void makeSound() const;
+		//Member function
+		void makeSound() const;
 
-		//get function
+		//Get function
 		std::string getType() const;
 
-		//destructor
-		virtual ~Animal();
-
+		//Destructor
+		~WrongAnimal();
 };

@@ -22,8 +22,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Archivos fuente y cabeceras
-SRC_FILES = main.cpp Animal.cpp
-HDR_FILES = Animal.hpp
+SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+HDR_FILES = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
