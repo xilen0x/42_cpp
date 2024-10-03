@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 13:11:11 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/02 13:11:14 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/02 13:11:28 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/02 13:11:30 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal
+class	Cat : public AAnimal
 {
 	private:
 		Brain *_brain;
 
 	public:
 		//default constructor
-		Dog();
-		
+		Cat();
+
 		//copy constructor
-		Dog(const Dog &obj);
-		
+		Cat(const Cat &obj);
+
 		//assignment operator
-		Dog& operator=(const Dog &obj);
+		Cat& operator=(const Cat &obj);
 
 		//destructor
-		~Dog();
+		~Cat();
 
 		//member function
-		void makeSound() const;
+		virtual void makeSound() const;
 };

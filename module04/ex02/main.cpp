@@ -16,10 +16,8 @@
 
 int main(void)
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
 	int count = 10;
-	Animal* myZoo[count];
+	AAnimal* myZoo[count];
 
 	for (int i = 0; i < count; i++)
 	{
@@ -43,8 +41,6 @@ int main(void)
 	}
 	for (int i = 0; i < count; i++)
 		delete myZoo[i];
-	delete j;
-	delete i;
 	return (0);
 }
 

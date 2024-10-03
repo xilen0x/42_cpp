@@ -5,47 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 11:15:53 by castorga          #+#    #+#             */
-/*   Updated: 2024/09/24 11:15:54 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/03 17:34:11 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/03 17:34:13 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
 
 int main(void)
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	int count = 10;
-	Animal* myZoo[count];
+	IMateriaSource* src = new MateriaSource();
 
-	for (int i = 0; i < count; i++)
-	{
-		if (i % 2 == 0)
-			myZoo[i] = new Dog();
-		else
-			myZoo[i] = new Cat();
-	}
-	for (int i = 0; i < count; i++)
-	{
-		if (i % 2 == 0)
-		{
-			std::cout << YELLOW << "The dog says: " << RESET;
-			myZoo[i]->makeSound();
-		}
-		else
-		{
-			std::cout << GREEN << "The cat says: " << RESET;
-			myZoo[i]->makeSound();
-		}
-	}
-	for (int i = 0; i < count; i++)
-		delete myZoo[i];
-	delete j;
-	delete i;
+	src->learnMateria(new Ice());
+
+	src->learnMateria(new Cure());
+
+	ICharacter* me = new Character("me");
+
+	AMateria* tmp;
+
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	ICharacter* bob = new Character("bob");
+
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+
 	return (0);
 }
-
 

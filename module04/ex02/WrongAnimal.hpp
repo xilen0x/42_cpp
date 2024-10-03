@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 13:11:11 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/02 13:11:14 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/02 16:42:53 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/02 16:42:55 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+# pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
 
-class Dog : public Animal
+class WrongAnimal
 {
-	private:
-		Brain *_brain;
+	protected:
+		std::string _type;
 
 	public:
-		//default constructor
-		Dog();
-		
-		//copy constructor
-		Dog(const Dog &obj);
-		
-		//assignment operator
-		Dog& operator=(const Dog &obj);
+		//Default constructor
+		WrongAnimal();
 
-		//destructor
-		~Dog();
+		//Copy constructor
+		WrongAnimal(const WrongAnimal &copy);
 
-		//member function
+		//Assignment operator
+		WrongAnimal &operator = (const WrongAnimal &copy);
+
+		//Member function
 		void makeSound() const;
+
+		//Get function
+		std::string getType() const;
+
+		//Destructor
+		~WrongAnimal();
 };

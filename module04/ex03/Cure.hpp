@@ -1,38 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 13:11:11 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/02 13:11:14 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/03 18:16:57 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/03 18:17:00 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog : public Animal
-{
-	private:
-		Brain *_brain;
-
-	public:
-		//default constructor
-		Dog();
-		
-		//copy constructor
-		Dog(const Dog &obj);
-		
-		//assignment operator
-		Dog& operator=(const Dog &obj);
-
-		//destructor
-		~Dog();
-
-		//member function
-		void makeSound() const;
-};

@@ -1,38 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 13:11:11 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/02 13:11:14 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/02 13:08:05 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/02 13:08:07 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
 
-class Dog : public Animal
+//COLORES
+#define RESET		"\033[0m"
+#define RED			"\033[31m"				/* Red */
+#define GREEN		"\033[32m"				/* Green */
+#define YELLOW		"\033[33m"				/* Yellow */
+#define BLUE		"\033[34m"				/* Blue */
+
+class AAnimal
 {
-	private:
-		Brain *_brain;
+	protected:
+		std::string _type;
 
 	public:
 		//default constructor
-		Dog();
-		
+		AAnimal();
+
 		//copy constructor
-		Dog(const Dog &obj);
-		
+		AAnimal(const AAnimal &obj);
+
 		//assignment operator
-		Dog& operator=(const Dog &obj);
+		AAnimal& operator=(const AAnimal &obj);
+
+		//Pure virtual function
+		virtual void makeSound() const = 0;
+
+		//get function
+		std::string getType() const;
 
 		//destructor
-		~Dog();
+		virtual ~AAnimal();
 
-		//member function
-		void makeSound() const;
 };

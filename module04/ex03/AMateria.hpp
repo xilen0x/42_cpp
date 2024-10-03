@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 17:40:25 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/02 17:40:31 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/03 18:04:34 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/03 18:04:36 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+#pragma once
 
-# include <iostream>
+#include <iostream>
 
-class Brain
+class AMateria
 {
-	private:
-		std::string _ideas[100];	
-
+	protected:
+		std::string _type;
+	
 	public:
 		//Default constructor
-		Brain();
+		AMateria(void);
+
+		//Parameterized constructor
+		AMateria(std::string const & type);
 
 		//Copy constructor
-		Brain(const Brain &copy);
+		AMateria(const AMateria &copy);
 
 		//Assignment operator
-		Brain &operator=(const Brain &copy);
+		AMateria &operator = (const AMateria &copy);
+
+		//Getters
+		std::string const & getType(void) const;//Returns the materia type
+
+		//Member functions
+		virtual AMateria* clone(void) const = 0;
+		virtual void use(ICharacter & target);
 
 		//Destructor
-		~Brain();
+		virtual ~AMateria(void);
+
 };
