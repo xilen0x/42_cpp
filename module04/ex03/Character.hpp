@@ -1,35 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 18:16:57 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/03 18:17:00 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/04 13:24:17 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/04 13:24:19 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-class Cure : public AMateria
+class Character : public ICharacter
 {
+	private:
+		std::string _name;
+		AMateria* _inventory[4];
+	
 	public:
 		//Default constructor
-		Cure(void);
+		Character(void);
+
+		//Parameterized constructor
+		Character(std::string name);
 
 		//Copy constructor
-		Cure(const Cure &copy);
+		Character(const Character &copy);
 
 		//Assignment operator
-		Cure &operator = (const Cure &copy);
+		Character &operator = (const Character &copy);
+
+		//Getters
+		virtual std::string const & getName(void) const;
 
 		//Member functions
-		virtual AMateria* clone(void) const;
-		virtual void use(ICharacter& target);
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
 
 		//Destructor
-		virtual ~Cure(void);
+		virtual ~Character(void);
 };

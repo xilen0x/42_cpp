@@ -9,7 +9,11 @@
 /*   Updated: 2024/10/03 17:34:13 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 int main(void)
 {

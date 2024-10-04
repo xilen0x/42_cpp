@@ -10,4 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
+#include "AMateria.hpp"
+
+class Ice : public AMateria
+{
+	public:
+		//Default constructor
+		Ice(void);
+
+		//Copy constructor
+		Ice(const Ice &copy);
+
+		//Assignment operator
+		Ice &operator = (const Ice &copy);
+
+		//Member functions
+		virtual AMateria* clone(void) const;
+		virtual void use(ICharacter& target);
+
+		//Destructor
+		virtual ~Ice(void);
+};

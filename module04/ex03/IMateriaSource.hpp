@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 18:16:57 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/03 18:17:00 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/04 13:31:32 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/04 13:31:34 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,13 @@
 
 #include "AMateria.hpp"
 
-class Cure : public AMateria
+class IMateriaSource
 {
 	public:
-		//Default constructor
-		Cure(void);
-
-		//Copy constructor
-		Cure(const Cure &copy);
-
-		//Assignment operator
-		Cure &operator = (const Cure &copy);
+		//Destructor
+		virtual ~IMateriaSource(void) {}
 
 		//Member functions
-		virtual AMateria* clone(void) const;
-		virtual void use(ICharacter& target);
-
-		//Destructor
-		virtual ~Cure(void);
+		virtual void learnMateria(AMateria* m) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
 };

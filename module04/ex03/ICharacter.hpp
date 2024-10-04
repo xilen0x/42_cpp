@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 18:16:57 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/03 18:17:00 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/04 13:22:28 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/04 13:22:30 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AMateria.hpp"
+#include <string>
 
-class Cure : public AMateria
+class AMateria;
+
+class ICharacter
 {
 	public:
-		//Default constructor
-		Cure(void);
-
-		//Copy constructor
-		Cure(const Cure &copy);
-
-		//Assignment operator
-		Cure &operator = (const Cure &copy);
+		//Destructor
+		virtual ~ICharacter(void) {}
 
 		//Member functions
-		virtual AMateria* clone(void) const;
-		virtual void use(ICharacter& target);
-
-		//Destructor
-		virtual ~Cure(void);
+		virtual std::string const & getName(void) const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
