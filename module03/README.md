@@ -59,3 +59,7 @@ int main() {
     return 0;
 }
 ```
+Salida:
+
+	The animal makes a sound.
+	The dog barks.
