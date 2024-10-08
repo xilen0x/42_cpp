@@ -20,18 +20,19 @@ Declaración (SubtypePolymorphism.hpp)
 // Clase base
 class Animal {
 public:
-    virtual void makeSound() const; // Método virtual
+    virtual ~Animal() {}  // Destructor virtual para evitar problemas al eliminar subclases
+    virtual void makeSound() const;  // Método virtual que las subclases sobrescriben
 };
 
 // Clases derivadas
 class Dog : public Animal {
 public:
-    void makeSound() const override;
+    void makeSound() const;
 };
 
 class Cat : public Animal {
 public:
-    void makeSound() const override;
+    void makeSound() const;
 };
 
 ```
@@ -58,28 +59,46 @@ void Cat::makeSound() const {
 }
 
 // Uso del polimorfismo por subtipo en main
-int main() {
-    Animal* animal1 = new Dog();
-    Animal* animal2 = new Cat();
+int main()
+{
+	Animal* animals[2];
 
-    animal1->makeSound(); // Llama a Dog::makeSound()
-    animal2->makeSound(); // Llama a Cat::makeSound()
+    // Crear instancias de Dog y Cat y asignarlas a punteros de tipo Animal
+    animals[0] = new Dog();
+    animals[1] = new Cat();
 
-    delete animal1;
-    delete animal2;
+    // Llamada polimórfica: invoca makeSound() según el tipo real del objeto
+    for (int i = 0; i < 2; ++i) {
+        animals[i]->makeSound();  // Resuelve dinámicamente la función adecuada
+    }
 
+    // Liberar la memoria
+    for (int i = 0; i < 2; ++i) {
+        delete animals[i];
+    }
     return 0;
 }
 ```
 
 ### Explicación
 
-Polimorfismo por subtipo permite que los objetos Dog y Cat se traten como objetos de la clase base Animal, pero con la capacidad de llamar a las funciones específicas de Dog y Cat gracias a la palabra clave virtual y al uso de punteros a la clase base.
+Clase Animal:
+
+Define un método virtual makeSound() que puede ser sobrescrito por las subclases (Dog y Cat). En este caso, la clase Animal tiene una implementación predeterminada (genérica) que imprime "Some generic animal sound".
+
+Clases Dog y Cat:
+
+Sobrescriben el método makeSound() sin usar override (no disponible en C++98) y proporcionan sus propias implementaciones específicas: "Woof!" para Dog y "Meow!" para Cat.
+
+Polimorfismo en acción:
+
+En main(), creamos punteros de tipo Animal*, pero los inicializamos con objetos de tipo Dog y Cat. Luego, llamamos a makeSound() a través del puntero de Animal. Debido al polimorfismo, la implementación correcta de makeSound() (de Dog o Cat) se ejecuta según el tipo real del objeto apuntado.
 
 Salida esperada:
 
-	Dog barks.
-	Cat meows.
+	Woof!
+	Meow!
+
 
 ## 2. Abstract Classes
 
