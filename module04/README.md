@@ -5,6 +5,8 @@
 -	Abstract classes
 -	Interfaces
 
+[Ver diagrama ejercicios](https://www.figma.com/board/OXsTNXgr2Av1C4MkDaNXly/CPP-Module04?node-id=0-1&t=i3LsCsDymZvhTsCu-1)
+
 ## 1. Subtype Polymorphism
 
 El polimorfismo por subtipo (Subtype Polymorphism), también conocido como polimorfismo de inclusión, es una forma de polimorfismo en la que un puntero o referencia a una clase base puede apuntar a una instancia de una clase derivada. Esto permite tratar a los objetos de las clases derivadas como si fueran de la clase base, y utilizar las funciones virtuales para invocar el comportamiento específico de la clase derivada.
@@ -114,19 +116,20 @@ Declaración (AbstractClass.hpp)
 
 // Clase abstracta
 class Shape {
-public:
-    virtual void draw() const = 0; // Método virtual puro
+	public:
+		virtual ~Shape() {} // Destructor virtual para evitar problemas al eliminar subclases
+		virtual void draw() const = 0; // Método virtual puro
 };
 
 // Clases derivadas
 class Circle : public Shape {
-public:
-    void draw() const override; // Implementación de la función pura
+	public:
+		void draw() const; // Implementación de la función pura
 };
 
 class Square : public Shape {
-public:
-    void draw() const override; // Implementación de la función pura
+	public:
+		void draw() const; // Implementación de la función pura
 };
 ```
 
@@ -183,29 +186,29 @@ Declaración (Interface.hpp)
 
 // Definición de una interfaz (clase abstracta)
 class IShape {
-public:
-    virtual void draw() const = 0;  // Función virtual pura
-    virtual double area() const = 0; // Función virtual pura
-    virtual ~IShape() {}             // Destructor virtual
+	public:
+		virtual void draw() const = 0;  // Función virtual pura
+		virtual double area() const = 0; // Función virtual pura
+		virtual ~IShape() {}             // Destructor virtual
 };
 
 // Clases que implementan la interfaz
 class Circle : public IShape {
-private:
-    double radius;
-public:
-    Circle(double r);
-    void draw() const override;
-    double area() const override;
+	private:
+		double radius;
+	public:
+		Circle(double r);
+		void draw() const;
+		double area() const;
 };
 
 class Square : public IShape {
-private:
-    double side;
-public:
-    Square(double s);
-    void draw() const override;
-    double area() const override;
+	private:
+		double side;
+	public:
+		Square(double s);
+		void draw() const;
+		double area() const;
 };
 
 ```
@@ -242,8 +245,8 @@ double Square::area() const {
 
 // Uso de la interfaz en main
 int main() {
-    IShape* shape1 = new Circle(5.0);
-    IShape* shape2 = new Square(4.0);
+    IShape* shape1 = new Circle(5.0);// Crear un círculo con radio 5.0
+    IShape* shape2 = new Square(4.0);//Crear un cuadrado con lado 4.0
 
     shape1->draw();
     std::cout << "Area of circle: " << shape1->area() << std::endl;
@@ -254,7 +257,7 @@ int main() {
     delete shape1;
     delete shape2;
 
-    return 0;
+    return (0);
 }
 ```
 

@@ -16,7 +16,7 @@
 //Default constructor
 WrongAnimal::WrongAnimal()
 {
-	std::cout << "WrongAnimal constructor" << std::endl;
+	std::cout << "WrongAnimal Def. constructor!" << std::endl;
 	this->_type = "WrongAnimal";
 }
 

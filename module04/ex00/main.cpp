@@ -26,14 +26,14 @@ int main(void)
 	std::cout << cat->getType() << " " << std::endl;
 
 	std::cout << "El gato dice: ";	cat->makeSound();
-	std::cout << "El perro dice: ";	dog->makeSound();
-	std::cout << "El animal dice: ";	meta->makeSound();
+	std::cout << "El perro dice: "; dog->makeSound();
+	std::cout << "El animal dice: "; meta->makeSound();
 
 	delete meta;
 	delete dog;
 	delete cat;
 	
-	std::cout << "--------------" << std::endl;
+	std::cout << "---------------------------" << std::endl;
 
 	const WrongAnimal* meta2 = new WrongAnimal();
 	const WrongAnimal* cat2 = new WrongCat();

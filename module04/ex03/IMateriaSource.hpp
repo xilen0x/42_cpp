@@ -14,6 +14,9 @@
 
 #include "AMateria.hpp"
 
+//Interfaz que representa una fuente de materiales
+//(define un objeto que puede almacenar materias y crear nuevas instancias a 
+//partir de las materias conocidas.)
 class IMateriaSource
 {
 	public:

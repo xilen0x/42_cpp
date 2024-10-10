@@ -16,7 +16,7 @@
 Cat::Cat()
 {
 	this->_type = "Cat";
-	std::cout << "Cat constructor called" << std::endl;
+	std::cout << "Cat object created" << std::endl;
 }
 
 //copy constructor

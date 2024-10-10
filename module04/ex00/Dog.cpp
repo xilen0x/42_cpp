@@ -16,7 +16,7 @@
 Dog::Dog()
 {
 	this->_type = "Dog";
-	std::cout << "Dog constructor called" << std::endl;
+	std::cout << "Dog object created" << std::endl;
 }
 
 //copy constructor

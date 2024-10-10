@@ -53,6 +53,7 @@ void MateriaSource::learnMateria(AMateria* m)
 	}
 }
 
+//Funcion que crea una nueva instancia de una materia
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; i++)

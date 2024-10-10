@@ -81,7 +81,7 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < 4 && this->_inventory[idx] != NULL)
 	{
-		this->_inventory[idx]->use(target);
+		this->_inventory[idx]->use(target);	
 	}
 }
 
