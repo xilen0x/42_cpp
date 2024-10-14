@@ -46,6 +46,6 @@ class Fixed
 		int		toInt( void ) const;
 };
 
-std::ostream& operator<<( std::ostream& o, const Fixed& obj );//Sobrecarga del operador de salida
+std::ostream& operator<<( std::ostream& o, const Fixed& obj );//Overload of operator <<
 
 #endif
