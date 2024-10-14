@@ -75,10 +75,10 @@ Coche.hpp
 
 class Coche {
 	private:
-		std::string marca;
-		std::string modelo;
-		std::string color;
-		int velocidad;
+		std::string _marca;
+		std::string _modelo;
+		std::string _color;
+		int 		_velocidad;
 
 	public:
 		// Constructor
@@ -120,6 +120,10 @@ int main() {
     Coche miCoche("Toyota", "Corolla", "Rojo");
     miCoche.acelerar(50);
     std::cout << miCoche.obtenerInfo() << std::endl;
+	miCoche.acelerar(30);
+    std::cout << miCoche.obtenerInfo() << std::endl;
+	miCoche.frenar(20);
+	std::cout << miCoche.obtenerInfo() << std::endl;
     return (0);
 }
 ```
