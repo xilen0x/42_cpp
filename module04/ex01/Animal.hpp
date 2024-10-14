@@ -25,6 +25,7 @@ class Animal
 {
 	protected:
 		std::string _type;
+	
 	public:
 		//default constructor
 		Animal();
@@ -37,7 +38,6 @@ class Animal
 
 		//member function
 		virtual void makeSound() const;
-		// void makeSound() const;
 
 		//get function
 		std::string getType() const;

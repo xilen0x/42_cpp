@@ -14,6 +14,9 @@
 
 #include "AMateria.hpp"
 
+//Ice dispara un rayo de hielo al usar la habilidad.
+//clase que representa un material de tipo Ice que puede ser equipado por un 
+// personaje y que hereda de AMateria, ademas implementa la funcion clone y use. 
 class Ice : public AMateria
 {
 	public:

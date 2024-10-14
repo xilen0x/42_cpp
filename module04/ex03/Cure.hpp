@@ -14,6 +14,9 @@
 
 #include "AMateria.hpp"
 
+//Cure cura las heridas de un personaje.
+//clase que representa un material de tipo Cure que puede ser equipado por un 
+// personaje y que hereda de AMateria
 class Cure : public AMateria
 {
 	public:

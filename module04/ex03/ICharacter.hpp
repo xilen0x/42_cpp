@@ -16,6 +16,8 @@
 
 class AMateria;
 
+//Interfaz que representa un personaje que puede equipar materiales.
+//(define cómo deben comportarse los personajes)
 class ICharacter
 {
 	public:

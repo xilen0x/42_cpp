@@ -14,6 +14,7 @@
 
 #include "IMateriaSource.hpp"
 
+//clase que representa una fuente de materiales que hereda de IMateriaSource
 class MateriaSource : public IMateriaSource
 {
 	private:

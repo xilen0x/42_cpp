@@ -15,7 +15,7 @@
 //Default constructor
 WrongCat::WrongCat()
 {
-	std::cout << "WrongCat constructor" << std::endl;
+	std::cout << "WrongCat Def. constructor!" << std::endl;
 	this->_type = "WrongCat";
 }
 

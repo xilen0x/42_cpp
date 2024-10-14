@@ -15,6 +15,7 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+//clase que representa un material que puede ser equipado por un personaje
 class AMateria
 {
 	protected:
@@ -25,7 +26,7 @@ class AMateria
 		AMateria(void);
 
 		//Parameterized constructor
-		AMateria(std::string const & type);
+		AMateria(std::string const & type);//constructor que recibe un string constante por referencia llamado type
 
 		//Copy constructor
 		AMateria(const AMateria &copy);
@@ -34,11 +35,11 @@ class AMateria
 		AMateria &operator = (const AMateria &copy);
 
 		//Getters
-		std::string const & getType(void) const;//Returns the materia type
+		std::string const & getType(void) const;//funcion que devuelve un string constante por referencia llamado type
 
 		//Member functions
-		virtual AMateria* clone(void) const = 0;
-		virtual void use(ICharacter& target);
+		virtual AMateria* clone(void) const = 0;//funcion que devuelve un puntero a AMateria
+		virtual void use(ICharacter& target);//funcion que recibe una referencia a ICharacter llamada target
 
 		//Destructor
 		virtual ~AMateria(void);

@@ -14,7 +14,7 @@
 
 //default constructor
 Animal::Animal() : _type("Animal"){
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << "Animal created!" << std::endl;
 }
 
 //copy constructor
@@ -25,7 +25,7 @@ Animal::Animal(const Animal &obj) : _type(obj._type){
 //assignment operator
 Animal& Animal::operator=(const Animal &obj)
 {
-	if (this == &obj)
+	if (this == &obj)//si es el mismo objeto, retornamos el objeto actual
 		return (*this);
 	this->_type = obj._type;
 	return (*this);

@@ -15,6 +15,7 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
+//clase que representa un personaje que puede equipar materiales y que hereda de ICharacter
 class Character : public ICharacter
 {
 	private:
@@ -33,11 +34,9 @@ class Character : public ICharacter
 
 		//Assignment operator
 		Character &operator = (const Character &copy);
-
-		//Getters
-		virtual std::string const & getName(void) const;
-
+		
 		//Member functions
+		virtual std::string const & getName(void) const;
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
