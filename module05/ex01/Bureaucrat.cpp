@@ -5,13 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:50:57 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/15 12:51:00 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/15 12:51:45 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/15 12:51:48 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Default constructor
 Bureaucrat::Bureaucrat() {}
@@ -66,6 +67,19 @@ void Bureaucrat::decrementGrade()
 	_grade++;
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "Burocrata " << _name << ", firma		:" << YELLOW << form.getName() << RESET << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << _name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
 // Exception class
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -80,6 +94,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 // Operator insertion overload
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro)
 {
-	out << buro.getName() << ", bureaucrat grade " << buro.getGrade();
+	out << "Burocrata " << buro.getName() << ". Grado : " << YELLOW << buro.getGrade() << RESET << std::endl;
 	return (out);
 }
