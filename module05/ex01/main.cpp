@@ -43,7 +43,6 @@ int	main()
 	try 
 	{
 		std::cout << std::endl;
-		std::cout << "==================================" << std::endl;
 		Bureaucrat buro1("buro1", 3);
 		// Bureaucrat buro1("buro1", 45);
 		// Bureaucrat buro1("buro1", 150);

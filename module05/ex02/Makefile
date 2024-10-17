@@ -23,7 +23,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 # Archivos fuente y cabeceras
 SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+			RobotomyRequestForm.cpp PresidentialPardonForm.cpp aFormUtils.cpp
 HDR_FILES = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp \
 			RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 

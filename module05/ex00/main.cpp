@@ -29,10 +29,10 @@ int main()
 		std::cout << std::endl;
 		b1.incrementGrade();
 		std::cout << "Bureaucrat" << std::endl << "Name: " << b1.getName() << std::endl << "Grade: " << b1.getGrade() << std::endl;
-		//b1.incrementGrade();
+		b1.incrementGrade();
     } 
 	catch (std::exception &e)
 	{
-        std::cerr << "Caught an exception: " << e.what() << std::endl;
+        std::cerr << RED << "Caught an exception: " << e.what() << RESET << std::endl;
     }
 }

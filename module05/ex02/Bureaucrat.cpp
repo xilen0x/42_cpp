@@ -12,7 +12,7 @@
 
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <cstdlib>// exit
 
 // Default constructor
@@ -70,13 +70,19 @@ void Bureaucrat::decrementGrade()
 	std::cout << "Burocrata baja un nivel" << std::endl;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 		form.beSigned(*this);
 		std::cout << "Burocrata " << _name << ", firma		:" << YELLOW << form.getName() << RESET << std::endl;
 }
 
-// Exception class
+void Bureaucrat::executeForm(AForm const &form)
+{
+	form.execute(*this);
+	std::cout << "Burocrata " << _name << ", ejecuta	:" << YELLOW << form.getName() << RESET << std::endl;
+}
+
+// =========================Exception class =======================
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	std::cout << std::endl;

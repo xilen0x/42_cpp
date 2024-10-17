@@ -80,7 +80,7 @@ void AForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() < getGradeToSign() && _signed == true)
         executeForm();
     else
-        throw CannotExecute();
+        throw NotPossibleExecuteException();
 }
 
 // Exception class
@@ -92,6 +92,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
+}
+
+const char *AForm::NotPossibleExecuteException::what() const throw()
+{
+	return ("Not possible to execute");
 }
 
 // Operator insertion overload
