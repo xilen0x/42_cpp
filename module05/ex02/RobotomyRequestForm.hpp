@@ -13,6 +13,7 @@
 #pragma once
 
 #include "AForm.hpp"
+#include <string>
 
 class AForm;
 
@@ -23,7 +24,10 @@ class RobotomyRequestForm : public AForm
 
 	public:
 		// constructor
-		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm();
+
+		// Parameterized constructor
+		RobotomyRequestForm(const std::string &target);
 
 		// Copy constructor
 		RobotomyRequestForm(const RobotomyRequestForm &copy);
@@ -35,5 +39,5 @@ class RobotomyRequestForm : public AForm
 		~RobotomyRequestForm();
 
 		//execute form
-		void executeForm(void) const;
+		void execute(Bureaucrat const &executor) const;
 };

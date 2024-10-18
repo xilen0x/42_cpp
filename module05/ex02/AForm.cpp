@@ -61,7 +61,7 @@ int AForm::getGradeToExecute() const
 }
 
 // Setters
-void AForm::beSigned(Bureaucrat &bureaucrat)
+void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw AForm::GradeTooLowException();
@@ -75,13 +75,13 @@ std::string AForm::printStatus() const
 }
 
 // Execute form (pure virtual method)
-void AForm::execute(Bureaucrat const &executor) const
-{
-    if (executor.getGrade() < getGradeToSign() && _signed == true)
-        executeForm();
-    else
-        throw NotPossibleExecuteException();
-}
+// void AForm::execute(Bureaucrat const &executor) const
+// {
+//     if (executor.getGrade() < getGradeToSign() && _signed == true)
+//         executeForm();
+//     else
+//         throw NotPossibleExecuteException();
+// }
 
 // Exception class
 const char *AForm::GradeTooHighException::what() const throw()

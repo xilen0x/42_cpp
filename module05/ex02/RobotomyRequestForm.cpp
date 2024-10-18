@@ -15,32 +15,37 @@
 #include <ctime>// std::time
 
 // constructor
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {}
+
+// Parameterized constructor
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
 // Copy constructor
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy) { *this = copy; }
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : _target(copy._target) {}
 
 // Overload operator
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
 {
 	if (this == &copy)
-		return (*this);
-	AForm::operator=(copy);
-	this->_target = copy._target;
-	return (*this);
+		return *this;
+	_target = copy._target;
+	return *this;
 }
 
 // execute form
-void RobotomyRequestForm::executeForm(void) const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	std::srand(std::time(0));
-    int randomValue = std::rand();
-    bool	fiftyPercentChance = (randomValue % 2) == 0;
+	if (!getSigned())
+        throw NotPossibleExecuteException();
+    if (executor.getGrade() > getGradeToExecute())
+        throw GradeTooLowException();
 
-	if (fiftyPercentChance)
-		std::cout << _target << " has been robotomized successfully" << std::endl;
-	else
-		std::cout << "The robotomy from " << _target << " failed" << std::endl;
+    std::cout << "Bzzzzz... drilling noises..." << std::endl;
+    if (rand() % 2 == 0) {
+        std::cout << _target << " has been robotomized successfully!" << std::endl;
+    } else {
+        std::cout << "The robotomy failed on " << _target << "." << std::endl;
+    }
 }
 
 // Destructor

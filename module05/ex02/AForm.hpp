@@ -13,8 +13,9 @@
 #pragma once
 
 #include <iostream>
+#include <stdexcept>
 #include "Bureaucrat.hpp"
-#include "RobotomyRequestForm.hpp"
+// #include "RobotomyRequestForm.hpp"e
 
 //Colors
 #define RED "\033[0;31m"
@@ -56,12 +57,12 @@ class AForm
 		int getGradeToExecute() const;
 
 		// Setters
-		void beSigned(Bureaucrat &bureaucrat);
+		void beSigned(const Bureaucrat &bureaucrat);
 
 		// print status
 		std::string printStatus() const;
 
-		// Execute form (pure virtual method)
+		// Execute form
 		virtual void execute(Bureaucrat const &executor) const = 0;
 
 		// Exception class

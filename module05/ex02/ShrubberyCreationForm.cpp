@@ -11,13 +11,17 @@
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <fstream>//
+#include <fstream>// std::ofstream
+#include <iostream>// std::endl
 
 // constructor
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("default") {}
+
+// Parameterized constructor
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
 // Copy constructor
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy), _target(copy._target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : _target(copy._target) {}
 
 // Overload operator
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
@@ -28,21 +32,22 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
+// firma
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+    if (!getSigned())
+        throw NotPossibleExecuteException();
+    if (executor.getGrade() > getGradeToExecute())
+        throw GradeTooLowException();
+
+    std::ofstream file((_target + "_shrubbery").c_str());
+	if (file) {
+        file << "   🌲   🌳   🌲" << std::endl;
+        file.close();
+    } else {
+        std::cerr << "Error: Could not create file." << std::endl;
+    }
+}
+
 // Destructor
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
-
-//
-// void ShrubberyCreationForm::executeForm(void) const
-// {
-// 	std::ofstream file((_target + "_shrubbery").c_str());
-// 	file << "       _-_" << std::endl;
-// 	file << "    /~~   ~~\\" << std::endl;
-// 	file << " /~~         ~~\\" << std::endl;
-// 	file << "{               }" << std::endl;
-// 	file << " \\  _-     -_  /" << std::endl;
-// 	file << "   ~  \\\\ //  ~" << std::endl;
-// 	file << "_- -   | | _- _" << std::endl;
-// 	file << "  _ -  | |   -_" << std::endl;
-// 	file << "      // \\\\" << std::endl;
-// 	file.close();
-// }

@@ -48,7 +48,7 @@ class Bureaucrat
 		void decrementGrade();
 		void signForm(AForm &form);
 		void executeForm(AForm const &form);
-
+				
 		// Exception class
 		class GradeTooHighException : public std::exception
 		{
@@ -64,4 +64,4 @@ class Bureaucrat
 };
 
 // Operator insertion overload
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro);
+// std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro);

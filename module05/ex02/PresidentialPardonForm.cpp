@@ -12,26 +12,33 @@
 
 #include "PresidentialPardonForm.hpp"
 
-// constructor
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
+// Default constructor
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5) {}
+
+// Parameterized constructor
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
 // Copy constructor
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm(copy) { *this = copy; }
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : _target(copy._target) {}
 
 // Overload operator
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy)
 {
 	if (this == &copy)
 		return (*this);
-	AForm::operator=(copy);
-	this->_target = copy._target;
+	_target = copy._target;
 	return (*this);
 }
 
 // execute form
-void PresidentialPardonForm::executeForm(void) const
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << _target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	if (!getSigned())
+		throw NotPossibleExecuteException();
+	if (executor.getGrade() > getGradeToExecute())
+		throw GradeTooLowException();
+
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 // Destructor

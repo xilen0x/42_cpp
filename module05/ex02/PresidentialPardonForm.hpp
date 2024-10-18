@@ -22,8 +22,11 @@ class PresidentialPardonForm : public AForm
 		std::string	_target;
 
 	public:
-		// constructor
-		PresidentialPardonForm(std::string target);
+		// Default constructor
+		PresidentialPardonForm();
+
+		// Parameterized constructor
+		PresidentialPardonForm(const std::string &target);
 
 		// Copy constructor
 		PresidentialPardonForm(const PresidentialPardonForm &copy);
@@ -35,6 +38,6 @@ class PresidentialPardonForm : public AForm
 		~PresidentialPardonForm();
 
 		//execute form
-		void executeForm(void) const;
+		void execute(Bureaucrat const &executor) const;
 };
 

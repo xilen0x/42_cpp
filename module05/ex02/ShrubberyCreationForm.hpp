@@ -10,7 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include "AForm.hpp"
+#include <string>
 
 /*Required grades: sign 145, exec 137
 Create a file <target>_shrubbery in the working directory, and writes ASCII trees
@@ -23,7 +26,10 @@ class ShrubberyCreationForm : public AForm
 
 	public:
 		// constructor
-		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm();
+
+		// Parameterized constructor
+		ShrubberyCreationForm(const std::string &target);
 
 		// Copy constructor
 		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
@@ -34,6 +40,6 @@ class ShrubberyCreationForm : public AForm
 		// Destructor
 		~ShrubberyCreationForm();
 
-		//
-		void executeForm(void) const;
+		// Member functions
+		void execute(Bureaucrat const &executor) const;
 };
