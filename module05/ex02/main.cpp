@@ -18,29 +18,29 @@
 int main() {
     try {
         // Crear Burócratas con diferentes niveles
-        Bureaucrat b1("Alice", 50);
-        Bureaucrat b2("Bob", 140);
-        Bureaucrat b3("Charlie", 5);
+        Bureaucrat burocrata1("Carlos", 50);
+        Bureaucrat burocrata2("Rodrigo", 140);
+        Bureaucrat burocrata3("Julian", 5);
 
         // Crear Formularios con targets específicos
-        ShrubberyCreationForm shrubbery("Home");
-        RobotomyRequestForm robotomy("Marvin");
-        PresidentialPardonForm pardon("Zaphod");
+        ShrubberyCreationForm formCreacionArbustos("11");// Required grades: sign 145, exec 137
+        RobotomyRequestForm formRobotomy("22");// Required grades: sign 72, exec 45
+        PresidentialPardonForm formIndulto("33");// Required grades: sign 25, exec 5
 
         // Intentar firmar y ejecutar ShrubberyCreationForm
         std::cout << YELLOW << "\nTesting ShrubberyCreationForm:" << RESET << std::endl;
-        b2.signForm(shrubbery);
-        b2.executeForm(shrubbery);
+        burocrata2.signForm(formCreacionArbustos);
+        burocrata2.executeForm(formCreacionArbustos);
 
         // Intentar firmar y ejecutar RobotomyRequestForm
         std::cout << YELLOW << "\nTesting RobotomyRequestForm:" << RESET << std::endl;
-        b1.signForm(robotomy);
-        b1.executeForm(robotomy);
+        burocrata1.signForm(formRobotomy);
+        burocrata1.executeForm(formRobotomy);
 
         // Intentar firmar y ejecutar PresidentialPardonForm
         std::cout << YELLOW << "\nTesting PresidentialPardonForm:" << RESET << std::endl;
-        b3.signForm(pardon);
-        b3.executeForm(pardon);
+        burocrata3.signForm(formIndulto);
+        burocrata3.executeForm(formIndulto);
 
     } catch (const std::exception &e) {
         std::cerr << RED << "Exception: " << e.what() << RESET << std::endl;
