@@ -19,6 +19,7 @@ int main(void)
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	int count = 10;
+	
 	Animal* myZoo[count];
 
 	for (int i = 0; i < count; i++)

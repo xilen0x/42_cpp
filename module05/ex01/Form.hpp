@@ -1,54 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:04 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/15 12:51:06 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/15 12:52:18 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/15 12:52:20 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "Bureaucrat.hpp"
+
 //Colors
 #define RED "\033[0;31m"
 #define GREEN "\033[0;32m"
 #define YELLOW "\033[0;33m"
 #define RESET "\033[0m"
 
-//class Bureaucrat(just declaration)
-class Bureaucrat
+
+class Bureaucrat;
+
+class Form
 {
 	private:
-		const std::string _name;
-		int _grade;
-
+		const std::string	_name;
+		bool 				_signed;
+		const int			_gradeToSign;
+		const int			_gradeToExecute;
+		
 	public:
 		// Constructors
-		Bureaucrat();
+		Form();
 
 		// Parameterized constructor
-		Bureaucrat(const std::string name, int grade);
-		
+		Form(const std::string name, int gradeToSign, int gradeToExecute);
+
 		// Copy constructor
-		Bureaucrat(const Bureaucrat &copy);
-		
+		Form(const Form &copy);
+
 		// Operator assignment overload
-		Bureaucrat &operator=(const Bureaucrat &copy);
-		
+		Form &operator=(const Form &copy);
+
 		// Destructor
-		~Bureaucrat();
+		~Form();
 
 		// Getters
 		std::string getName() const;
-		int getGrade() const;
+		bool getSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 
 		// Setters
-		void incrementGrade();
-		void decrementGrade();
+		void beSigned(Bureaucrat &bureaucrat);
+
+		// print status
+		std::string printStatus() const;
 
 		// Exception class
 		class GradeTooHighException : public std::exception
@@ -64,5 +74,6 @@ class Bureaucrat
 		};
 };
 
-// Operator insertion overload
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro);
+//Operator overload
+std::ostream &operator<<(std::ostream &out, const Form &form);
+

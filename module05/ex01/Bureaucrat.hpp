@@ -5,26 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:04 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/15 12:51:06 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/15 12:51:52 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/15 12:51:54 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-//Colors
-#define RED "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define YELLOW "\033[0;33m"
-#define RESET "\033[0m"
+#include "Form.hpp"
 
-//class Bureaucrat(just declaration)
+class Form;
+
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string	_name;
+		int 				_grade;
 
 	public:
 		// Constructors
@@ -49,6 +46,7 @@ class Bureaucrat
 		// Setters
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form &form);
 
 		// Exception class
 		class GradeTooHighException : public std::exception

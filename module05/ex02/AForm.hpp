@@ -1,54 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:04 by castorga          #+#    #+#             */
-/*   Updated: 2024/10/15 12:51:06 by castorga         ###   ########.fr       */
+/*   Created: 2024/10/15 12:52:18 by castorga          #+#    #+#             */
+/*   Updated: 2024/10/15 12:52:20 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <stdexcept>
+#include "Bureaucrat.hpp"
+// #include "RobotomyRequestForm.hpp"e
+
 //Colors
 #define RED "\033[0;31m"
 #define GREEN "\033[0;32m"
 #define YELLOW "\033[0;33m"
 #define RESET "\033[0m"
 
-//class Bureaucrat(just declaration)
-class Bureaucrat
+
+class Bureaucrat;
+
+class AForm
 {
 	private:
-		const std::string _name;
-		int _grade;
-
+		const std::string	_name;
+		bool 				_signed;
+		const int			_gradeToSign;
+		const int			_gradeToExecute;
+		
 	public:
 		// Constructors
-		Bureaucrat();
+		AForm();
 
 		// Parameterized constructor
-		Bureaucrat(const std::string name, int grade);
-		
+		AForm(const std::string name, int gradeToSign, int gradeToExecute);
+
 		// Copy constructor
-		Bureaucrat(const Bureaucrat &copy);
-		
+		AForm(const AForm &copy);
+
 		// Operator assignment overload
-		Bureaucrat &operator=(const Bureaucrat &copy);
-		
+		AForm &operator=(const AForm &copy);
+
 		// Destructor
-		~Bureaucrat();
+		virtual ~AForm();
 
 		// Getters
 		std::string getName() const;
-		int getGrade() const;
+		bool getSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 
 		// Setters
-		void incrementGrade();
-		void decrementGrade();
+		void beSigned(const Bureaucrat &bureaucrat);
+
+		// print status
+		std::string printStatus() const;
+
+		// Execute form
+		virtual void execute(Bureaucrat const &executor) const = 0;
 
 		// Exception class
 		class GradeTooHighException : public std::exception
@@ -62,7 +77,13 @@ class Bureaucrat
 			public:
 				virtual const char *what() const throw();
 		};
+		class NotPossibleExecuteException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 };
 
-// Operator insertion overload
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro);
+//Operator overload
+std::ostream &operator<<(std::ostream &out, const AForm &form);
+
