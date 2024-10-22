@@ -34,6 +34,9 @@ class PresidentialPardonForm : public AForm
 		// Overload operator
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
 
+		// Getters
+		std::string getTarget();
+		
 		// Destructor
 		~PresidentialPardonForm();
 

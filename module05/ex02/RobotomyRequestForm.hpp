@@ -35,6 +35,9 @@ class RobotomyRequestForm : public AForm
 		// Overload operator
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
 
+		// Getters
+		std::string getTarget();
+
 		// Destructor
 		~RobotomyRequestForm();
 

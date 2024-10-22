@@ -64,4 +64,4 @@ class Bureaucrat
 };
 
 // Operator insertion overload
-// std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro);

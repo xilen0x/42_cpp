@@ -16,15 +16,17 @@
 #include <cstdlib>// exit
 
 // Default constructor
-Bureaucrat::Bureaucrat() {}
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(42) {}
 
 // Parameterized constructor
-Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+	_grade = grade;
+	std::cout << "Burocrata creado" << std::endl;
 }
 
 // Copy constructor

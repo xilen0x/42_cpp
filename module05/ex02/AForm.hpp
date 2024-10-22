@@ -48,7 +48,7 @@ class AForm
 		AForm &operator=(const AForm &copy);
 
 		// Destructor
-		virtual ~AForm();
+		virtual ~AForm() = 0;
 
 		// Getters
 		std::string getName() const;
@@ -58,9 +58,6 @@ class AForm
 
 		// Setters
 		void beSigned(const Bureaucrat &bureaucrat);
-
-		// print status
-		std::string printStatus() const;
 
 		// Execute form
 		virtual void execute(Bureaucrat const &executor) const = 0;
@@ -77,7 +74,7 @@ class AForm
 			public:
 				virtual const char *what() const throw();
 		};
-		class NotPossibleExecuteException : public std::exception
+		class NotPossibleExecute : public std::exception
 		{
 			public:
 				virtual const char *what() const throw();

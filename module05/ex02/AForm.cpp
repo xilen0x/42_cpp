@@ -13,19 +13,28 @@
 #include "AForm.hpp"
 
 // Default constructor
-AForm::AForm(): _name("default"), _signed(false), _gradeToSign(10), _gradeToExecute(20) {}
+AForm::AForm(): _name("default"), _signed(false), _gradeToSign(42), _gradeToExecute(42) {}
 
 // Parameterized constructor
-AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute) : 
+_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw AForm::GradeTooHighException();
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw AForm::GradeTooLowException();
+	_signed = false;
 }
 
 // Copy constructor
-AForm::AForm(const AForm &copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute) {}
+AForm::AForm(const AForm &copy) :
+ _name(copy._name), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute) {
+	if (copy._gradeToSign < 1 || copy._gradeToExecute < 1)
+		throw AForm::GradeTooHighException();
+	else if (copy._gradeToSign > 150 || copy._gradeToExecute > 150)
+		throw AForm::GradeTooLowException();
+	_signed = copy._signed;	
+ }
 
 // Operator assignment overload
 AForm &AForm::operator=(const AForm &copy)
@@ -63,25 +72,14 @@ int AForm::getGradeToExecute() const
 // Setters
 void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() > _gradeToSign)
+	if (bureaucrat.getGrade() <= _gradeToSign)
+		_signed = true;
+	else
+	{
+		_signed = false;
 		throw AForm::GradeTooLowException();
-	_signed = true;
+	}
 }
-
-// print status
-std::string AForm::printStatus() const
-{
-	return _signed ? GREEN + std::string("FIRMADO!") + RESET : RED + std::string("NO FIRMADO") + RESET;
-}
-
-// Execute form (pure virtual method)
-// void AForm::execute(Bureaucrat const &executor) const
-// {
-//     if (executor.getGrade() < getGradeToSign() && _signed == true)
-//         executeForm();
-//     else
-//         throw NotPossibleExecuteException();
-// }
 
 // Exception class
 const char *AForm::GradeTooHighException::what() const throw()
@@ -94,7 +92,7 @@ const char *AForm::GradeTooLowException::what() const throw()
 	return ("Grade is too low");
 }
 
-const char *AForm::NotPossibleExecuteException::what() const throw()
+const char *AForm::NotPossibleExecute::what() const throw()
 {
 	return ("Not possible to execute");
 }
@@ -102,10 +100,8 @@ const char *AForm::NotPossibleExecuteException::what() const throw()
 // Operator insertion overload
 std::ostream &operator<<(std::ostream &out, const AForm &form)
 {
-	out 
-	<< "Form name			:" << YELLOW << form.getName() << RESET << std::endl
-	<< "Form Status			:" << form.printStatus() << std::endl
-	<< "Grade required to sign		:" << YELLOW << form.getGradeToSign() << RESET << std::endl
-	<< "Grade required to execute	:" << YELLOW << form.getGradeToExecute() << RESET << std::endl;
-	return (out);
+	if (form.getSigned())
+		return (out << form.getName() << " is signed, ");
+	else
+		return (out << form.getName() << " is not signed, ");
 }

@@ -19,6 +19,8 @@
 Create a file <target>_shrubbery in the working directory, and writes ASCII trees
 inside it.*/
 
+class Bureaucrat;
+
 class ShrubberyCreationForm : public AForm
 {
 	private:
@@ -37,6 +39,9 @@ class ShrubberyCreationForm : public AForm
 		// Overload operator
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
 
+		// Getters
+		std::string getTarget();
+		
 		// Destructor
 		~ShrubberyCreationForm();
 
