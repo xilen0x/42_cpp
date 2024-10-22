@@ -18,14 +18,14 @@
 int main() {
     try {
         // Crear Burócratas con diferentes niveles
-        Bureaucrat burocrata1("Carlos", 50);
-        Bureaucrat burocrata2("Rodrigo", 140);
-        Bureaucrat burocrata3("Julian", 5);
+		Bureaucrat burocrata1("Burocrata 1", 1);
+		Bureaucrat burocrata2("Burocrata 2", 50);
+		Bureaucrat burocrata3("Burocrata 3", 150);
 
         // Crear Formularios con targets específicos
-        ShrubberyCreationForm formCreacionArbustos("11");// Required grades: sign 145, exec 137
-        RobotomyRequestForm formRobotomy("22");// Required grades: sign 72, exec 45
-        PresidentialPardonForm formIndulto("33");// Required grades: sign 25, exec 5
+        ShrubberyCreationForm formCreacionArbustos("Home");
+		RobotomyRequestForm formRobotomy("castorga");
+		PresidentialPardonForm formIndulto("Zaphod");
 
         // Intentar firmar y ejecutar ShrubberyCreationForm
         std::cout << YELLOW << "\nTesting ShrubberyCreationForm:" << RESET << std::endl;
