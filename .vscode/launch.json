@@ -7,7 +7,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/module06/ex00/convert",
-            "args": ["nan"],
+            "args": ["-65.1"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/module06/ex00/",
             "environment": [],
