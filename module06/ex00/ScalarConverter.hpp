@@ -15,7 +15,7 @@
 #include <iostream> // Para std::cout, std::endl
 #include <string>  // Para std::string
 #include <cstdlib>  // Para strtol, strtof, strtod
-#include <limits>   // Para los límites de los tipos
+#include <climits>   // Para los límites de los tipos
 #include <cerrno>   // Para manejo de errores de conversión
 
 class ScalarConverter
@@ -30,3 +30,8 @@ private:
 public:
 	static void convert(std::string str);//puede ser llamado directamente, no es necesario crear un objeto de la clase para acceder a este metodo
 };
+
+void convertToChar(const std::string& str);
+void convertToInt(const std::string& str);
+void convertToFloat(const std::string& str);
+void convertToDouble(const std::string& str);

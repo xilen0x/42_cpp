@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = conversion
+NAME = convert
 
 # Directorios
 OBJS_DIR = .objs/
@@ -22,7 +22,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 # Archivos fuente y cabeceras
-SRC_FILES = main.cpp ScalarConverter.cpp
+SRC_FILES = main.cpp ScalarConverter.cpp utils.cpp
 HDR_FILES = ScalarConverter.hpp
 
 # Archivos objeto
