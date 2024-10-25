@@ -74,15 +74,6 @@ std::string AForm::printStatus() const
 	return _signed ? GREEN + std::string("FIRMADO!") + RESET : RED + std::string("NO FIRMADO") + RESET;
 }
 
-// Execute form (pure virtual method)
-// void AForm::execute(Bureaucrat const &executor) const
-// {
-//     if (executor.getGrade() < getGradeToSign() && _signed == true)
-//         executeForm();
-//     else
-//         throw NotPossibleExecuteException();
-// }
-
 // Exception class
 const char *AForm::GradeTooHighException::what() const throw()
 {
