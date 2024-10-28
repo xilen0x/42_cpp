@@ -64,12 +64,6 @@ bool BitcoinExchange::isValidDate(const std::string& date) const
     timeInfo.tm_mon = month - 1;     // tm_mon va de 0 a 11
     timeInfo.tm_mday = day;
 
-    // validar fecha
-    // if (std::mktime(&timeInfo) == -1)
-    //     return (false);
-
-    // Comprobar que los componentes de fecha coinciden con los valores originales
-    // return (timeInfo.tm_year == year - 1900 && timeInfo.tm_mon == month - 1 && timeInfo.tm_mday == day);
 	return (std::mktime(&timeInfo) != -1);
 }
 
