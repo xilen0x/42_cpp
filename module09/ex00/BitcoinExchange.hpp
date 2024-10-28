@@ -43,3 +43,9 @@ class BitcoinExchange {
 		void processInputFile(const std::string& inputFilename);
 };
 
+typedef struct s_timeInfo
+{
+	int year;
+	int month;
+	int day;
+}				t_timeInfo;
