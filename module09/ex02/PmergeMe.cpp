@@ -12,8 +12,9 @@
 
 #include "PmergeMe.hpp"
 #include <cstdlib>
+#include <climits>
 
-bool checkIfAllNumbers(int argc, char *argv[])
+bool AllNumbers(int argc, char *argv[])
 {
 	for (int i = 1; i < argc; i++)
 	{
@@ -26,10 +27,34 @@ bool checkIfAllNumbers(int argc, char *argv[])
 	return (true);
 }
 
+bool AllNumbersPositives(int argc, char *argv[])
+{
+	for (int i = 1; i < argc; i++)
+	{
+		if (atoi(argv[i]) < 0)
+			return (false);
+	}
+	return (true);
+}
+bool AllNumbersInRange(int argc, char *argv[])
+{
+	for (int i = 1; i < argc; i++)
+	{
+		if (atoi(argv[i]) > INT_MAX || atoi(argv[i]) < INT_MIN)
+			return (false);
+	}
+	return (true);
+}
+
 bool checkNumbers(int argc, char *argv[])
 {
-	if (!checkIfAllNumbers(argc, argv))
+	if (!AllNumbers(argc, argv))
 		return (false);
+	if (!AllNumbersPositives(argc, argv))
+		return (false);
+	if (!AllNumbersInRange(argc, argv))
+		return (false);
+	
 	return (true);
 }
 

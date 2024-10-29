@@ -18,21 +18,19 @@ int main(int argc, char *argv[])
     
 	if (argc < 2)
 	{
-		std::cout << "Usage: ./PmergeMe [int1] [int2] [int3] ... [intN]" << std::endl;
+		std::cout << YELLOW << "\nEx. usage: ./PmergeMe 1 2 3 4 5" << RESET << std::endl;
+		std::cout << std::endl;
 		return (1);
 	}
 	if (!checkNumbers(argc, argv))
 	{
-		std::cout << "Error: All arguments must be numbers" << std::endl;
+		std::cout << BG_RED << "\nError: All arguments must be positives numbers" << RESET << std::endl;
+		std::cout << std::endl;
 		return (1);
 	}
-	
-	// myVector = saveInVector(argc, argv);
-    // std::cout << "Arreglo original: " << std::endl;
-    // printVector(arr);
-    
-    
-    
+	myVector = saveInVector(argc, argv);
+    std::cout << "Before: ";
+    printVector(myVector);
     // std::cout << "Arreglo ordenado: " << std::endl;
     // printVector(arr);
     
