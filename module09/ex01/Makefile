@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = rpn
+NAME = RPN
 
 # Directorios
 OBJS_DIR = .objs/
