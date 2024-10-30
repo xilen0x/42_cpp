@@ -68,3 +68,13 @@ std::vector<unsigned int> saveInVector(int argc, char *argv[])
 	}
 	return (tmpVector);
 }
+std::deque<unsigned int> saveInDeque(int argc, char *argv[])
+{
+	std::deque<unsigned int> tmpDeque;
+
+	for (int i = 1; i < argc; i++)
+	{
+		tmpDeque.push_back(atoi(argv[i]));
+	}
+	return (tmpDeque);
+}

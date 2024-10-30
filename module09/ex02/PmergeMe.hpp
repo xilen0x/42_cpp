@@ -22,7 +22,9 @@
 #define BG_ORANGE	"\033[43m"				/* Yellow */
 
 #include <vector>
+#include <deque>
 #include <iostream>
+#include <iomanip>
 
 template <typename T>
 void insertionSort(T &container)
@@ -88,10 +90,11 @@ void mergeSort(T &container, int beginIndex, int endIndex)
 template<typename T>
 void printVector(const std::vector<T>& vec) {
     for (typename std::vector<T>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-        std::cout << BG_GREEN << *it << " " << RESET;
+        std::cout << *it << " ";
     }
     std::cout << std::endl;
 }
 
 bool checkNumbers(int argc, char *argv[]);
 std::vector<unsigned int> saveInVector(int argc, char *argv[]);
+std::deque<unsigned int> saveInDeque(int argc, char *argv[]);
