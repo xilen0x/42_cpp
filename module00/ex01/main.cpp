@@ -17,19 +17,20 @@
 int main(void)
 {
 	std::string	option;
-	PhoneBook	pbook1;
+	PhoneBook	agenda;
 
 	welcome();
 	do
 	{
 		menu();
-		std::cout << "\n:"; getline(std::cin, option);
+		std::cout << "\n:"; 
+		getline(std::cin, option);
 		if (std::cin.eof())
             exit(1);
 		if (option == "ADD" || option == "add")
-			pbook1.addContact();
+			agenda.addContact();
 		else if (option == "SEARCH" || option == "search")
-			pbook1.searchContact();
+			agenda.searchContact();
 		else if	(option == "exit" || option == "EXIT")
 		{
 			std::cout << "\nGoodbye!\n" << std::endl;

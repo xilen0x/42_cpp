@@ -13,7 +13,7 @@
 #pragma once
 
 #include <iostream>
-//Colors
+
 #define RED "\033[0;31m"
 #define GREEN "\033[0;32m"
 #define YELLOW "\033[0;33m"
@@ -27,7 +27,7 @@ class Bureaucrat
 		int _grade;
 
 	public:
-		// Constructors
+		// Constructor
 		Bureaucrat();
 
 		// Parameterized constructor

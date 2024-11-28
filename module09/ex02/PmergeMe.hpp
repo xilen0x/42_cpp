@@ -32,10 +32,10 @@ void insertionSort(T &container)
 	unsigned int currentValue;
 	int previousIndex;
 
-    for (unsigned int currentIndex = 0; currentIndex < container.size(); currentIndex++)
+    for (unsigned int i = 0; i < container.size(); i++)
     {
-        currentValue = container[currentIndex];
-        previousIndex = currentIndex - 1;
+        currentValue = container[i];
+        previousIndex = i - 1;
         while (previousIndex >= 0 && currentValue < container[previousIndex])
         {
             container[previousIndex + 1] = container[previousIndex];
@@ -50,24 +50,24 @@ void merge(T &container, int startIndex, int middleIndex, int endIndex)
 {
 	int leftIndex;
 	int rightIndex;
-	int tempIndex;
+	int i;
 
     T temporaryArray(endIndex - startIndex + 1);
     leftIndex = startIndex;
 	rightIndex = middleIndex + 1;
-	tempIndex = 0;
+	i = 0;
     while (leftIndex <= middleIndex && rightIndex <= endIndex) 
     {
         if (container[leftIndex] <= container[rightIndex])
-            temporaryArray[tempIndex++] = container[leftIndex++];
+            temporaryArray[i++] = container[leftIndex++];
         else
-            temporaryArray[tempIndex++] = container[rightIndex++];
+            temporaryArray[i++] = container[rightIndex++];
     }
     while (leftIndex <= middleIndex)
-        temporaryArray[tempIndex++] = container[leftIndex++];
+        temporaryArray[i++] = container[leftIndex++];
     while (rightIndex <= endIndex)
-        temporaryArray[tempIndex++] = container[rightIndex++];
-    for (int copyIndex = 0; copyIndex < tempIndex; copyIndex++)
+        temporaryArray[i++] = container[rightIndex++];
+    for (int copyIndex = 0; copyIndex < i; copyIndex++)
         container[startIndex + copyIndex] = temporaryArray[copyIndex];
 }
 
