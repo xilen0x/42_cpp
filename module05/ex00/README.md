@@ -25,5 +25,5 @@ Implementa dos funciones:
         decrementGrade() --> (aumenta su número).
 
 Sobrecarga del operador << para mostrar el nombre y nivel del burócrata en un formato específico.
-
+## Clase UML
 ![clase UML](https://raw.githubusercontent.com/xilen0x/42_cpp/refs/heads/main/module05/ex00/buro00.png?token=GHSAT0AAAAAAC3EXOPFVDCHVH7IDV3A5MVEZ2IOLKQ)
