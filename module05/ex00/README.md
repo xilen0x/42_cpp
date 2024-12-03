@@ -3,9 +3,6 @@
 
 - Excepciones, jerarquía de clases y polimorfismo.
 
-[Ver diagrama ejercicios](https://www.figma.com/board/l1LExauleqdByPDgwFQ1Z3/CPP-Module05?node-id=0-1&node-type=canvas&t=yroIf03W4DCg1c3e-0)
-
-
 # Ejercicio 00: "Bureaucrat"
 **Objetivo**
 
@@ -28,3 +25,5 @@ Implementa dos funciones:
         decrementGrade() --> (aumenta su número).
 
 Sobrecarga del operador << para mostrar el nombre y nivel del burócrata en un formato específico.
+## Clase UML
+![clase UML](https://raw.githubusercontent.com/xilen0x/42_cpp/refs/heads/main/module05/ex00/buro00.png?token=GHSAT0AAAAAAC3EXOPFVDCHVH7IDV3A5MVEZ2IOLKQ)
