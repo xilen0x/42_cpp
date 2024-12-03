@@ -89,7 +89,7 @@
 //     return 0;
 // }
 
-int main()
+int main(void)
 {
 	int opcionForm;
 	int opcionRol;
@@ -98,9 +98,9 @@ int main()
     int			nivel;
 
 	std::cout << "Bienvenido. Identifíquese:\n";
-	std::cout << "1. Presidente (nivel 5)\n";
-	std::cout << "2. Director de TV (nivel 50)\n";
-	std::cout << "3. Operario (nivel 140)\n";
+	std::cout << "1. Presidente\n";
+	std::cout << "2. Director\n";
+	std::cout << "3. Operario\n";
 	std::cout << "Escriba su selección (1-3): ";
 	std::cin >> opcionRol;
 
@@ -110,12 +110,12 @@ int main()
 			nivel = 5;
 			break;
 		case 2:
-			nombre = "DirectorTV";
+			nombre = "Director";
 			nivel = 50;
 			break;
 		case 3:
 			nombre = "Operario";
-			nivel = 140;
+			nivel = 137;
 			break;
 		default:
 			std::cerr << RED << "Opción inválida." << RESET << std::endl;

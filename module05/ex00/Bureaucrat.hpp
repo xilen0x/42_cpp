@@ -19,12 +19,11 @@
 #define YELLOW "\033[0;33m"
 #define RESET "\033[0m"
 
-//class Bureaucrat(just declaration)
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string	_name;
+		int 				_grade;
 
 	public:
 		// Constructor

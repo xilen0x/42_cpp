@@ -28,10 +28,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy){
 	return (*this);
 }
 
-// Destructor
-ScalarConverter::~ScalarConverter(){
-}
-
 // Método para convertir un string a char, int, float y double
 void ScalarConverter::convert(std::string str)
 {
@@ -39,4 +35,8 @@ void ScalarConverter::convert(std::string str)
     convertToInt(str);
     convertToFloat(str);
     convertToDouble(str);
+}
+
+// Destructor
+ScalarConverter::~ScalarConverter(){
 }

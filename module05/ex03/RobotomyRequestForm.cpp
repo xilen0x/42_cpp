@@ -43,7 +43,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (!getSigned())
         throw NotPossibleExecute();
-    std::cout << "Bzzzzz... drilling noises..." << std::endl;
+    std::cout << BLUE "Brumrrrrr!!!... (drilling noises)..." << RESET << std::endl;
     if (executor.getGrade() > getGradeToExecute())
         throw GradeTooLowException();
     if (rand() % 2 == 0) {

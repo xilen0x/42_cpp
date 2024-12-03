@@ -13,23 +13,43 @@
 
 #include "Bureaucrat.hpp"
 
-int main()
+int main(void)
 {
     try
 	{
+		Bureaucrat buroSinNombre;
+		buroSinNombre.getName();
+		std::cout << "Bureaucrat" << std::endl << "Name: " << buroSinNombre.getName() << std::endl << "Grade: " << buroSinNombre.getGrade() << std::endl;
+		std::cout << std::endl;
+
         Bureaucrat b1("castorga", 5);
         b1.incrementGrade();
-		std::cout << "Bureaucrat" << std::endl << "Name: " << b1.getName() << std::endl << "Grade: " << b1.getGrade() << std::endl;
+		std::cout 
+		<< "Bureaucrat" << std::endl 
+		<< "Name: " << b1.getName() << std::endl 
+		<< "Grade: " << b1.getGrade() << std::endl;
+		std::cout << std::endl;
+		b1.incrementGrade();
+		std::cout 
+		<< "Bureaucrat" << std::endl 
+		<< "Name: " << b1.getName() << std::endl 
+		<< "Grade: " << b1.getGrade() << std::endl;
+		std::cout << std::endl;
+		
+		// b1.decrementGrade();
+		// std::cout << "Bureaucrat" << std::endl << "Name: " << b1.getName() << std::endl << "Grade: " << b1.getGrade() << std::endl;
+		// std::cout << std::endl;
+
+		b1.incrementGrade();
+		std::cout 
+		<< "Bureaucrat" << std::endl 
+		<< "Name: " << b1.getName() << std::endl 
+		<< "Grade: " << b1.getGrade() << std::endl;
 		std::cout << std::endl;
 		b1.incrementGrade();
 		std::cout << "Bureaucrat" << std::endl << "Name: " << b1.getName() << std::endl << "Grade: " << b1.getGrade() << std::endl;
-		std::cout << std::endl;
 		b1.incrementGrade();
-		std::cout << "Bureaucrat" << std::endl << "Name: " << b1.getName() << std::endl << "Grade: " << b1.getGrade() << std::endl;
-		std::cout << std::endl;
-		b1.incrementGrade();
-		std::cout << "Bureaucrat" << std::endl << "Name: " << b1.getName() << std::endl << "Grade: " << b1.getGrade() << std::endl;
-		b1.incrementGrade();
+
     } 
 	catch (std::exception &e)
 	{

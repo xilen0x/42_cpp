@@ -14,7 +14,7 @@
 #include "Bureaucrat.hpp"
 
 // Default constructor
-Bureaucrat::Bureaucrat() {}
+Bureaucrat::Bureaucrat() : _name("nobody"), _grade(0) {}
 
 // Parameterized constructor
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
@@ -25,8 +25,8 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 		throw Bureaucrat::GradeTooLowException();
 }
 
-// Copy constructor
-Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {}
+	// Copy constructor
+	Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {}
 
 // Operator assignment overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)

@@ -36,9 +36,6 @@ Form &Form::operator=(const Form &copy)
 	return (*this);
 }
 
-// Destructor
-Form::~Form() {}
-
 // Getters
 std::string Form::getName() const
 {
@@ -69,10 +66,6 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 }
 
 // print status
-/*If the form got signed, it will print something like:
-<bureaucrat> signed <form>
-Otherwise, it will print something like:
-<bureaucrat> couldn’t sign <form> because <reason>.*/
 std::string Form::printStatus() const
 {
 	return _signed ? GREEN + std::string("FIRMADO!") + RESET : RED + std::string("NO FIRMADO") + RESET;
@@ -99,3 +92,6 @@ std::ostream &operator<<(std::ostream &out, const Form &form)
 	<< "Grade required to execute	:" << YELLOW << form.getGradeToExecute() << RESET << std::endl;
 	return (out);
 }
+
+// Destructor
+Form::~Form() {}

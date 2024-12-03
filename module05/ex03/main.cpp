@@ -47,7 +47,7 @@ int main() {
 			break;
 		default:
 			std::cerr << "Opción inválida." << std::endl;
-			return 1;
+			return (1);
 	}
 
 	// Crear un burócrata con el rol elegido
@@ -65,20 +65,20 @@ int main() {
 	try {
 		switch (opcionForm) {
 			case 1:
-				std::cout << "\nIntern is creating PresidentialPardonForm:" << std::endl;
+				std::cout << YELLOW "\nIntern is creating PresidentialPardonForm:" << RESET << std::endl;
 				form = someRandomIntern.makeForm("presidential pardon", "Criminal");
 				break;
 			case 2:
-				std::cout << "\nIntern is creating RobotomyRequestForm:" << std::endl;
+				std::cout << YELLOW "\nIntern is creating RobotomyRequestForm:" << RESET << std::endl;
 				form = someRandomIntern.makeForm("robotomy request", "Robot");
 				break;
 			case 3:
-				std::cout << "\nIntern is creating ShrubberyCreationForm:" << std::endl;
+				std::cout << YELLOW "\nIntern is creating ShrubberyCreationForm:" << RESET << std::endl;
 				form = someRandomIntern.makeForm("shrubbery creation", "Casa");
 				break;
 			default:
 				std::cerr << "Opción inválida." << std::endl;
-				return 1;
+				return (1);
 		}
 
 		// Si se crea correctamente, firmar y ejecutar el formulario
@@ -93,6 +93,6 @@ int main() {
 			delete form;
 		}
 	}
-    return 0;
+    return (0);
 }
 

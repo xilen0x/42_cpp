@@ -31,9 +31,6 @@ Intern &Intern::operator=(Intern &copy)
 	return (*this);
 }
 
-// Destructor
-Intern::~Intern(void){}
-
 // Definición de las funciones creadoras de formularios específicos
 AForm* createPresidentialPardonForm(const std::string &target) {
     return new PresidentialPardonForm(target);
@@ -49,8 +46,8 @@ AForm* createShrubberyCreationForm(const std::string &target) {
 
 // Estructura que asocia nombres de formularios con las funciones creadoras
 struct FormType {
-    const char* name;
-    AForm* (*create)(const std::string &target);
+    const char* name; // Nombre del formulario
+    AForm* (*create)(const std::string &target); // Puntero a función que crea un formulario
 };
 
 // Member functions
@@ -66,16 +63,19 @@ AForm *Intern::makeForm(std::string formName, std::string target)
     // Bucle para buscar el formulario correspondiente
     for (int i = 0; i < 3; ++i) {
         if (formTypes[i].name == formName) {
-            std::cout << "Intern creates " << formName << std::endl;
-            return formTypes[i].create(target);  // Llamada a la función creadora correspondiente
+            std::cout << YELLOW "Intern creates " << formName << RESET << std::endl;
+            return formTypes[i].create(target);  // se devuelve el puntero al formulario creado
         }
     }
     // Si no se encuentra el nombre del formulario, mostrar mensaje de error explícito
     std::cout << "Error: Form '" << formName << "' not found." << std::endl;
-    throw FormNotFound();  // Lanzar la excepción FormNotFound
+    throw FormNotFound();
 }
 
 // Excepción para formularios no encontrados
 const char* Intern::FormNotFound::what() const throw() {
     return "Form not found.";
 }
+
+// Destructor
+Intern::~Intern(void){}

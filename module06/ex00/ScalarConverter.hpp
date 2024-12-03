@@ -20,15 +20,15 @@
 
 class ScalarConverter
 {
-private:
-	
-	ScalarConverter();
-	ScalarConverter(const ScalarConverter &copy);
-	ScalarConverter &operator=(const ScalarConverter &copy);
-	~ScalarConverter();
+	private:
+		
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter &copy);
+		ScalarConverter &operator=(const ScalarConverter &copy);
+		~ScalarConverter();
 
-public:
-	static void convert(std::string str);//puede ser llamado directamente, no es necesario crear un objeto de la clase para acceder a este metodo
+	public:
+		static void convert(std::string str);//puede ser llamado directamente, no es necesario crear un objeto de la clase para acceder a este metodo
 };
 
 void convertToChar(const std::string& str);

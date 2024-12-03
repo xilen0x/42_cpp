@@ -39,9 +39,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 	return (*this);
 }
 
-// Destructor
-Bureaucrat::~Bureaucrat() {}
-
 // Getters
 std::string Bureaucrat::getName(void) const
 { 
@@ -95,3 +92,6 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &buro)
 	out << "Burocrata " << buro.getName() << ". Grado : " << YELLOW << buro.getGrade() << RESET << std::endl;
 	return (out);
 }
+
+// Destructor
+Bureaucrat::~Bureaucrat() {}

@@ -38,14 +38,14 @@
 // }
 
 
-int	main()
+int	main(void)
 {
 	try 
 	{
 		std::cout << std::endl;
 		Bureaucrat buro1("buro1", 3);
 		// Bureaucrat buro1("buro1", 45);
-		// Bureaucrat buro1("buro1", 150);
+		//Bureaucrat buro1("buro1", 150);
 		
 		// ==== CREANDO FORMULARIOS ====";
 		Form form1("form1", 3, 1);
