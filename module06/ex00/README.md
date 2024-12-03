@@ -67,7 +67,8 @@ Se debe usar <limits> para detectar y manejar casos extremos.
 # Casting / Ejemplo práctico:
 ## 1. Comprender los castings en C++ y cómo aplicarlos
 
-Los castings permiten convertir un tipo de dato en otro. Por ejemplo:
+Los castings permiten convertir un tipo de dato en otro.
+
 Ejemplo:
 
 ```C
@@ -145,10 +146,10 @@ int main() {
 
 Salida:
 
-static_cast: 42
-dynamic_cast: Conversion exitosa.
-const_cast: 20
-reinterpret_cast: A
+        static_cast: 42
+        dynamic_cast: Conversion exitosa.
+        const_cast: 20
+        reinterpret_cast: A
 
 ## 3. Trabajar con conversiones explícitas y manejar errores
 
