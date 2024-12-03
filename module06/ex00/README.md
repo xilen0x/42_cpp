@@ -64,7 +64,7 @@ Se debe usar <limits> para detectar y manejar casos extremos.
 
 --------------------
 
-# Ejemplo práctico:
+# Casting / Ejemplo práctico:
 ## 1. Comprender los castings en C++ y cómo aplicarlos
 
 Los castings permiten convertir un tipo de dato en otro. Por ejemplo:
