@@ -12,116 +12,147 @@
 
 #include "MutantStack.hpp"
 #include <iostream>
-
-// int main()
-// {
-// 	MutantStack<int>	mstack;
-// 	mstack.push(5);
-// 	mstack.push(17);
-// 	std::cout << mstack.top() << std::endl;
-// 	mstack.pop();
-// 	std::cout << mstack.size() << std::endl;
-// 	mstack.push(3);
-// 	mstack.push(5);
-// 	mstack.push(737);
-// 	//[...]
-// 	mstack.push(0);
-// 	MutantStack<int>::iterator it = mstack.begin();
-// 	MutantStack<int>::iterator ite = mstack.end();
-// 	++it;
-// 	--it;
-// 	while (it != ite)
-// 	{
-// 	std::cout << *it << std::endl;
-// 	++it;
-// 	}
-// 	std::stack<int> s(mstack);
-// 	return 0;
-// }
-
-// Función para mostrar la pila visualmente
-// void displayStack(const MutantStack<int>& mstack, const std::string& color) {
-//     MutantStack<int>::const_iterator it;
-//     std::cout << "Stack visualization:" << std::endl;
-//     for (it = mstack.begin(); it != mstack.end(); ++it) {
-//         std::cout << color << "▉" << RESET << std::endl;
-//     }
-//     if (mstack.empty()) {
-//         std::cout << "(Empty stack)" << std::endl;
-//     }
-//     std::cout << "-------------------" << std::endl;
-// }
-
-void displayStack(const MutantStack<int>& mstack, const std::string& color) {
-    std::cout << "Stack visualization: ";
-    for (size_t i = 0; i < mstack.size(); ++i) {
-        std::cout << color << "▉" << RESET;
-    }
-    std::cout << std::endl;
-	if (mstack.empty()) {
-        std::cout << "(Empty stack)" << std::endl;
-    }
-    std::cout << "-------------------" << std::endl;
-}
+#include <cstdlib>  // Para system()
 
 int main()
 {
-    MutantStack<int> mstack;
-
-    // Agregar elementos a la pila
-    mstack.push(5);
-    std::cout << GREEN << "Pushed 5" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-
-    mstack.push(17);
-    std::cout << GREEN << "Pushed 17" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-
-    mstack.push(117);
-    std::cout << GREEN << "Pushed 117" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-
-    mstack.push(50);
-    std::cout << GREEN << "Pushed 50" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-
-    // Mostrar el elemento superior
-    std::cout << "\nTop of stack: " << mstack.top() << std::endl;
-
-    // Eliminar elemento
-    mstack.pop();
-    std::cout << RED << "Popped" << RESET << std::endl;
-    displayStack(mstack, RED);
-
-    // Mostrar el elemento superior después de pop
-    std::cout << "\nTop of stack: " << mstack.top() << std::endl;
-
-    // Mostrar el tamaño actual de la pila
-    std::cout << "\nStack size: " << mstack.size() << std::endl;
-
-    // Agregar más elementos
-    mstack.push(3);
-    std::cout << GREEN << "Pushed 3" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-
-    mstack.push(5);
-    std::cout << GREEN << "Pushed 5" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-
-    mstack.push(737);
-    std::cout << GREEN << "Pushed 737" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-
-    mstack.push(0);
-    std::cout << GREEN << "Pushed 0" << RESET << std::endl;
-    displayStack(mstack, GREEN);
-	// mstack.pop();
-	// mstack.pop();
-	// mstack.pop();
-	// mstack.pop();
-	// mstack.pop();
-	// mstack.pop();
-	// mstack.pop();
-	// displayStack(mstack, RED);
-    return 0;
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+	std::cout << *it << std::endl;
+	++it;
+	}
+	std::stack<int> s(mstack);
+	return 0;
 }
+
+void displayStack(const MutantStack<int>& mstack, const std::string& color)
+{
+	std::cout << "\nStack visualization:" << std::endl;
+
+	if (mstack.empty()) {
+        std::cout << "(Empty stack)" << std::endl;
+		return ;
+    }
+    std::cout << std::endl;
+	MutantStack<int>::const_iterator it;
+    for (it = mstack.begin(); it != mstack.end(); ++it) {
+        std::cout << color << "▉" << RESET;
+        std::cout << " " << *it << " ";
+    }
+    std::cout << std::endl;
+}
+
+void menu(MutantStack<int>& mstack)
+{
+    std::string option;
+    int number;
+
+    while (true)
+    {
+        std::cout << std::endl;
+        std::cout << YELLOW "XXXXXXXXXXXXXXXXXXXXXXXXXX   SELECT AN OPTION   XXXXXXXXXXXXXXXXXXXXXXXXXX" << RESET << std::endl;
+        std::cout << std::endl;
+        std::cout << "1. Add a number to the stack (Push)" << std::endl;
+        std::cout << "2. Remove a number from the stack (Pop)" << std::endl;
+        std::cout << "3. Display the top of the stack (Top)" << std::endl;
+        std::cout << "4. Display the stack size (Size)" << std::endl;
+        std::cout << "5. Display the stack (Stack)" << std::endl;
+        std::cout << "6. Exit" << std::endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> option;
+
+        // Validar entrada de opción
+        if (option.empty() || option.size() > 1 || option[0] < '1' || option[0] > '6') {
+            std::cout << RED << "Invalid option. Please try again." << RESET << std::endl;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            continue;
+        }
+
+        // system("clear");  // Descomentar si deseas limpiar la pantalla
+        switch (option[0])
+        {
+        case '1': // Push
+            {
+                std::cout << "Number to add: ";
+                if (!(std::cin >> number)) {
+                    std::cout << RED << "Invalid number. Please try again." << RESET << std::endl;
+                    std::cin.clear();
+                    std::cin.ignore(1000, '\n');
+                } else {
+                    mstack.push(number);
+                    std::cout << GREEN << "\nPushed number " << number << RESET << std::endl;
+                    displayStack(mstack, GREEN);
+                }
+                break;
+            }
+        case '2': // Pop
+            {
+                if (mstack.empty()) {
+                    std::cout << RED << "\nStack is empty. Cannot remove elements." << RESET << std::endl;
+                } else {
+                    mstack.pop();
+                    std::cout << RED << "\nRemoved top element" << RESET << std::endl;
+                    displayStack(mstack, RED);
+                }
+                break;
+            }
+        case '3': // Top
+            {
+                if (mstack.empty()) {
+                    std::cout << RED << "\nStack is empty. No top element to display." << RESET << std::endl;
+                } else {
+                    std::cout << "\nTop of stack: " << mstack.top() << std::endl;
+                }
+                break;
+            }
+        case '4': // Size
+            {
+                std::cout << "\nStack size: " << mstack.size() << std::endl;
+                break;
+            }
+        case '5': // Display stack
+            {
+                displayStack(mstack, RESET);
+                break;
+            }
+        case '6': // Exit
+            {
+                std::cout << "\nExiting..." << std::endl;
+                return;
+            }
+        }
+    }
+}
+
+// int main()
+// {
+//     MutantStack<int> mstack;
+
+// 	menu(mstack);
+
+// 	// mstack.pop();
+// 	// mstack.pop();
+// 	// mstack.pop();
+// 	// mstack.pop();
+// 	// mstack.pop();
+// 	// mstack.pop();
+// 	// mstack.pop();
+// 	// displayStack(mstack, RED);
+//     return (0);
+// }
