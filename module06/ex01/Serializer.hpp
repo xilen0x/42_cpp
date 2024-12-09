@@ -17,7 +17,7 @@
 
 struct Data
 {
-	int 		n;
+	int	n;
 };
 
 class Serializer

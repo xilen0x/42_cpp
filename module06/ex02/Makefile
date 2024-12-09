@@ -22,7 +22,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 # Archivos fuente y cabeceras
-SRC_FILES = main.cpp Base.cpp
+SRC_FILES = main.cpp Base.cpp utils.cpp
 HDR_FILES = Base.hpp A.hpp B.hpp C.hpp
 
 # Archivos objeto

@@ -31,29 +31,33 @@
 
 int main(void)
 {
+    Span    sp(5);
+    Span    sp2(10000);
+    int     i;
+    
     try {
-        Span sp(5);
+        // test con array de 5 números
         sp.addNumber(6);
         sp.addNumber(3);
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
-
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
-
+    } catch (const std::exception &e) {
+        std::cerr << BRED << e.what() << RESET << std::endl;
+    }
+    try {
+        std::cout << std::endl;
         // test con rango de números
-        Span sp2(10000);
         std::vector<int> largeRange(10000);
-        for (int i = 0; i < 10000; ++i)
+        for (i = 0; i < 10000; ++i)
             largeRange[i] = i * 2;
-
         sp2.addRange(largeRange.begin(), largeRange.end());
         std::cout << "Shortest Span (sp2): " << sp2.shortestSpan() << std::endl;
         std::cout << "Longest Span (sp2): " << sp2.longestSpan() << std::endl;
-
     } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << BRED << e.what() << RESET << std::endl;
     }
-    return 0;
+    return (0);
 }

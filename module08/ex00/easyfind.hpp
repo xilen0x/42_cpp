@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
 #include <algorithm>//find
 #include <exception>
@@ -34,3 +35,5 @@ void easyfind(T container, int numToFind)
 	if (std::find(container.begin(), container.end(), numToFind) == container.end())
 		throw NotFoundException();
 }
+
+#endif

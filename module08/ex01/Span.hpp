@@ -1,9 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/09 10:39:11 by castorga          #+#    #+#             */
+/*   Updated: 2024/12/09 10:39:12 by castorga         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# pragma once
+# ifndef SPAN_HPP
+# define SPAN_HPP
 
 # include <iostream>
 # include <vector>
-
+ //COLORS
+# define RESET   "\033[0m"
+//ROJO VIVO
+# define BRED     "\033[1;31m"      /* Bold Red */
+# define RED     "\033[31m"      /* Red */
 
 class Span
 {
@@ -21,8 +37,7 @@ class Span
 		void addNumber(int n);
 		int shortestSpan();
 		int longestSpan();
-		
-		
+
 		template <typename Iterator>
 		void addRange(Iterator begin, Iterator end)
 		{
@@ -39,4 +54,4 @@ class Span
     	};
 };
 
-
+#endif

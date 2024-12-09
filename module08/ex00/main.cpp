@@ -5,7 +5,7 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:24 by castorga          #+#    #+#             */
+/*   Created: 2024/10/1numToFind 12:51:24 by castorga          #+#    #+#             */
 /*   Updated: 2024/10/15 12:51:26 by castorga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -25,6 +25,8 @@ int main(void)
 {
 	std::vector<int> v;
 	std::list<int> l;
+	int numToFind = 5;
+	int numToFind2 = 15;
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -32,29 +34,29 @@ int main(void)
 		l.push_back(i);
 	}
 	try	{
-		easyfind(v, 5);
-		std::cout << GREEN << "Element found in vector" << RESET << std::endl;
+		easyfind(v, numToFind);
+		std::cout << GREEN << "Element " << numToFind << " found in vector" << RESET << std::endl;
 	}
 	catch (std::exception &e) {
 		std::cout << RED << e.what() << RESET << std::endl;
 	}
 	try	{
-		easyfind(l, 5);
-		std::cout << "Element found in list" << std::endl;
+		easyfind(l, numToFind);
+		std::cout << "Element " << numToFind << " found in list" << std::endl;
 	}
 	catch (std::exception &e)	{
 		std::cout << RED << e.what() << RESET << std::endl;
 	}
 	try	{
-		easyfind(v, 10);
-		std::cout << GREEN << "Element found in vector" << RESET << std::endl;
+		easyfind(v, numToFind2);
+		std::cout << GREEN << "Element " << numToFind2 << "found in vector" << RESET << std::endl;
 	}
 	catch (std::exception &e)	{
 		std::cout << RED << e.what() << RESET << std::endl;
 	}
 	try	{
-		easyfind(l, 10);
-		std::cout << "Element found in list" << std::endl;
+		easyfind(l, numToFind2);
+		std::cout << "Element " << numToFind2 << "found in list" << std::endl;
 	}
 	catch (std::exception &e)	{
 		std::cout << RED << e.what() << RESET << std::endl;

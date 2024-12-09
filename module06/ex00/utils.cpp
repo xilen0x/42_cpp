@@ -17,27 +17,29 @@
 
 void convertToChar(const std::string& str)
 {
-    std::cout << "char: ";
     char c;
+    float fValue;
 
-    if (str.length() == 1 && !isdigit(str[0]))
+    std::cout << "char: ";
+    if (str.length() == 1 && !std::isdigit(str[0]))
     {
         c = str[0];
-        if (isprint(c))
+        if (std::isprint(c))
         {
             std::cout << "'" << c << "'" << std::endl;
         } else {
             std::cout << "Non displayable" << std::endl;
         }
-    } else {
+    } else
+    {
         errno = 0;
-        float fValue = std::strtof(str.c_str(), NULL);
-        if (errno || fValue < CHAR_MIN || fValue > CHAR_MAX || !isdigit(str[0]))
+        fValue = std::strtof(str.c_str(), NULL);
+        if (errno || fValue < CHAR_MIN || fValue > CHAR_MAX || !std::isdigit(str[0]))
         {
             std::cout << "impossible" << std::endl;
         } else {
             c = static_cast<char>(fValue);
-            if (isprint(c))
+            if (std::isprint(c))
             {
                 std::cout << "'" << c << "'" << std::endl;
             } else {
@@ -46,63 +48,45 @@ void convertToChar(const std::string& str)
         }
     }
 }
-
 void convertToInt(const std::string& str) {
-    long lValue;
-    char *endPtr;
+    long    lValue;
+    double  dValue;
+    char    *endPtr;
 
     std::cout << "int: ";
     errno = 0;
-
-    // Comprobar si hay un punto decimal en la entrada
-    if (str.find('.') != std::string::npos)
+    // Verificar pseudo-literals
+    if (str == "nan" || str == "-inf" || str == "+inf" || str == "nanf" || str == "-inff" || str == "+inff")
     {
-        // Intentar convertir a float y luego truncar
-        float fValue = std::strtof(str.c_str(), &endPtr);
-
-        // Verifica si la conversión fue exitosa
-        if (errno || endPtr == str.c_str() || *endPtr != '\0')
-        {
-            std::cout << "impossible" << std::endl;
-            return;
-        }
-        // Ahora, intenta convertir a int
-        lValue = static_cast<long>(fValue);
-        if (lValue < INT_MIN || lValue > INT_MAX)
-        {
-            std::cout << "impossible" << std::endl;
-        } else {
-            std::cout << static_cast<int>(lValue) << std::endl;
-        }
-    } 
-    else {
-        // Convertir directamente si no hay punto decimal
-        lValue = std::strtol(str.c_str(), &endPtr, 10);
-
-        // Verificar pseudo-literals
-        if (strcmp(str.c_str(), "nan") == 0 || strcmp(str.c_str(), "-inf") == 0 || strcmp(str.c_str(), "+inf") == 0 || 
-            strcmp(str.c_str(), "nanf") == 0 || strcmp(str.c_str(), "-inff") == 0 || strcmp(str.c_str(), "+inff") == 0)
-        {
-            std::cout << "impossible" << std::endl;
-        } else if (errno || endPtr == str.c_str() || *endPtr != '\0' || lValue < INT_MIN || lValue > INT_MAX)
-        {
-            std::cout << "impossible" << std::endl;
-        } else {
-            std::cout << static_cast<int>(lValue) << std::endl;
-        }
+        std::cout << "impossible" << std::endl;
+        return;
+    }
+    // Detectar y manejar sufijo 'f' para valores flotantes
+    std::string tempStr = str;
+    if (!tempStr.empty() && tempStr[tempStr.length() - 1] == 'f')
+        tempStr = tempStr.substr(0, tempStr.length() - 1);
+    dValue = std::strtod(tempStr.c_str(), &endPtr);
+    if (errno || endPtr == tempStr.c_str() || *endPtr != '\0' || dValue < INT_MIN || dValue > INT_MAX)
+    {
+        std::cout << "impossible" << std::endl;
+    }
+    else
+    {
+        lValue = static_cast<long>(dValue);
+        std::cout << static_cast<int>(lValue) << std::endl;
     }
 }
-
 
 void convertToFloat(const std::string& str)
 {
     float fValue;
+    double dValue;
     char *endPtr;
 
     std::cout << "float: ";
     errno = 0;
-    fValue = std::strtof(str.c_str(), &endPtr);
-
+    // Convertir a double primero para manejar entradas como "42.42" sin 'f'
+    dValue = std::strtod(str.c_str(), &endPtr);
     // Manejar pseudo-literals
     if (strcmp(str.c_str(), "nan") == 0) 
     {
@@ -114,6 +98,7 @@ void convertToFloat(const std::string& str)
     {
         std::cout << "impossible" << std::endl;
     } else {
+        fValue = static_cast<float>(dValue);
         std::cout << std::fixed << std::setprecision(1) << fValue << "f" << std::endl;
     }
 }
@@ -126,27 +111,19 @@ void convertToDouble(const std::string& str)
     std::cout << "double: ";
     errno = 0;
 
-    // Manejar pseudo-literals
-    if (strcmp(str.c_str(), "nan") == 0)
-    {
-        std::cout << "nan" << std::endl;
-        return;
-    } else if (strcmp(str.c_str(), "-inf") == 0)
-    {
-        std::cout << "-inf" << std::endl;
-        return;
-    } else if (strcmp(str.c_str(), "+inf") == 0)
-    {
-        std::cout << "+inf" << std::endl;
-        return;
-    }
+    std::string tempStr = str;
+    if (!tempStr.empty() && tempStr[tempStr.length() - 1] == 'f')
+        tempStr = tempStr.substr(0, tempStr.length() - 1);
 
-    dValue = std::strtod(str.c_str(), &endPtr);
+    dValue = std::strtod(tempStr.c_str(), &endPtr);
 
-    if (errno || endPtr == str.c_str() || *endPtr != '\0')
+    if (errno || endPtr == tempStr.c_str() || *endPtr != '\0')
     {
         std::cout << "impossible" << std::endl;
-    } else {
+    }
+    else
+    {
+        dValue = static_cast<double>(dValue);
         std::cout << std::fixed << std::setprecision(1) << dValue << std::endl;
     }
 }

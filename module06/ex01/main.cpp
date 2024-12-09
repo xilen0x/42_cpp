@@ -15,11 +15,13 @@
 
 int main(void)
 {
-	Data data;
-	data.n = 42;
+	Data		data;
+	uintptr_t	raw;
+	Data		*ptr;
 
-	uintptr_t raw = Serializer::serialize(&data);
-	Data *ptr = Serializer::deserialize(raw);
+	data.n = 42;
+	raw = Serializer::serialize(&data);
+	ptr = Serializer::deserialize(raw);
 
 	std::cout << "Puntero no serializado: " << &data << std::endl;
 	std::cout << "Puntero serializado: " << raw << std::endl;
