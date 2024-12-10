@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: castorga <castorga@42.fr>                    +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:34:35 by castorga          #+#    #+#             */
 /*   Updated: 2024/10/28 09:34:37 by castorga         ###   ########.fr       */
@@ -16,7 +16,8 @@
 #include <string>
 #include <map>
 
-class BitcoinExchange {
+class BitcoinExchange
+{
 	private:
 		std::string 					_data;
 		std::map<std::string, float>	_priceData;

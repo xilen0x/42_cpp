@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: castorga <castorga@42.fr>                    +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:34:26 by castorga          #+#    #+#             */
 /*   Updated: 2024/10/28 09:34:30 by castorga         ###   ########.fr       */
@@ -48,6 +48,7 @@ BitcoinExchange::~BitcoinExchange(){}
 bool BitcoinExchange::isValidDate(const std::string& date) const
 {
 	int year, month, day;
+    std::tm timeInfo;
 
     // Comprobar que la fecha tiene el formato correcto y la longitud esperada
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
@@ -59,12 +60,11 @@ bool BitcoinExchange::isValidDate(const std::string& date) const
     day = std::atoi(date.substr(8, 2).c_str());//convertir los caracteres 8 y 9 a entero
 
     // Rellenar una estructura tm con los valores de fecha
-    std::tm timeInfo;
     timeInfo.tm_year = year - 1900;  // tm_year cuenta años desde 1900
     timeInfo.tm_mon = month - 1;     // tm_mon va de 0 a 11
-    timeInfo.tm_mday = day;
+    timeInfo.tm_mday = day;//día del mes
 
-	return (std::mktime(&timeInfo) != -1);
+	return (std::mktime(&timeInfo) != -1);//devuelve true si la fecha es válida
 }
 
 
@@ -75,8 +75,6 @@ bool BitcoinExchange::isValidValue(const std::string& valueStr) const
     if (valueStr.empty())
         return (false);
     value = convertStringToFloat(valueStr);
-	// printf("value: %f\n", value);
-	// printf("\n");
     if (value <= 0) {
         displayError("Error: not a positive number.");
         return (false);
@@ -92,26 +90,27 @@ bool BitcoinExchange::isValidValue(const std::string& valueStr) const
 
 float BitcoinExchange::findClosestPrice(const std::string& date) const 
 {
-    time_t targetTime = stringToTime(date);
-    if (targetTime == -1) {
+    time_t targetTime = stringToTime(date);//convertir la fecha a time_t
+    if (targetTime == -1)//si la fecha no es válida
+    {
         displayError("Error: invalid date format => " + date);
-        return 0.0f;
+        return (0.0f);
     }
-
     float closestPrice = 0;
     double minDiff = 1e9; // Un valor grande como límite inicial para la diferencia mínima
-
-    for (std::map<std::string, float>::const_iterator it = _priceData.begin(); it != _priceData.end(); ++it) {
+    
+    for (std::map<std::string, float>::const_iterator it = _priceData.begin(); it != _priceData.end(); ++it)
+    {
         time_t dataTime = stringToTime(it->first);
-        if (dataTime == -1) continue;
-
+        if (dataTime == -1) 
+            continue;
         double diff = difftime(targetTime, dataTime);
         if (diff >= 0 && diff < minDiff) { // Solo fechas anteriores o iguales
             minDiff = diff;
             closestPrice = it->second;
         }
     }
-    return closestPrice;
+    return (closestPrice);
 }
 
 
@@ -127,9 +126,9 @@ void BitcoinExchange::displayError(const std::string& message) const
 
 float BitcoinExchange::convertStringToFloat(const std::string& valueStr) const
 {
-    std::stringstream ss(valueStr);
-    float value;
-    ss >> value;
+    std::stringstream ss(valueStr);//convertir la cadena a un stream
+    float value;//variable para almacenar el valor
+    ss >> value;//almacenar el valor en la variable
     return value;
 }
 
@@ -190,7 +189,6 @@ void BitcoinExchange::processInputFile(const std::string& inputFile)
     while (std::getline(file, line))
     {
         std::istringstream ss(line);
-
         if (std::getline(ss, date, '|') && std::getline(ss, valueStr))
         {
             // Eliminar espacios alrededor de 'date' y 'valueStr'

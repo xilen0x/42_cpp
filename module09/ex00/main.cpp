@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: castorga <castorga@42.fr>                    +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:51:24 by castorga          #+#    #+#             */
 /*   Updated: 2024/10/15 12:51:26 by castorga         ###   ########.fr       */
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	BitcoinExchange exchange("data.csv");
+	BitcoinExchange exchange("data.csv");//crear un objeto de la clase BitcoinExchange
 
 	if (!exchange.loadDatabase())//si no se pudo cargar la base de datos
 		return (1);
