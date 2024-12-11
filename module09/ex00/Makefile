@@ -19,11 +19,11 @@ DEP_DIR = .dep/
 
 # Compilador y FLAGS
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./include -g -fsanitize=address
 
 # Archivos fuente y cabeceras
 SRC_FILES = main.cpp BitcoinExchange.cpp
-HDR_FILES = BitcoinExchange.hpp
+HDR_FILES = include/BitcoinExchange.hpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

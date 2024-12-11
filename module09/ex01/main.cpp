@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: castorga <castorga@42.fr>                    +#+  +:+       +#+        */
+/*    By: castorga <castorga@student.42barcelona.com>+#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:51:24 by castorga          #+#    #+#             */
 /*   Updated: 2024/10/15 12:51:26 by castorga         ###   ########.fr       */

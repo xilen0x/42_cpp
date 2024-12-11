@@ -18,11 +18,11 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		std::cerr << "Error: Invalid number of arguments" << std::endl;
-		std::cerr << "Usage: ./btc <filename>" << std::endl;
+		std::cerr << "Usage: ./btc resourses/input.txt" << std::endl;
 		return (1);
 	}
 
-	BitcoinExchange exchange("data.csv");//crear un objeto de la clase BitcoinExchange
+	BitcoinExchange exchange("./resources/data.csv");//crear un objeto de la clase BitcoinExchange
 
 	if (!exchange.loadDatabase())//si no se pudo cargar la base de datos
 		return (1);

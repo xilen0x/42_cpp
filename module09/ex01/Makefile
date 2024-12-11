@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: castorga <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: castorga <castorga@student.42barcelona.com>+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 11:16:31 by castorga          #+#    #+#              #
 #    Updated: 2024/09/24 11:16:33 by castorga         ###   ########.fr        #
@@ -19,11 +19,11 @@ DEP_DIR = .dep/
 
 # Compilador y FLAGS
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./include -g -fsanitize=address
 
 # Archivos fuente y cabeceras
 SRC_FILES = main.cpp RPN.cpp
-HDR_FILES = RPN.hpp
+HDR_FILES = include/RPN.hpp
 
 # Archivos objeto
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
