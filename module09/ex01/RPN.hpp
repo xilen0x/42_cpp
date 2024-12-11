@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: castorga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: castorga <castorga@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:11:20 by castorga          #+#    #+#             */
 /*   Updated: 2024/10/28 17:11:22 by castorga         ###   ########.fr       */
