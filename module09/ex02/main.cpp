@@ -54,4 +54,3 @@ int main(int argc, char *argv[])
 	std::cout << GREEN << "time to process a range of " << myDeque.size() << " elements in a deque: " << durDeque * 1000000 << " us" << RESET << std::endl;
     return (0);
 }
-
