@@ -39,9 +39,9 @@ void insertionSort(T &container)
         while (previousIndex >= 0 && currentValue < container[previousIndex])
         {
             container[previousIndex + 1] = container[previousIndex];
-            previousIndex--;
+            previousIndex--;//decrement the index because we are going to compare the value with the previous one
         }
-        container[previousIndex + 1] = currentValue;
+        container[previousIndex + 1] = currentValue;//+1 because the while loop decrements the index. Insert the value in the right place
     }
 }
 

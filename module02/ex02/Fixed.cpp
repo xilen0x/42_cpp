@@ -135,12 +135,23 @@ Fixed Fixed::operator*( const Fixed& obj ) const
 }
 
 // --- Overload / operator ---
+// Fixed Fixed::operator/( const Fixed& obj ) const
+// {
+// 	Fixed result;
+// 	result.setRawBits((this->_fixedPointValue << _fractionalBits) / obj.getRawBits());
+// 	return (result);
+// 	// return (Fixed(this->toFloat() / obj.toFloat()));
+// }
+
 Fixed Fixed::operator/( const Fixed& obj ) const
 {
-	Fixed result;
-	result.setRawBits((this->_fixedPointValue << _fractionalBits) / obj.getRawBits());
-	return (result);
-	// return (Fixed(this->toFloat() / obj.toFloat()));
+    if (obj.getRawBits() == 0)
+    {
+        throw std::runtime_error("Division by zero is not allowed");
+    }
+    Fixed result;
+    result.setRawBits((this->_fixedPointValue << _fractionalBits) / obj.getRawBits());
+    return result;
 }
 
 //--------------------------------------------------------------------------------------------

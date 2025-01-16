@@ -16,8 +16,8 @@
 int main(void)
 {
     std::string str = "HI THIS IS BRAIN";
-    std::string *stringPTR = &str;//puntero a string
-    std::string &stringREF = str;//referencia a string (alias)
+    std::string* stringPTR = &str;//puntero a string
+    std::string& stringREF = str;//referencia a string (alias)
 
     // Direcciones de memoria
     std::cout << "Dirección de memoria de str				: " << &str << std::endl;

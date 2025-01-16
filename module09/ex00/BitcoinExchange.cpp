@@ -47,7 +47,7 @@ BitcoinExchange::~BitcoinExchange(){}
 
 bool BitcoinExchange::isValidDate(const std::string& date) const
 {
-	int year, month, day;
+	int     year, month, day;
     std::tm timeInfo;
 
     // Comprobar que la fecha tiene el formato correcto y la longitud esperada

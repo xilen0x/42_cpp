@@ -48,7 +48,8 @@ int calculateRPN(const std::string &expression)
     std::stringstream ss(expression);
     std::string token;
 
-    while (ss >> token) {
+    while (ss >> token)
+    {
         // Revisar si el token es un número
         if (isdigit(token[0]) || (token.size() > 1 && token[0] == '-')) {
             // Validar que el número sea de un solo dígito
@@ -57,12 +58,13 @@ int calculateRPN(const std::string &expression)
             }
             int number;
             std::stringstream ss(token);
-            ss >> number;
-            stack.push(number);
+            ss >> number;//
+            stack.push(number);//el numero se mete en la pila
         }
         // Revisar si el token es un operador
         else if (token.size() == 1 && (token[0] == '+' || token[0] == '-' || token[0] == '*' || token[0] == '/')) {
-            if (stack.size() < 2) throw std::logic_error("Error: Not enough operators");
+            if (stack.size() < 2) 
+                throw std::logic_error("Error: Not enough operators");
 
             int b = stack.top(); stack.pop();
             int a = stack.top(); stack.pop();
